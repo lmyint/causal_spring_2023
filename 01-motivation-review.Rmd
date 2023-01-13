@@ -1,0 +1,12 @@
+```{r 01_setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, eval=FALSE)
+```
+
+# (PART) Foundational Ideas {-}
+
+# Motivation and Review
+
+## Learning goals {-}
+
+## Exercises {-}
+

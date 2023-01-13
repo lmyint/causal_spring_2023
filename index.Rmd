@@ -1,0 +1,38 @@
+--- 
+title: "STAT 451: Causal Inference"
+site: bookdown::bookdown_site
+output:
+  bookdown::gitbook:
+    config:
+      sharing:
+        facebook: false
+        twitter: false
+documentclass: book
+link-citations: yes
+github-repo: lmyint/causal_spring_2023
+description: "This is the class website for Causal Inference (STAT 451) at Macalester College."
+---
+
+# Welcome! {-}
+
+<center>
+<img src="images/iawl.jpg" width=518 height=400>
+
+Image source: [IMDB](https://www.imdb.com/title/tt0038650/mediaviewer/rm449672704). (<i>Know how this relates to class? Feel free to chat about it with the instructor!</i>)
+</center>
+
+<br>
+
+This is the course website for STAT 451: Causal Inference at Macalester College for the Spring 2023 semester . The content here was made by [Leslie Myint](https://lmyint.github.io) and draws upon several resources, all of which are listed on the [References] page.
+
+<br>
+
+<!-- **For the most recent versions of my course websites and associated content, please see the [Teaching section](https://lmyint.github.io/#teaching) of my [website](https://lmyint.github.io/).** -->
+
+<br>
+<br>
+<br>
+
+![CC BY-NC-SA](https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png)
+
+This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
