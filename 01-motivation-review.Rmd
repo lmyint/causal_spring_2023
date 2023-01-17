@@ -6,7 +6,8 @@ knitr::opts_chunk$set(echo=TRUE, eval=FALSE)
 
 # Motivation and Review
 
-## Learning goals {-}
+## Guiding questions {-}
 
 ## Exercises {-}
+
 
