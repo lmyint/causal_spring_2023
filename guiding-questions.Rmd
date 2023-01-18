@@ -1,21 +1,67 @@
 # Guiding Questions {-}
 
-**Motivation and Review** <a id="motivation-review"></a>
+**Motivation and Review** <a id="gq-motivation-review"></a>
 
 - Let's think about the word "cause" (and related phrases like "results in" and "leads to.") What do you think "cause" means? How do you/people you know use it in day-to-day conversation and thinking?
 - Why do we want to learn about causes? What should our goals be in learning about causes?
 - "Correlation does not imply causation." Has this saying come up in conversations occasionally? If so, how? How do you feel about the value of this saying?
 
-<br><br><br>
+<br><br><br><br><br>
 
-**Exchangeability** <a id="exchangeability"></a>
+**Exchangeability** <a id="gq-exchangeability"></a>
 
+- 
 
+Extra self-check resource: Moodle checkpoint on [Causal Effects and Exchangeability](https://moodle.macalester.edu/mod/quiz/view.php?id=17844)
 
-<br><br><br>
+<br><br><br><br><br>
 
-**Study Designs** <a id="study-designs"></a>
+**Study Designs** <a id="gq-study-designs"></a>
 
+- 
 
+Extra self-check resource: Moodle checkpoint on [Study Designs for Causal Inference](https://moodle.macalester.edu/mod/quiz/view.php?id=17845)
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br>
+
+**Causal Graphs as Statistical Models** <a id="gq-causal-graphs-models"></a>
+
+- 
+
+Extra self-check resource: Moodle checkpoint on [Causal Graphs as Statistical Models](https://moodle.macalester.edu/mod/quiz/view.php?id=17846)
+
+<br><br><br><br><br>
+
+**Key Structures in Causal Graphs** <a id="gq-key-structures"></a>
+
+- 
+
+Extra self-check resource: Moodle checkpoint on [Key Structures in Causal Graphs](https://moodle.macalester.edu/mod/quiz/view.php?id=17847)
+
+<br><br><br><br><br>
+
+**Graphical Structure of Confounding** <a id="gq-struct-confounding"></a>
+
+- 
+
+Extra self-check resource: Moodle checkpoint on [(Non)causal Paths and D-Separation](https://moodle.macalester.edu/mod/quiz/view.php?id=17848)
+
+<br><br><br><br><br>
+
+**Graphical Structure of Selection Bias** <a id="gq-struct-selection-bias"></a>
+
+- 
+
+<br><br><br><br><br>
+
+**The Smoking-Birthweight Paradox** <a id="gq-sbw-paradox"></a>
+
+- 
+
+<br><br><br><br><br>
+
+**The Smoking-Birthweight Paradox: Alternate Explanations** <a id="gq-sbw-paradox-alt"></a>
+
+- 
+
+<div style="height: 600px;"></div>
