@@ -10,7 +10,10 @@
 
 **Exchangeability** <a id="gq-exchangeability"></a>
 
-- 
+- Is the definition of a potential outcome and a causal effect satisfying to you? How do these notions relate to what you had thought about causes and causation previously? (Reflect on and connect to our Day 1 activity.)
+- Let's think about exchangeability in big picture terms. Setting aside the technical definitions in terms of (conditional) independence, what is exchangeability trying to describe? Try to find a good word/phrase (not "independent") to complete the following sentence: "If the treated and untreated groups are exchangeable, we could also describe them as being ..."
+- How can we use the concepts of marginal and conditional exchangeability to make statements about potential outcome distributions in the treated and in the untreated?
+- Marginal and conditional exchangeability are **assumptions**--do you think these assumptions are testable using data? Why or why not?
 
 Extra self-check resource: Moodle checkpoint on [Causal Effects and Exchangeability](https://moodle.macalester.edu/mod/quiz/view.php?id=17844)
 
@@ -18,7 +21,8 @@ Extra self-check resource: Moodle checkpoint on [Causal Effects and Exchangeabil
 
 **Study Designs** <a id="gq-study-designs"></a>
 
-- 
+- Why are randomized experiments often called the "gold standard" for causal inference? What is the relationship between randomized experiments and exchangeability?
+- Consider the quasi-experimental designs discussed in the video. How do these designs try to mimic randomization? What assumptions do they make to allow making statements about missing potential outcomes?
 
 Extra self-check resource: Moodle checkpoint on [Study Designs for Causal Inference](https://moodle.macalester.edu/mod/quiz/view.php?id=17845)
 
