@@ -8,3 +8,72 @@ knitr::opts_chunk$set(echo=TRUE, eval=FALSE, fig.align="center")
 
 ## Exercises {-}
 
+### Peer check-in {-}
+
+Start by checking on the guiding questions:
+
+- Why are randomized experiments often called the "gold standard" for causal inference? What is the relationship between randomized experiments and exchangeability?
+- Consider the quasi-experimental designs discussed in the video. How do these designs try to mimic randomization? What assumptions do they make to allow making statements about missing potential outcomes?
+
+What ideas were confusing, less clear, or intriguing? Make note of what your peers have noticed. This is a gold mine of information for your Metacognitive Reflections.
+
+
+<br>
+
+
+### Exercise 1 {-}
+
+When dealing with an infection, should we suppress fever (e.g., with Tylenol or Motrin) or let the fever run its course? Randomized experiments have been used to examine this question. ([Source 1](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4703655/), [Source 2](https://academic.oup.com/emph/article/9/1/26/5998648))
+
+a. Why might we want to use stratified randomization to examine the effect of fever suppressors on health outcomes? What variables might we want to stratify on and why?
+
+b. "Blinding" refers to the act of hiding from researchers and study participants the treatment group that the patients are actually in. Blinding is an important design consideration in randomized experiments.    
+    - Suppose that hospital caregivers are not blinded and know whether a patient is receiving fever suppressors or not. How might this lead to a lack of exchangeability?
+    - What if patients knowing their treatment group? How might this lead to a lack of exchangeability?
+
+c. Compliance with assigned treatment is a practical concern in randomized experiments. What could be a reason for a patient's lack of compliance with assigned treatment, and how might this affect exchangeability?
+
+d. Randomized trials with noncompliance can be viewed as an instrumental variables design. Explain this connection. (What is the instrument, and what is the treatment of interest?)
+
+
+<br>
+
+
+### Exercise 2 {-}
+
+Radon is an element naturally found in air that can cause lung cancer. It has a very low concentration outdoors and can have higher concentrations indoors. When buying a home, a radon check is typically ordered to assess if the home needs a radon mitigation system installed (a system to reduce radon levels). If radon levels are above a certain threshold, a radon mitigation system is recommended.
+
+Given this context, what study design(s) might be used to study the effect of radon mitigation systems on lung cancer rates?
+
+
+<br>
+
+
+### Exercise 3 {-}
+
+Interrupted time series analyses typically use models that can handle the correlated nature of time series data. (If you are curious about these methods, take STAT 452: Correlated Data!)
+
+For now, we can gain intuition for how these models are used in practice by examining linear regression models.
+
+a. The general form of a linear regression model for an interrupted time series design is below:
+
+$$ E[Y \mid T, I, A] = \beta_0 + \beta_1 T + \beta_2 I + \beta_3 TI + \beta_4 A + \beta_5 AT + \beta_6 AI + \beta_7 AIT $$
+
+- $Y$: outcome/response variable
+- $T$: time
+- $I$: 1 if in the time period post-intervention, 0 for pre-intervention
+- $A$: 1 for treatment sites receiving the intervention, 0 for control sites
+
+    Draw a figure showing the relationship between $Y$ and $T$ and showing how the slopes change over time and in between treatment vs. control sites. Label slopes, intercepts, and any changes or discontinuities with model coefficients.
+
+b. Ideally, control units should have pre-intervention trends that are as similar as possible to the pre-intervention trends for units that are treated. If this is the case, for which coefficients should we expect the confidence intervals to overlap zero?
+
+c. Which coefficients represent the causal effect of the intervention, and how can we interpret them?
+
+
+<br>
+
+
+### Extra {-}
+
+If you have time, work on Part 4 of [Homework 1](homework-1.html), and get feedback from peers about your proposed study.

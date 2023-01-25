@@ -105,7 +105,14 @@
 <li class="chapter" data-level="3" data-path="study-designs.html"><a href="study-designs.html"><i class="fa fa-check"></i><b>3</b> Study Designs</a>
 <ul>
 <li class="chapter" data-level="" data-path="study-designs.html"><a href="study-designs.html#learning-goals-1"><i class="fa fa-check"></i>Learning goals</a></li>
-<li class="chapter" data-level="" data-path="study-designs.html"><a href="study-designs.html#exercises-1"><i class="fa fa-check"></i>Exercises</a></li>
+<li class="chapter" data-level="" data-path="study-designs.html"><a href="study-designs.html#exercises-1"><i class="fa fa-check"></i>Exercises</a>
+<ul>
+<li class="chapter" data-level="" data-path="study-designs.html"><a href="study-designs.html#peer-check-in"><i class="fa fa-check"></i>Peer check-in</a></li>
+<li class="chapter" data-level="" data-path="study-designs.html"><a href="study-designs.html#exercise-1-1"><i class="fa fa-check"></i>Exercise 1</a></li>
+<li class="chapter" data-level="" data-path="study-designs.html"><a href="study-designs.html#exercise-2-1"><i class="fa fa-check"></i>Exercise 2</a></li>
+<li class="chapter" data-level="" data-path="study-designs.html"><a href="study-designs.html#exercise-3-1"><i class="fa fa-check"></i>Exercise 3</a></li>
+<li class="chapter" data-level="" data-path="study-designs.html"><a href="study-designs.html#extra"><i class="fa fa-check"></i>Extra</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>II Homework</b></span></li>
 <li class="chapter" data-level="" data-path="homework-1.html"><a href="homework-1.html"><i class="fa fa-check"></i>Homework 1</a>
@@ -144,7 +151,63 @@
 </div>
 <div id="exercises-1" class="section level2 unnumbered hasAnchor">
 <h2>Exercises<a href="study-designs.html#exercises-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="peer-check-in" class="section level3 unnumbered hasAnchor">
+<h3>Peer check-in<a href="study-designs.html#peer-check-in" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Start by checking on the guiding questions:</p>
+<ul>
+<li>Why are randomized experiments often called the “gold standard” for causal inference? What is the relationship between randomized experiments and exchangeability?</li>
+<li>Consider the quasi-experimental designs discussed in the video. How do these designs try to mimic randomization? What assumptions do they make to allow making statements about missing potential outcomes?</li>
+</ul>
+<p>What ideas were confusing, less clear, or intriguing? Make note of what your peers have noticed. This is a gold mine of information for your Metacognitive Reflections.</p>
+<p><br></p>
+</div>
+<div id="exercise-1-1" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 1<a href="study-designs.html#exercise-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When dealing with an infection, should we suppress fever (e.g., with Tylenol or Motrin) or let the fever run its course? Randomized experiments have been used to examine this question. (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4703655/">Source 1</a>, <a href="https://academic.oup.com/emph/article/9/1/26/5998648">Source 2</a>)</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Why might we want to use stratified randomization to examine the effect of fever suppressors on health outcomes? What variables might we want to stratify on and why?</p></li>
+<li><p>“Blinding” refers to the act of hiding from researchers and study participants the treatment group that the patients are actually in. Blinding is an important design consideration in randomized experiments.</p>
+<ul>
+<li>Suppose that hospital caregivers are not blinded and know whether a patient is receiving fever suppressors or not. How might this lead to a lack of exchangeability?</li>
+<li>What if patients knowing their treatment group? How might this lead to a lack of exchangeability?</li>
+</ul></li>
+<li><p>Compliance with assigned treatment is a practical concern in randomized experiments. What could be a reason for a patient’s lack of compliance with assigned treatment, and how might this affect exchangeability?</p></li>
+<li><p>Randomized trials with noncompliance can be viewed as an instrumental variables design. Explain this connection. (What is the instrument, and what is the treatment of interest?)</p></li>
+</ol>
+<p><br></p>
+</div>
+<div id="exercise-2-1" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 2<a href="study-designs.html#exercise-2-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Radon is an element naturally found in air that can cause lung cancer. It has a very low concentration outdoors and can have higher concentrations indoors. When buying a home, a radon check is typically ordered to assess if the home needs a radon mitigation system installed (a system to reduce radon levels). If radon levels are above a certain threshold, a radon mitigation system is recommended.</p>
+<p>Given this context, what study design(s) might be used to study the effect of radon mitigation systems on lung cancer rates?</p>
+<p><br></p>
+</div>
+<div id="exercise-3-1" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 3<a href="study-designs.html#exercise-3-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Interrupted time series analyses typically use models that can handle the correlated nature of time series data. (If you are curious about these methods, take STAT 452: Correlated Data!)</p>
+<p>For now, we can gain intuition for how these models are used in practice by examining linear regression models.</p>
+<ol style="list-style-type: lower-alpha">
+<li>The general form of a linear regression model for an interrupted time series design is below:</li>
+</ol>
+<p><span class="math display">\[ E[Y \mid T, I, A] = \beta_0 + \beta_1 T + \beta_2 I + \beta_3 TI + \beta_4 A + \beta_5 AT + \beta_6 AI + \beta_7 AIT \]</span></p>
+<ul>
+<li><p><span class="math inline">\(Y\)</span>: outcome/response variable</p></li>
+<li><p><span class="math inline">\(T\)</span>: time</p></li>
+<li><p><span class="math inline">\(I\)</span>: 1 if in the time period post-intervention, 0 for pre-intervention</p></li>
+<li><p><span class="math inline">\(A\)</span>: 1 for treatment sites receiving the intervention, 0 for control sites</p>
+<p>Draw a figure showing the relationship between <span class="math inline">\(Y\)</span> and <span class="math inline">\(T\)</span> and showing how the slopes change over time and in between treatment vs. control sites. Label slopes, intercepts, and any changes or discontinuities with model coefficients.</p></li>
+</ul>
+<ol start="2" style="list-style-type: lower-alpha">
+<li><p>Ideally, control units should have pre-intervention trends that are as similar as possible to the pre-intervention trends for units that are treated. If this is the case, for which coefficients should we expect the confidence intervals to overlap zero?</p></li>
+<li><p>Which coefficients represent the causal effect of the intervention, and how can we interpret them?</p></li>
+</ol>
+<p><br></p>
+</div>
+<div id="extra" class="section level3 unnumbered hasAnchor">
+<h3>Extra<a href="study-designs.html#extra" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If you have time, work on Part 4 of <a href="homework-1.html">Homework 1</a>, and get feedback from peers about your proposed study.</p>
 
+</div>
 </div>
 </div>
 
