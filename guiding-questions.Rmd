@@ -48,7 +48,7 @@ Extra self-check resource: Moodle checkpoint on [Key Structures in Causal Graphs
 
 **Graphical Structure of Confounding** <a id="gq-struct-confounding"></a>
 
-- 
+- What is the relationship between d-separation, causal/noncausal paths, conditional exchangeability, and estimating causal effects?
 
 Extra self-check resource: Moodle checkpoint on [(Non)causal Paths and D-Separation](https://moodle.macalester.edu/mod/quiz/view.php?id=17848)
 
