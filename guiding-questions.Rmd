@@ -30,7 +30,9 @@ Extra self-check resource: Moodle checkpoint on [Study Designs for Causal Infere
 
 **Causal Graphs as Statistical Models** <a id="gq-causal-graphs-models"></a>
 
-- 
+- Why is it sensible for causal graphs to be directed and acyclic?
+- How can "feedback loops" be represented in causal graphs?
+- What extra information does a structural equation model encode that a causal graph alone does not?
 
 Extra self-check resource: Moodle checkpoint on [Causal Graphs as Statistical Models](https://moodle.macalester.edu/mod/quiz/view.php?id=17846)
 
@@ -38,7 +40,7 @@ Extra self-check resource: Moodle checkpoint on [Causal Graphs as Statistical Mo
 
 **Key Structures in Causal Graphs** <a id="gq-key-structures"></a>
 
-- 
+- What marginal and conditional (in)dependence relations pertain to chains, forks, and colliders? Do these relations make sense? What examples (in the video or your own) help rationalize these relations?
 
 Extra self-check resource: Moodle checkpoint on [Key Structures in Causal Graphs](https://moodle.macalester.edu/mod/quiz/view.php?id=17847)
 

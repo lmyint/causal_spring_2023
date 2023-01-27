@@ -77,3 +77,29 @@ Assuming that we have exchangeability of the course takers and non-takers condit
 ### Exercise 5 {-}
 
 Exchangeability is a core assumption in causal inference. Do you think it is possible to test this assumption with data? If yes, how? If not, why not?
+
+
+<br><br>
+
+
+### Exercise 6 (Extra) {-}
+
+Consider the 4 scenarios below. For all scenarios, $A$ represents a binary treatment, and $Y$ represents the *observed* outcome (quantitative).
+
+1. Marginal exchangeability, independence of $Y$ and $A$
+2. Marginal exchangeability, dependence of $Y$ and $A$
+3. Lack of marginal exchangeability, independence of $Y$ and $A$
+4. Lack of marginal exchangeability, dependence of $Y$ and $A$
+
+Draw plots of potential outcome distributions or create numerical examples that illustrate the following 4 scenarios.
+
+
+<br><br>
+
+
+## Exercise 7 (Extra) {-}
+
+- Does marginal exchangeability imply conditional exchangeability?
+- Does conditional exchangeability imply marginal exchangeability?
+
+If yes, why? If not, provide a numerical example showing a counterexample.
