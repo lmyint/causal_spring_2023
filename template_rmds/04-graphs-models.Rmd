@@ -15,7 +15,7 @@ Simulation is a very powerful tool for understanding statistical ideas. We can s
 - Do 95% confidence intervals really contain the true population value in 95% of samples? When is this not true?
 - Does regression work to estimate causal effects when we have conditional exchangeability?
 
-<br>
+
 
 ## Simulation functions in R
 
@@ -57,7 +57,7 @@ rnorm(3, mean = c(10, 100, 1000), sd = 1)
 
 ```
 
-<br>
+
 
 ## Simulating data from graphs+SEMs
 
@@ -73,7 +73,7 @@ arrows(x0 = 1.7, y0 = 1, x1 = 4.5, y1 = 1, angle = 25, lwd = 4)
 
 **Question:** Using the Causal Markov Assumption, how can we express the joint distribution of this data?
 
-<br>
+
 
 Consider the structural equation model (SEM) below that is associated with our causal graph:
 
@@ -93,7 +93,7 @@ $$
 - $Y$ is quantitative and follows a normal distribution.
     - The mean $\mu_Y$ depends on $A$ and $Z$ via a linear regression model.
 
-<br>
+
 
 Complete the code below to simulate data that follow this structural equation model.
 
