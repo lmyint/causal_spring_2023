@@ -80,8 +80,8 @@ Consider the structural equation model (SEM) below that is associated with our c
 $$
 \begin{align*}
 Z &\sim N(\mu_Z = 40, \sigma_Z = 5) \\
-A &\sim \mathrm{Binomial}(n = 1, p_A)
-p_A: &\log\left(\frac{p_A}{1-p_A}\right) = -1 + 0.05Z \\
+A &\sim \mathrm{Binomial}(n = 1, p_A) \\
+\qquad &\log\left(\frac{p_A}{1-p_A}\right) = -1 + 0.05Z \\
 Y &\sim N(\mu_Y, \sigma_Y = 1) \\
 \mu_Y &= 30 + 5*A + 2*Z
 \end{align*}
