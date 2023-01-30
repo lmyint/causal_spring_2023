@@ -1,0 +1,92 @@
+```{r hw1_setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, eval=FALSE)
+```
+
+# (PART) Homework {-}
+
+# Homework 1 {-}
+
+## General instructions {-}
+
+Due: Friday, January 27 at midnight CST.
+
+- Set up a **single Google Doc** that you will use for your homework responses (and revisions) **all semester**. (A single doc facilitates seeing feedback and revisions over time.)
+- Share this Google Doc with the instructor and preceptor with either edit or comment access by the due date.
+
+<br><br>
+
+## Part 1 {-}
+
+Related to course components: Metacognitive Reflection, Enduring Concept
+
+Our [first day discussions](motivation-and-review.html) prompted different ways of thinking about causation. How did these discussions affect how you might think about causation going forward? In your response:
+
+- Incorporate thoughts from all 4 prompts (Considering causes, Sinful saying or mandatory mantra?, Sufficiency and necessity, Evaluating evidence for causation: Bradford Hill criteria)
+- Incorporate self-noticings and peer-noticings
+- Suggestion: Write as if you were going to publish a blog post entitled "10 things you probably never realized about causation" (or some number other than 10)
+- No length requirement/restriction, but suggested to stay under 500 words
+
+
+<br><br>
+
+
+## Part 2 {-}
+
+Related to course components: Enduring Concept
+
+When, if ever, is a direct comparison of the observed outcomes in the treated and untreated a good estimate of an average causal effect? Explain your answer with relevant discussion of exchangeability and study designs.
+
+
+<br><br>
+
+
+## Part 3 {-}
+
+Related to course components: Important Concept
+
+The table below shows data on a binary outcome $A$, a binary covariate $Z$, and a quantitative outcome $Y$. Assume that the treatment groups are conditionally exchangeable given $Z$.
+
+ $Z$   $A$   $Y$
+----- ----- -----
+  A     1    40
+  A     1    40
+  A     1    40
+  A     1    40
+  B     1    20
+  B     1    20
+  A     0    30
+  A     0    30
+  B     0    10
+  B     0    10
+  B     0    10
+  B     0    10
+
+a. Estimate the average causal effect $E[Y^{a=1}-Y^{a=0}]$. Show and explain your work.
+
+b. Does *marginal* exchangeability hold? Show and explain your work.
+
+
+<br><br>
+
+
+## Part 4 {-}
+
+Related to course components: Enduring Concept
+
+Let's think about study designs in terms of something you would genuinely want to study!
+
+What are you obsessed with? What do you find yourself thinking about all the time? What do you wish came up in conversation more often? (What's your ["lightning lure"](https://www.lesliemyint.org/lightning-lure)?)
+
+What is a causal question that you wish you could answer related to that obsession? What study design would be most feasible to implement to answer that question? In your response, please also discuss why you think other designs would not be as feasible.
+
+
+<br><br>
+
+
+## Part 5 {-}
+
+Related to course components: Metacognitive Reflection
+
+How do you feel about your level of understanding for the Exchangeability and Study Designs topics? What were some notable themes in self- and peer-noticings? How do these reflections inform your next steps for developing stronger understanding and/or advising future students learning about these topics?
+
+
