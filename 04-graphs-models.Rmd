@@ -130,7 +130,8 @@ A <- rbinom(?)
 
 # Simulate the Y variable
 mean_Y <- 30 + ?
-Y <- ?
+noise_Y <- rnorm(n, mean = 0, sd = 1)
+Y <- mean_Y + noise_Y
 
 # Store all simulated variables in a dataset called sim_data
 sim_data <- data.frame(Z, A, Y)
@@ -173,7 +174,7 @@ a. Write the joint distribution of the data from the causal graph below using th
 
 b. Simulate data from the graph. You are free to choose your own structural equation model, but let $Z$, $W$, and $Y$ be quantitative. Let $A$ be binary. Use a sample size of 10,000 for your simulation. Use plots and summary measures to ensure that the simulated data have reasonable properties.
 
-c. Based on the structural equation model you chose, what would you guess is the average causal effect of $A$ on $Y$?
+c. Based on the structural equation model you chose, what would you guess is the average causal effect $E[Y^{a=1} - Y^{a=0}]$?
 
 d. Let's consider *simulating interventions* using your SEM. If you were to force all study units to receive a certain value of treatment (either 0 or 1), how do you think the causal graph would change?
 

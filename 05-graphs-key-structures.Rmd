@@ -1,0 +1,86 @@
+```{r 05_setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, eval=FALSE, fig.align="center")
+```
+
+# Key Structures in Causal Graphs
+
+## Learning Goals {-}
+
+- Explain the intuition behind marginal and conditional (in)dependence relations in chains, forks, and colliders in causal graphs
+- Simulate data from causal graphs under linear and logistic regression structural equation models to check these properties through regression modeling and visualization
+
+<br>
+
+Slides from today are available [here](https://docs.google.com/presentation/d/1dkymOl7ke3SkK6srMC9FNKEw56qfKkH_h0zFRftkdt8/edit?usp=sharing).
+
+
+<br><br><br>
+
+
+## Exercises {-}
+
+**You can download a template RMarkdown file to start from [here](template_rmds/05-graphs-key-structures.Rmd).**
+
+In these exercises, you'll be practicing simulating data from structural equation models and verifying marginal and conditional (in)dependence properties in DAG structures.
+
+- Always use a regression model as a check.
+- If the situation readily corresponds to a plot, also make a plot as a check.
+
+**Coding note:** When you simulate binary variables and store them in a dataset, it is useful to store them explicitly as categorical as below. (This is most helpful for plotting.)
+
+```{r}
+# X is binary. Y and Z are quantitative.
+sim_data <- data.frame(X = factor(X), Y, Z)
+```
+
+<br>
+
+### Exercise 1 {-}
+
+Simulate a chain `X -> Y -> Z` where all three variables are quantitative. (Use a sample size of 10,000 and a significance level of 0.05 throughout these exercises.)
+
+a. What conditional relationship is implied by this chain structure? What is the intuition behind/rationale for this relationship?
+
+b. Use appropriate check(s) to verify this conditional relationship.
+
+<br><br>
+
+### Exercise 2 {-}
+
+Simulate a fork `X <- Y -> Z` where `X` and `Z` are quantitative, and `Y` is binary.
+
+a. What conditional relationship is implied by this fork structure? What is the intuition behind/rationale for this relationship?
+
+b. Use appropriate check(s) to verify this conditional relationship.
+
+<br><br>
+
+### Exercise 3 {-}
+
+Simulate a collider `X -> Y <- Z` where `Y` also has a child `A` (`Y -> A`). Let all 4 variables be binary.
+
+a. What marginal and conditional relationships between `X` and `Z` are implied by this collider structure? What is the intuition behind/rationale for this relationship?
+
+b. Use appropriate check(s) to verify these relationships.
+
+<br><br>
+
+### Exercise 4 {-}
+
+Can we extend building block thinking to longer, more complex structures? Let's investigate here (conceptually, no simulation).
+
+a. Consider the longer structure `A <- B <- C -> D`. What do you expect about marginal/conditional (in)dependence of `A` and `D`? Explain.
+
+b. Consider the longer structure `A -> B <- C <- D -> E`. What do you expect about marginal/conditional (in)dependence of `A` and `E`? Explain.
+
+<br><br>
+
+### Extra {-}
+
+If you would like to delve more into the probability theory behind these ideas, try the following exercise.
+
+Use the Causal Markov assumption/product decomposition rule to prove:
+
+1. The conditional independence relations in forks and chains
+2. The marginal independence and conditional dependence relations in colliders
+

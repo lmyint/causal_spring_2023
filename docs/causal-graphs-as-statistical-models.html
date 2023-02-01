@@ -29,7 +29,7 @@
   
   
 <link rel="prev" href="study-designs.html"/>
-<link rel="next" href="homework-1.html"/>
+<link rel="next" href="key-structures-in-causal-graphs.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -195,6 +195,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="causal-graphs-as-statistical-models.html"><a href="causal-graphs-as-statistical-models.html#extra-1"><i class="fa fa-check"></i>Extra</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="5" data-path="key-structures-in-causal-graphs.html"><a href="key-structures-in-causal-graphs.html"><i class="fa fa-check"></i><b>5</b> Key Structures in Causal Graphs</a>
+<ul>
+<li class="chapter" data-level="" data-path="key-structures-in-causal-graphs.html"><a href="key-structures-in-causal-graphs.html#learning-goals-3"><i class="fa fa-check"></i>Learning Goals</a></li>
+<li class="chapter" data-level="" data-path="key-structures-in-causal-graphs.html"><a href="key-structures-in-causal-graphs.html#exercises-3"><i class="fa fa-check"></i>Exercises</a>
+<ul>
+<li class="chapter" data-level="" data-path="key-structures-in-causal-graphs.html"><a href="key-structures-in-causal-graphs.html#exercise-1-3"><i class="fa fa-check"></i>Exercise 1</a></li>
+<li class="chapter" data-level="" data-path="key-structures-in-causal-graphs.html"><a href="key-structures-in-causal-graphs.html#exercise-2-2"><i class="fa fa-check"></i>Exercise 2</a></li>
+<li class="chapter" data-level="" data-path="key-structures-in-causal-graphs.html"><a href="key-structures-in-causal-graphs.html#exercise-3-2"><i class="fa fa-check"></i>Exercise 3</a></li>
+<li class="chapter" data-level="" data-path="key-structures-in-causal-graphs.html"><a href="key-structures-in-causal-graphs.html#exercise-4-1"><i class="fa fa-check"></i>Exercise 4</a></li>
+<li class="chapter" data-level="" data-path="key-structures-in-causal-graphs.html"><a href="key-structures-in-causal-graphs.html#extra-2"><i class="fa fa-check"></i>Extra</a></li>
+</ul></li>
+</ul></li>
 <li class="part"><span><b>III Homework</b></span></li>
 <li class="chapter" data-level="" data-path="homework-1.html"><a href="homework-1.html"><i class="fa fa-check"></i>Homework 1</a>
 <ul>
@@ -333,10 +345,11 @@ Y &amp;\sim N(\mu_Y, \sigma_Y = 1) \\
 <span id="cb3-14"><a href="causal-graphs-as-statistical-models.html#cb3-14" aria-hidden="true"></a></span>
 <span id="cb3-15"><a href="causal-graphs-as-statistical-models.html#cb3-15" aria-hidden="true"></a><span class="co"># Simulate the Y variable</span></span>
 <span id="cb3-16"><a href="causal-graphs-as-statistical-models.html#cb3-16" aria-hidden="true"></a>mean_Y &lt;-<span class="st"> </span><span class="dv">30</span> <span class="op">+</span><span class="st"> </span>?</span>
-<span id="cb3-17"><a href="causal-graphs-as-statistical-models.html#cb3-17" aria-hidden="true"></a>Y &lt;-<span class="st"> </span>?</span>
-<span id="cb3-18"><a href="causal-graphs-as-statistical-models.html#cb3-18" aria-hidden="true"></a></span>
-<span id="cb3-19"><a href="causal-graphs-as-statistical-models.html#cb3-19" aria-hidden="true"></a><span class="co"># Store all simulated variables in a dataset called sim_data</span></span>
-<span id="cb3-20"><a href="causal-graphs-as-statistical-models.html#cb3-20" aria-hidden="true"></a>sim_data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(Z, A, Y)</span></code></pre></div>
+<span id="cb3-17"><a href="causal-graphs-as-statistical-models.html#cb3-17" aria-hidden="true"></a>noise_Y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb3-18"><a href="causal-graphs-as-statistical-models.html#cb3-18" aria-hidden="true"></a>Y &lt;-<span class="st"> </span>mean_Y <span class="op">+</span><span class="st"> </span>noise_Y</span>
+<span id="cb3-19"><a href="causal-graphs-as-statistical-models.html#cb3-19" aria-hidden="true"></a></span>
+<span id="cb3-20"><a href="causal-graphs-as-statistical-models.html#cb3-20" aria-hidden="true"></a><span class="co"># Store all simulated variables in a dataset called sim_data</span></span>
+<span id="cb3-21"><a href="causal-graphs-as-statistical-models.html#cb3-21" aria-hidden="true"></a>sim_data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(Z, A, Y)</span></code></pre></div>
 <p>After generating simulated data, it’s best to use plots and summary measures to make sure that marginal distributions and relationships between variables look sensible.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="causal-graphs-as-statistical-models.html#cb4-1" aria-hidden="true"></a><span class="co"># Explorations to check sensibility of simulated data</span></span></code></pre></div>
 <p><br><br><br><br></p>
@@ -351,7 +364,7 @@ Y &amp;\sim N(\mu_Y, \sigma_Y = 1) \\
 <li><p>Write the joint distribution of the data from the causal graph below using the Causal Markov Assumption.</p>
 <p><img src="causal_manual_files/figure-html/04_ex1-1.png" width="672" style="display: block; margin: auto;" /></p></li>
 <li><p>Simulate data from the graph. You are free to choose your own structural equation model, but let <span class="math inline">\(Z\)</span>, <span class="math inline">\(W\)</span>, and <span class="math inline">\(Y\)</span> be quantitative. Let <span class="math inline">\(A\)</span> be binary. Use a sample size of 10,000 for your simulation. Use plots and summary measures to ensure that the simulated data have reasonable properties.</p></li>
-<li><p>Based on the structural equation model you chose, what would you guess is the average causal effect of <span class="math inline">\(A\)</span> on <span class="math inline">\(Y\)</span>?</p></li>
+<li><p>Based on the structural equation model you chose, what would you guess is the average causal effect <span class="math inline">\(E[Y^{a=1} - Y^{a=0}]\)</span>?</p></li>
 <li><p>Let’s consider <em>simulating interventions</em> using your SEM. If you were to force all study units to receive a certain value of treatment (either 0 or 1), how do you think the causal graph would change?</p></li>
 <li><p>Modify your simulation to reflect your thoughts from part d. Incorporate the code below into your simulation.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="causal-graphs-as-statistical-models.html#cb5-1" aria-hidden="true"></a><span class="co"># Scenario 1: Force all to be treated</span></span>
@@ -377,16 +390,13 @@ Y &amp;\sim N(\mu_Y, \sigma_Y = 1) \\
 </div>
 </div>
 </div>
-
-
-
             </section>
 
           </div>
         </div>
       </div>
 <a href="study-designs.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="homework-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="key-structures-in-causal-graphs.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

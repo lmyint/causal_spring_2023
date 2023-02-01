@@ -114,7 +114,8 @@ A <- rbinom(?)
 
 # Simulate the Y variable
 mean_Y <- 30 + ?
-Y <- ?
+noise_Y <- rnorm(n, mean = 0, sd = 1)
+Y <- mean_Y + noise_Y
 
 # Store all simulated variables in a dataset called sim_data
 sim_data <- data.frame(Z, A, Y)
@@ -163,7 +164,7 @@ Simulate data from the graph. You are free to choose your own structural equatio
 
 ## Part c
 
-Based on the structural equation model you chose, what would you guess is the average causal effect of $A$ on $Y$?
+Based on the structural equation model you chose, what would you guess is the average causal effect $E[Y^{a=1} - Y^{a=0}]$?
 
 
 ## Part d

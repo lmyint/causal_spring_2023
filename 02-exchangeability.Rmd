@@ -53,6 +53,9 @@ We have the data below on number of children ($Z$), treatment (course takers: $A
 
 Assuming that the course takers and non-takers are exchangeable conditional on number of children, estimate the average causal effect $P(Y^{a=1} = \mathrm{high}) - P(Y^{a=0} = \mathrm{high})$.
 
+<!-- The format of this table is confusing. Explain it better in the description. -->
+<!-- Scaffold this exericise into smaller steps  -->
+
  $n$   $Z$   $A$       $Y$
 ----- ----- ----- --------------
  10     2     1     7 H, 3 L
