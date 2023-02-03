@@ -27,7 +27,7 @@ If you would like to make revisions to any parts of Homework 1, please do the fo
 
 ## Part 1 {-}
 
-Chains, forks, and colliders in causal graphs are the building blocks for causal graphs and the stepping stones for understanding how bias arises when estimating causal effects.
+Chains, forks, and colliders are the building blocks for causal graphs and the stepping stones for understanding how bias arises when estimating causal effects.
 
 a. What ideas from Topics 4 and 5 (Causal Graphs as Statistical Models and Key Structures in Causal Graphs) would you categorize as an Enduring Concept, Important Concept, or a Concept Worth Being Familiar With? Why? (Refer to our syllabus for descriptions of these concept types.)
 

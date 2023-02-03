@@ -65,11 +65,4 @@ Extra self-check resource: Moodle checkpoint on [(Non)causal Paths and D-Separat
 - What is the paradox/surprising finding at the center of this paper? What data are presented that illustrate this surprising finding?
 - How do the authors use causal graphs to explain the paradox? Do you find the discussion of causal graphs helpful? Why or why not?
 
-<br><br><br><br><br>
-
-**The Smoking-Birthweight Paradox: Alternate Explanations** <a id="gq-sbw-paradox-alt"></a>
-
-- What alternate explanations of the paradox are provided here, and how does the author use causal graphs in the discussion?  Do you find the discussion of causal graphs helpful? Why or why not?
-- Thinking about both this paper and the original birthweight paradox paper from last class, what do you notice/wonder about how causal graphs are used in practice?
-
-<div style="height: 600px;"></div>
+<div style="height: 800px;"></div>
