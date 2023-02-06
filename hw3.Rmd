@@ -1,0 +1,126 @@
+```{r hw3_setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, eval=FALSE)
+```
+
+# Homework 3 {-}
+
+## General instructions {-}
+
+Due: Friday, February 17 at midnight CST. (Note that we're skipping a week in our prior weekly HW cadence.)
+
+- Continue using the same Google Doc from HW1.
+
+<br>
+
+**You do not need to complete all parts (except the Metacognitive Reflection).** Just complete the parts that align with your learning goals and would be most helpful in developing strong understanding.
+
+**If you're interested in working on something not listed here, I'm very open to that too.** Talk with me about what you're thinking, and we'll come up with a good collection of work to further your goals.
+
+
+<br><br>
+
+
+## Revisions {-}
+
+If you would like to make revisions to any parts of prior assignments, please do the following:
+
+- Keep all old writing and feedback intact
+- Un-highlight yellow text that has already been addressed with feedback and revisions
+- Write an updated response just below your previous response and highlight the new writing in yellow
+
+
+<br><br>
+
+
+## Clarifying the big picture {-}
+
+Tell a story/give a summary of our course up to this point by writing a piece that connects the following ideas:
+
+- Potential outcomes and causal effects
+- Exchangeability
+- Causal graphs
+- Causal and noncausal paths
+- D-separation
+- Building causal graphs in practice for applied analyses
+
+**Audience:** If you have a personal website or would like to create one, what you write here has the potential to make for a great blog post. If this appeals to you, think of who you would want to read such a piece (e.g., a potential employer, a friend, a family member), and write for them.
+
+**Note:** As we continue to move forward with new ideas in the course, you may find it helpful to continue incorporating the new ideas into what you write here.
+
+
+<br><br>
+
+
+## The smoking-birthweight paradox {-}
+
+Write a piece summarizing the arguments and key takeaway messages from our discussion of the [The Birth Weight "Paradox" Uncovered?](https://doi.org/10.1093/aje/kwj275).
+
+If you're curious about even further commentary on that article, read [Commentary: Resolutions of the birthweight paradox: competing explanations and analytical insights](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4190521/), and incorporate your synthesis of the arguments in this paper.
+
+**Audience:** If you have a personal website or would like to create one, what you write here has the potential to make for a great blog post. If this appeals to you, think of who you would want to read such a piece (e.g., a potential employer, a friend, a family member), and write for them.
+
+
+<br><br>
+
+
+## Exchangeability: Computation {-}
+
+Suppose that the treatment ($A$) groups are exchangeable conditional on $Z$. Given the table of information below, compute the following average causal effects (showing your work):
+
+- Overall ACE: $E[Y^{a=1} - Y^{a=0}]$
+- ACE within $Z = A$: $E[Y^{a=1} - Y^{a=0} \mid Z = A]$
+- ACE within $Z = B$: $E[Y^{a=1} - Y^{a=0} \mid Z = B]$
+
+($Z$ and $A$ are binary, and $Y$ is quantitative. $n$ indicates the sample size for the 4 groups.)
+
+ $n$   $Z$   $A$   $E[Y\mid A, Z]$
+----- ----- ----- -----------------
+  80    A     1         40
+  20    A     0         20
+  20    B     1         30
+  80    B     0         20
+
+
+<br><br>
+
+
+## Exchangeability: explaining via causal graphs {-}
+
+Causal graphs and the ideas of causal/noncausal paths can help clarify the concept of exchangeability. Use a causal graph to generate a numeric example of a potential outcomes table (containing information on covariate(s), treatment, and both potential outcomes) in which marginal exchangeability does not hold but conditional exchangeability does.
+
+If you would like to keep going, also use a causal graph to create a numeric example where marginal exchangeability does hold but conditional exchangeability does not.
+
+
+<br><br>
+
+
+## Simulation, d-separation, and exchangeability {-}
+
+Pick any causal graphs from our in-class exercises or textbooks (WHATIF and/or PRIMER) that surprised or perplexed you.
+
+For a given graph:
+
+- Use d-separation to identify appropriate conditioning set(s) of variables that would allow for valid estimation of the average causal effect.
+- Check that those conditioning set(s) actually result in conditional exchangeability by performing a simulation study. (It is important to perform many runs of the simulation. Check the Topic 5 Solutions on Moodle for guidance.)
+
+
+<br><br>
+
+
+## Study designs: examples of applied studies {-}
+
+If you would like to see more examples of how study designs are used in applied research, find some applied papers and read enough of each to get a sense for how the study was conducted. Summarize your findings here.
+
+
+<br><br>
+
+
+## Metacognitive Reflection {-}
+
+- How do you feel about your level of understanding of prior topics and new topics (causal/noncausal paths, d-separation, building causal graphs in practice)?
+
+- What were some notable themes in self- and peer-noticings?
+
+- How do these reflections inform your next steps for developing stronger understanding? What support and resources would best help you?
+
+

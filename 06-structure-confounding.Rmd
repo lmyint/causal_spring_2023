@@ -1,0 +1,137 @@
+```{r 06_setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, eval=FALSE, fig.align="center")
+```
+
+# Graphical Structure of Confounding
+
+## Learning Goals {-}
+
+- Explain how d-separation and causal/noncausal paths relate to exchangeability and causal effects.
+- Apply d-separation to block noncausal paths in causal DAGs with and without unobserved variables.
+- Apply strategies to deal with exchangeability problems caused by unobserved variables.
+
+
+<br>
+
+
+Slides from today are available [here](https://docs.google.com/presentation/d/1qRibrBgdgDQHaS7f6wIOfZOxyKEp2Wo8aGGoLx4mKYo/edit?usp=sharing).
+
+
+<br><br><br>
+
+
+## Exercises {-}
+
+### Exercise 1 {-}
+
+For each of the causal graphs below, identify the set of variables needed to achieve conditional exchangeability of the treatment groups $A$ for outcome $Y$ (if possible). Any $U$ variables displayed in the graphs are unobserved/unmeasured. Show your work.
+
+```{r 06_ex1, echo=FALSE, eval=TRUE, fig.width=11, fig.height=4, fig.align="center"}
+library(dagitty)
+dag1 <- dagitty("dag {
+bb=\"0,0,1,1\"
+A [exposure,pos=\"0.252,0.350\"]
+L [pos=\"0.185,0.268\"]
+U [latent,pos=\"0.124,0.176\"]
+Y [outcome,pos=\"0.498,0.350\"]
+A -> Y
+L -> A
+U -> L
+U -> Y
+}
+")
+dag2 <- dagitty("dag {
+bb=\"0,0,1,1\"
+A [exposure,pos=\"0.252,0.350\"]
+L [pos=\"0.299,0.254\"]
+M [pos=\"0.373,0.350\"]
+U [latent,pos=\"0.124,0.176\"]
+Y [outcome,pos=\"0.498,0.350\"]
+A -> M
+L -> Y
+M -> Y
+U -> A
+U -> L
+}
+")
+dag3 <- dagitty("dag {
+bb=\"0,0,1,1\"
+A [exposure,pos=\"0.252,0.350\"]
+L [pos=\"0.373,0.245\"]
+M1 [pos=\"0.373,0.350\"]
+M2 [pos=\"0.373,0.445\"]
+U1 [latent,pos=\"0.252,0.141\"]
+U2 [latent,pos=\"0.495,0.146\"]
+Y [outcome,pos=\"0.495,0.350\"]
+A -> M1
+A -> M2
+M1 -> Y
+M2 -> Y
+U1 -> A
+U1 -> L
+U2 -> L
+U2 -> Y
+}
+")
+dag4 <- dagitty("dag {
+bb=\"0,0,1,1\"
+A [exposure,pos=\"0.400,0.350\"]
+L [pos=\"0.200,0.350\"]
+U1 [latent,pos=\"0.100,0.200\"]
+U2 [latent,pos=\"0.100,0.500\"]
+Y [outcome,pos=\"0.600,0.350\"]
+A -> Y
+L -> A
+U1 -> L
+U1 -> Y
+U2 -> A
+U2 -> L
+}
+")
+
+par(mfrow = c(1,2))
+plot(dag1)
+plot(dag2)
+plot(dag3)
+plot(dag4)
+```
+
+
+<br><br>
+
+
+### Exercise 2 {-}
+
+When constructing causal graphs from expert knowledge, there are generally important variables that are unmeasurable (e.g., behaviors, living situations). In this exercise, we'll consider how we might deal with these unmeasured factors in practice.
+
+Suppose that in the graphs below, the variables represent the following:
+
+- $A$: Regular participation in high-intensity interval training (HIIT) (the treatment of interest)
+- $Y$: Cardiovascular disease
+- $U$: Personality traits
+
+```{r 06_ex2, echo=FALSE, eval=TRUE, fig.width=11, fig.height=4, fig.align="center"}
+par(mfrow = c(1,2))
+plot(dag1)
+plot(dag2)
+```
+
+In this context, describe what $L$ might be in each graph ($L$ could represent multiple variables). What do these graphs illustrate about a general strategy for dealing with exchangeability problems caused by unmeasured variables?
+
+
+<br><br>
+
+
+### Exercise 3 {-}
+
+Historically, people have tried to create definitions for confounders by listing criteria that purely rely on associations. For example:
+
+> A confounder must:    
+> 1. Be associated with treatment and outcome    
+> 2. Not be caused by treatment
+
+Using the causal graph below, explain why this is not a good definition for a confounder.
+
+```{r 06_ex3, echo=FALSE, eval=TRUE, fig.width=6, fig.height=4, fig.align="center"}
+plot(dag3)
+```

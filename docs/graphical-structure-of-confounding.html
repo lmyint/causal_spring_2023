@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>References | STAT 451: Causal Inference</title>
+  <title>Topic 6 Graphical Structure of Confounding | STAT 451: Causal Inference</title>
   <meta name="description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="References | STAT 451: Causal Inference" />
+  <meta property="og:title" content="Topic 6 Graphical Structure of Confounding | STAT 451: Causal Inference" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   <meta name="github-repo" content="lmyint/causal_spring_2023" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="References | STAT 451: Causal Inference" />
+  <meta name="twitter:title" content="Topic 6 Graphical Structure of Confounding | STAT 451: Causal Inference" />
   
   <meta name="twitter:description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="schedule.html"/>
+<link rel="prev" href="key-structures-in-causal-graphs.html"/>
+<link rel="next" href="homework-1.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -266,43 +266,64 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references" class="section level1 unnumbered hasAnchor">
-<h1>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="required-references" class="section level2 unnumbered hasAnchor">
-<h2>Required references<a href="references.html#required-references" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="graphical-structure-of-confounding" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Topic 6</span> Graphical Structure of Confounding<a href="graphical-structure-of-confounding.html#graphical-structure-of-confounding" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="learning-goals-4" class="section level2 unnumbered hasAnchor">
+<h2>Learning Goals<a href="graphical-structure-of-confounding.html#learning-goals-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li><strong>[PRIMER]</strong>: Causal Inference in Statistics: A Primer, by Judea Pearl, Madelyn Glymour, and Nicholas P. Jewell. PDF freely available <a href="http://bayes.cs.ucla.edu/PRIMER/">online</a>.</li>
-<li><strong>[WHATIF]</strong>: Causal Inference: What If, by Miguel A. Hernán and James M. Robins. PDF freely available <a href="https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/">online</a>.</li>
+<li>Explain how d-separation and causal/noncausal paths relate to exchangeability and causal effects.</li>
+<li>Apply d-separation to block noncausal paths in causal DAGs with and without unobserved variables.</li>
+<li>Apply strategies to deal with exchangeability problems caused by unobserved variables.</li>
 </ul>
 <p><br></p>
+<p>Slides from today are available <a href="https://docs.google.com/presentation/d/1qRibrBgdgDQHaS7f6wIOfZOxyKEp2Wo8aGGoLx4mKYo/edit?usp=sharing">here</a>.</p>
+<p><br><br><br></p>
 </div>
-<div id="references-for-review" class="section level2 unnumbered hasAnchor">
-<h2>References for review<a href="references.html#references-for-review" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li><a href="https://bcheggeseth.github.io/Stat155Notes/">STAT 155 Notes</a>: An online set of notes for STAT 155 written by the Macalester statistics faculty.</li>
-<li><a href="https://youtu.be/acofPsJDq5Y">Probability Essentials</a>: A YouTube video outlining some key ideas from probability that we will use in this course.</li>
-<li><a href="https://medium.com/@EpiEllie/having-confidence-in-confidence-intervals-8f881712d837">This article</a> by Eleanor Murray has a great explanation of the most common misinterpretation of confidence intervals.</li>
-</ul>
-<p><br></p>
+<div id="exercises-4" class="section level2 unnumbered hasAnchor">
+<h2>Exercises<a href="graphical-structure-of-confounding.html#exercises-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="exercise-1-4" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 1<a href="graphical-structure-of-confounding.html#exercise-1-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For each of the causal graphs below, identify the set of variables needed to achieve conditional exchangeability of the treatment groups <span class="math inline">\(A\)</span> for outcome <span class="math inline">\(Y\)</span> (if possible). Any <span class="math inline">\(U\)</span> variables displayed in the graphs are unobserved/unmeasured. Show your work.</p>
+<p><img src="causal_manual_files/figure-html/06_ex1-1.png" width="1056" style="display: block; margin: auto;" /><img src="causal_manual_files/figure-html/06_ex1-2.png" width="1056" style="display: block; margin: auto;" /></p>
+<p><br><br></p>
 </div>
-<div id="further-exploration" class="section level2 unnumbered hasAnchor">
-<h2>Further exploration<a href="references.html#further-exploration" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="exercise-2-3" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 2<a href="graphical-structure-of-confounding.html#exercise-2-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When constructing causal graphs from expert knowledge, there are generally important variables that are unmeasurable (e.g., behaviors, living situations). In this exercise, we’ll consider how we might deal with these unmeasured factors in practice.</p>
+<p>Suppose that in the graphs below, the variables represent the following:</p>
 <ul>
-<li>The Book of Why: The New Science of Cause and Effect, by Judea Pearl and Dana Mackenzie (<a href="https://www.amazon.com/Book-Why-Science-Cause-Effect/dp/046509760X">Amazon</a>)</li>
-<li>Causality: Models, Reasoning, and Inference, by Judea Pearl (available as an <a href="http://linker2.worldcat.org/?jHome=https%3A%2F%2Fgo.openathens.net%2Fredirector%2Fmacalester.edu%3Furl%3Dhttps%3A%2F%2Fdoi.org%2F10.1017%2FCBO9780511803161&amp;linktype=best">eBook</a> through Macalester’s library)</li>
-<li>edX course: <a href="https://www.edx.org/course/causal-diagrams-draw-your-assumptions-before-your">Causal Diagrams: Draw Your Assumptions Before Your Conclusions</a></li>
-<li>Udemy course: <a href="https://www.udemy.com/course/causal-data-science/">Causal Data Science with Directed Acyclic Graphs</a></li>
+<li><span class="math inline">\(A\)</span>: Regular participation in high-intensity interval training (HIIT) (the treatment of interest)</li>
+<li><span class="math inline">\(Y\)</span>: Cardiovascular disease</li>
+<li><span class="math inline">\(U\)</span>: Personality traits</li>
 </ul>
+<p><img src="causal_manual_files/figure-html/06_ex2-1.png" width="1056" style="display: block; margin: auto;" /></p>
+<p>In this context, describe what <span class="math inline">\(L\)</span> might be in each graph (<span class="math inline">\(L\)</span> could represent multiple variables). What do these graphs illustrate about a general strategy for dealing with exchangeability problems caused by unmeasured variables?</p>
+<p><br><br></p>
+</div>
+<div id="exercise-3-3" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 3<a href="graphical-structure-of-confounding.html#exercise-3-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Historically, people have tried to create definitions for confounders by listing criteria that purely rely on associations. For example:</p>
+<blockquote>
+<p>A confounder must:<br />
+1. Be associated with treatment and outcome<br />
+2. Not be caused by treatment</p>
+</blockquote>
+<p>Using the causal graph below, explain why this is not a good definition for a confounder.</p>
+<p><img src="causal_manual_files/figure-html/06_ex3-1.png" width="576" style="display: block; margin: auto;" /></p>
 
 </div>
 </div>
+</div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="schedule.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="key-structures-in-causal-graphs.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="homework-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
