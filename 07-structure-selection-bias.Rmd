@@ -49,7 +49,7 @@ Slides from today are available [here](https://docs.google.com/presentation/d/1k
 
 First, think through the relationships depicted in the causal graphs below and whether they make sense. These are intended to reflect a range of scenarios for why people drop out of studies.
 
-Then for each of the graphs, identify the set of variables needed to achieve conditional exchangeability of the treatment $A$ and outcome $Y$. Check your answers to one of the graphs using [DAGitty](http://www.dagitty.net/dags.html).
+Then for each of the graphs, identify the set of variables needed to achieve conditional exchangeability of the treatment $A$ and outcome $Y$. ($U$ and $W$ are unmeasured.) Check your answers to one of the graphs using [DAGitty](http://www.dagitty.net/dags.html).
 
 <center>
     ![](images/07_dag2.png)
