@@ -1,0 +1,118 @@
+```{r 07_setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, eval=FALSE, fig.align="center")
+```
+
+# Graphical Structure of Selection Bias
+
+<!-- ## Notes/draft changes
+
+**Goals for student understanding:**
+
+Most students ONLY have confounding in their worldview. I really want them to come away with the idea that causal graphs can help them *systematically* evaluate other sources of bias.
+
+Have them use simulation to illustrate collider stratification bias even when the causes are d-connected. Compute marginal and stratified correlations.
+
+The examples here were very medical/epidemiology-focused. (Especially Exercise 3.) Change exercise 3 (and possibly 1) to an example from another context from the "Endogenous Selection Bias" paper by Elwert and Winship. The one on sample truncation (outcome restriction) to low earners might be a good accessible one. Ask them to explain HOW the collider stratification induces dependence.
+
+Add an exercise where students draw a causal diagram on their own from a brief description of a data context.
+
+Post-class (homework) idea: have them read through (parts of) "Endogenous Selection Bias" by Elwert and Winship and write about understanding.
+
+Possibility way down the line for IV to have them read (parts of) "Selecting on Treatment" (or incorporate ideas into exercises). -->
+
+
+## Learning Goals {-}
+
+- Apply d-separation to block noncausal paths in causal DAGs with and without unobserved variables
+- Differentiate confounding and selection bias in terms of graph structure and how they arise in applied studies
+
+
+<br>
+
+
+Slides from today are available [here](https://docs.google.com/presentation/d/1kKLc50HZmMf2gcfZWAJLiuHhaKMHXvwsbUUHKYO2Uko/edit?usp=sharing).
+
+
+<br><br><br>
+
+
+## Exercises {-}
+
+```{block2, type="warmup"}
+**Navigate to [DAGitty](http://www.dagitty.net/) and click the "Launch online" link.**
+```
+
+<br>
+
+
+### Exercise 1 {-}
+
+First, think through the relationships depicted in the causal graphs below and whether they make sense. These are intended to reflect a range of scenarios for why people drop out of studies.
+
+Then for each of the graphs, identify the set of variables needed to achieve conditional exchangeability of the treatment $A$ and outcome $Y$. Check your answers to one of the graphs using [DAGitty](http://www.dagitty.net/dags.html).
+
+<center>
+    ![](images/07_dag2.png)
+    ![](images/07_dag3.png)
+    ![](images/07_dag4.png)
+</center>
+
+
+<br><br>
+
+
+### Exercise 2 {-}
+
+In this exercise, we'll consider how causal graphs can inform study design. (Inspired by a 1970s study on the relationship between estrogen use and endometrial cancer.)
+
+Researchers have noticed a consistent association between use of a certain drug and disease. Research groups debated two hypotheses:
+
+1. The drug does cause disease.
+2. The drug doesn't actually cause disease but leads to a side effect, leading to more frequent doctor visits, leading to increased diagnosis of existing disease.
+
+The following study plan was proposed: restrict the study only to those with side effects and compare disease rates in drug-users and non-users. In this way, all participants have the same chance of being diagnosed.
+
+The following causal graphs correspond to the two hypotheses:
+
+<center>
+![](images/estrogens_endometrial_generalized.png)
+</center>
+
+(The graphs don't show confounders of the drug-true disease relationship for compactness. We can assume that these have already been adjusted for.)
+
+#### Study design 1 {-}
+
+Consider the study proposal above: restrict analysis to those with side effects.
+
+- Before looking at the causal graphs: does the rationale for this study design make sense? Why did researchers want to only look at patients with side effects?
+
+- Under this study design, the researchers were expecting that if Hypothesis 1 were correct (the drug does cause disease), they would find an association between drug use and diagnosed disease. They expected that if Hypothesis 2 were correct (the drug does NOT cause disease), they would find NO association between drug use and diagnosed disease.
+    - Are these expectations correct? Explain in light of the causal graphs.
+
+- Based on your answer above, is this an effective study design for the research questions of interest? That is, can this study proposal distinguish between the two hypotheses?
+
+#### Study design 2 {-}
+
+Consider another study proposal: ensure that *everyone* is screened for disease frequently, and we don't restrict our analysis to only those with side effects.
+
+- What arrow can be removed as a result of this study design? (It might help to draw an updated version of DAGs 1 and 2 with this arrow removed.)
+
+- Under this study design, the researchers had the same expectations: if Hypothesis 1 were correct, they would find an association between drug use and diagnosed disease. If Hypothesis 2 were correct, they would find NO association between drug use and diagnosed disease.
+    - Are these expectations correct? Explain in light of the causal graphs.
+
+- Based on your answer above, is this an effective study design for the research questions of interest? That is, can this study proposal distinguish between the two hypotheses?
+
+
+<br><br>
+
+
+### Exercise 3 {-}
+
+In 2020, a COVID-19 risk factory study received a lot of press for the surprising finding that smoking seemed protective for COVID-19 mortality.
+
+Dr. Eleanor Murray posted a [series of Tweets](https://twitter.com/EpiEllie/status/1258607277357006849) diving into the situation from a causal graphs perspective. Read through her Tweets and discuss the following:
+
+- How might we explain the paradoxical protective effect of smoking found in the risk factor study?
+- Dr. Murray also discusses the importance of clarifying a causal question and the "Table 2 Fallacy." Did any of these other ideas resonate with you, pique your curiosity, or leave you uncertain?
+- Comment on the structure of the Tweetorial. What was effective and less effective? Would you have presented the information differently? Using different causal graphs? (If you feel inclined, put your ideas in Tweet form!)
+
