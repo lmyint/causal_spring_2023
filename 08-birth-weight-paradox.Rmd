@@ -1,0 +1,39 @@
+```{r 08_setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, eval=FALSE, fig.align="center")
+```
+
+# The Smoking-Birth Weight Paradox
+
+Slides from today are available [here](https://docs.google.com/presentation/d/1e-w_A0S79bdNMhTIKqC7Ev8EIKKKaJzojA0HFvyO8Hk/edit?usp=sharing).
+
+## Our Task {-}
+
+**Goal:** Create a set of slides for a capstone-style presentation explaining the paradox in story form. Aim for the presentation to be fully accessible to STAT 451 students who have not read the paper, and to be somewhat accessible to STAT 155 students.
+
+<br>
+
+**Group roles:** To facilitate our work today, it may be helpful to divide the work along the following group roles:
+
+- **Recorder:** This person is crafting the slides (with guidance from others). This person creates the Google Slides file and shares it with the team and the instructor.
+- **Referencer:** This person has the paper open to refer to key claims.
+- **Visioner:** This person keeps the big picture in mind to guide the construction of the presentation.
+- **Facilitator:** This person keeps everyone on track, manages time, and ensures that works is progressing at a good pace.
+- **Checker:** This person monitors the accuracy of what has been created and keeps the guiding prompts below in mind, bringing them into the discussion when appropriate.
+
+<br>
+
+**Guiding prompts:** Use these prompts to guide the crafting of your presentation to ensure that you consider key points:
+
+1. In all causal diagrams considered in this paper, no confounders of maternal smoking and mortality are shown. Given the intent of the paper, do you think this is a problem?
+
+2. Consider the choice and sequencing of causal diagrams presented in the paper. Which of Figures 3.1-3.6 will you choose to highlight in your presentation? (Figure 3.7 is the most complete and should go in your presentation.)
+
+3. It may help to use Figure 3.6 to outline your explanation before tackling the more complex Figure 3.7.
+    - Both collider stratification and relative effect magnitudes (strengths of relationships along individual arrows) will be important in your explanation.
+
+4. The discussions in the paper focus on the impacts of conditioning on `Low birth weight = Yes`. Do you think the paradox would hold if we condition on `Low birth weight = No`?
+
+5. (If time permits) Incorporate the alcoholism-liver cancer example at the end of the paper (just before the Discussion section).
+
+
+

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Guiding Questions | STAT 451: Causal Inference</title>
+  <title>Topic 8 The Smoking-Birth Weight Paradox | STAT 451: Causal Inference</title>
   <meta name="description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Guiding Questions | STAT 451: Causal Inference" />
+  <meta property="og:title" content="Topic 8 The Smoking-Birth Weight Paradox | STAT 451: Causal Inference" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   <meta name="github-repo" content="lmyint/causal_spring_2023" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Guiding Questions | STAT 451: Causal Inference" />
+  <meta name="twitter:title" content="Topic 8 The Smoking-Birth Weight Paradox | STAT 451: Causal Inference" />
   
   <meta name="twitter:description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="schedule.html"/>
-<link rel="next" href="motivation-and-review.html"/>
+<link rel="prev" href="graphical-structure-of-selection-bias.html"/>
+<link rel="next" href="homework-1.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -280,65 +280,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="guiding-questions" class="section level1 unnumbered hasAnchor">
-<h1>Guiding Questions<a href="guiding-questions.html#guiding-questions" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><strong>Motivation and Review</strong> <a id="gq-motivation-review"></a></p>
+<div id="the-smoking-birth-weight-paradox" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Topic 8</span> The Smoking-Birth Weight Paradox<a href="the-smoking-birth-weight-paradox.html#the-smoking-birth-weight-paradox" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Slides from today are available <a href="https://docs.google.com/presentation/d/1e-w_A0S79bdNMhTIKqC7Ev8EIKKKaJzojA0HFvyO8Hk/edit?usp=sharing">here</a>.</p>
+<div id="our-task" class="section level2 unnumbered hasAnchor">
+<h2>Our Task<a href="the-smoking-birth-weight-paradox.html#our-task" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Goal:</strong> Create a set of slides for a capstone-style presentation explaining the paradox in story form. Aim for the presentation to be fully accessible to STAT 451 students who have not read the paper, and to be somewhat accessible to STAT 155 students.</p>
+<p><br></p>
+<p><strong>Group roles:</strong> To facilitate our work today, it may be helpful to divide the work along the following group roles:</p>
 <ul>
-<li>Let’s think about the word “cause” (and related phrases like “results in” and “leads to.”) What do you think “cause” means? How do you/people you know use it in day-to-day conversation and thinking?</li>
-<li>Why do we want to learn about causes? What should our goals be in learning about causes?</li>
-<li>“Correlation does not imply causation.” Has this saying come up in conversations occasionally? If so, how? How do you feel about the value of this saying?</li>
+<li><strong>Recorder:</strong> This person is crafting the slides (with guidance from others). This person creates the Google Slides file and shares it with the team and the instructor.</li>
+<li><strong>Referencer:</strong> This person has the paper open to refer to key claims.</li>
+<li><strong>Visioner:</strong> This person keeps the big picture in mind to guide the construction of the presentation.</li>
+<li><strong>Facilitator:</strong> This person keeps everyone on track, manages time, and ensures that works is progressing at a good pace.</li>
+<li><strong>Checker:</strong> This person monitors the accuracy of what has been created and keeps the guiding prompts below in mind, bringing them into the discussion when appropriate.</li>
 </ul>
-<p><br><br><br><br><br></p>
-<p><strong>Exchangeability</strong> <a id="gq-exchangeability"></a></p>
+<p><br></p>
+<p><strong>Guiding prompts:</strong> Use these prompts to guide the crafting of your presentation to ensure that you consider key points:</p>
+<ol style="list-style-type: decimal">
+<li><p>In all causal diagrams considered in this paper, no confounders of maternal smoking and mortality are shown. Given the intent of the paper, do you think this is a problem?</p></li>
+<li><p>Consider the choice and sequencing of causal diagrams presented in the paper. Which of Figures 3.1-3.6 will you choose to highlight in your presentation? (Figure 3.7 is the most complete and should go in your presentation.)</p></li>
+<li><p>It may help to use Figure 3.6 to outline your explanation before tackling the more complex Figure 3.7.</p>
 <ul>
-<li>Is the definition of a potential outcome and a causal effect satisfying to you? How do these notions relate to what you had thought about causes and causation previously? (Reflect on and connect to our Day 1 activity.)</li>
-<li>Let’s think about exchangeability in big picture terms. Setting aside the technical definitions in terms of (conditional) independence, what is exchangeability trying to describe? Try to find a good word/phrase (not “independent”) to complete the following sentence: “If the treated and untreated groups are exchangeable, we could also describe them as being …”</li>
-<li>How can we use the concepts of marginal and conditional exchangeability to make statements about potential outcome distributions in the treated and in the untreated?</li>
-<li>Marginal and conditional exchangeability are <strong>assumptions</strong>–do you think these assumptions are testable using data? Why or why not?</li>
-</ul>
-<p>Extra self-check resource: Moodle checkpoint on <a href="https://moodle.macalester.edu/mod/quiz/view.php?id=17844">Causal Effects and Exchangeability</a></p>
-<p><br><br><br><br><br></p>
-<p><strong>Study Designs</strong> <a id="gq-study-designs"></a></p>
-<ul>
-<li>Why are randomized experiments often called the “gold standard” for causal inference? What is the relationship between randomized experiments and exchangeability?</li>
-<li>Consider the quasi-experimental designs discussed in the video. How do these designs try to mimic randomization? What assumptions do they make to allow making statements about missing potential outcomes?</li>
-</ul>
-<p>Extra self-check resource: Moodle checkpoint on <a href="https://moodle.macalester.edu/mod/quiz/view.php?id=17845">Study Designs for Causal Inference</a></p>
-<p><br><br><br><br><br></p>
-<p><strong>Causal Graphs as Statistical Models</strong> <a id="gq-causal-graphs-models"></a></p>
-<ul>
-<li>Why is it sensible for causal graphs to be directed and acyclic?</li>
-<li>How can “feedback loops” be represented in causal graphs?</li>
-<li>What extra information does a structural equation model encode that a causal graph alone does not?</li>
-</ul>
-<p>Extra self-check resource: Moodle checkpoint on <a href="https://moodle.macalester.edu/mod/quiz/view.php?id=17846">Causal Graphs as Statistical Models</a></p>
-<p><br><br><br><br><br></p>
-<p><strong>Key Structures in Causal Graphs</strong> <a id="gq-key-structures"></a></p>
-<ul>
-<li>What marginal and conditional (in)dependence relations pertain to chains, forks, and colliders? Do these relations make sense? What examples (in the video or your own) help rationalize these relations?</li>
-</ul>
-<p>Extra self-check resource: Moodle checkpoint on <a href="https://moodle.macalester.edu/mod/quiz/view.php?id=17847">Key Structures in Causal Graphs</a></p>
-<p><br><br><br><br><br></p>
-<p><strong>Graphical Structure of Confounding</strong> <a id="gq-struct-confounding"></a></p>
-<ul>
-<li>What is the relationship between d-separation, causal/noncausal paths, conditional exchangeability, and estimating causal effects?</li>
-</ul>
-<p>Extra self-check resource: Moodle checkpoint on <a href="https://moodle.macalester.edu/mod/quiz/view.php?id=17848">(Non)causal Paths and D-Separation</a></p>
-<p><br><br><br><br><br></p>
-<p><strong>Graphical Structure of Selection Bias</strong> <a id="gq-struct-selection-bias"></a></p>
-<ul>
-<li>How is selection bias different from confounding bias?</li>
-</ul>
-<p><br><br><br><br><br></p>
-<p><strong>The Smoking-Birthweight Paradox</strong> <a id="gq-sbw-paradox"></a></p>
-<ul>
-<li>What is the paradox/surprising finding at the center of this paper? What data are presented that illustrate this surprising finding?</li>
-<li>How do the authors use causal graphs to explain the paradox? Do you find the discussion of causal graphs helpful? Why or why not?</li>
-</ul>
-<div style="height: 800px;">
+<li>Both collider stratification and relative effect magnitudes (strengths of relationships along individual arrows) will be important in your explanation.</li>
+</ul></li>
+<li><p>The discussions in the paper focus on the impacts of conditioning on <code>Low birth weight = Yes</code>. Do you think the paradox would hold if we condition on <code>Low birth weight = No</code>?</p></li>
+<li><p>(If time permits) Incorporate the alcoholism-liver cancer example at the end of the paper (just before the Discussion section).</p></li>
+</ol>
 
 </div>
-
 </div>
 
 
@@ -348,8 +318,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="schedule.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="motivation-and-review.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="graphical-structure-of-selection-bias.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="homework-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
