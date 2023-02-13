@@ -65,4 +65,18 @@ Extra self-check resource: Moodle checkpoint on [(Non)causal Paths and D-Separat
 - What is the paradox/surprising finding at the center of this paper? What data are presented that illustrate this surprising finding?
 - How do the authors use causal graphs to explain the paradox? Do you find the discussion of causal graphs helpful? Why or why not?
 
+<br><br><br><br><br>
+
+**Building Causal Graphs for Applied Analyses** <a id="gq-building-graphs"></a>
+
+- The video describes a way to think through building a causal graph for an applied analysis. Do you agree with the rationale for the thought process? Are there any other aspects of the graph-building process that you have questions about? (e.g., How would a given step work out in practice?)
+
+<br><br><br><br><br>
+
+**Regression for Estimating Causal Effects** <a id="gq-regression"></a>
+
+- What is the connection between conditional exchangeability and the variables needed to include in a regression model for estimating causal effects?
+- What steps can we take to ensure that the *form* of our regression model is as accurate as possible?
+- What concerns arise when trying to interpret all coefficients (not just the treatment coefficient) from regression output?
+
 <div style="height: 800px;"></div>
