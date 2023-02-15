@@ -1,0 +1,100 @@
+```{r 09_setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, eval=FALSE, fig.align="center")
+```
+
+# Building Causal Graphs for Applied Analyses
+
+## Learning Goals {-}
+
+- Practice building causal graphs to answer causal questions in an applied setting
+
+
+<br><br><br>
+
+
+## Exercises {-}
+
+### Data context {-}
+
+In 2019, The New York Times [featured](https://www.nytimes.com/2020/09/29/business/economy/pandemic-women-tenure.html) research by a group who studied the effect of tenure-clock stopping policies on tenure outcomes.
+
+We'll be looking at data from the study [Equal but Inequitable: Who Benefits from Gender-Neutral Tenure Clock Stopping Policies?](https://www.aeaweb.org/articles?id=10.1257/aer.20160613) by Antecol, Bedard, and Stearns.
+
+The cases in the data represent individual faculty members in economics departments at top-50 schools. For each faculty member, we have information on several different tenure outcomes, career information, and school characteristics.
+
+**Research questions:** What is the effect of working at an institution with a gender-neutral tenure clock stopping policy on tenure outcomes? How is this effect different for men and women? (The authors only collected information on binary gender.)
+
+
+<br><br>
+
+
+### Collaborative causal graph construction {-}
+
+Using the thought process described in our pre-class concept video, construct a causal graph that captures crucial information for our context. **This will be hard. It will involve substantial discussion and uncertainty. All of this is part of the process.**
+
+The instructor will serve as a subject-matter expert. Consult with her on any questions that arise.
+
+If you want to get up and move around, feel free to draw your DAG on the whiteboards. Others not at the whiteboard should record thoughts on [DAGitty](http://www.dagitty.net/dags.html).
+
+- Start by adding the treatment and outcome and identifying common causes of the treatment and outcome.
+    - To identify common causes, it can be helpful to start by just brainstorming causes of the outcome. 
+    - Then determine if/how these causes might be related to treatment.
+- Think through the common causes of pairs of variables that are not the treatment-outcome pair.
+    - This is likely harder than the previous step. And you may be worried about an infinite regress of common causes (when can we stop?!).
+        - If you are struggling to identify these common causes, it's quite possible that they are of such small importance so as to not matter.
+        - You can check to see if including a common cause would actually change the conditional exchangeability set.
+
+As you go through this process, make note of what you are uncertain about and what aspects are hard. Not only is this useful metacognitive information, but it's also likely that you are experiencing troubles that could be helped with further methodological and/or software development.
+
+
+<br><br>
+
+
+### Incorporate information on available variables {-}
+
+Below is an abbreviated description of the variables available in our data. Goals for this phase:
+
+1. See which variables on your graph correspond directly to available variables. Replace the name of the variable on your graph with the variable name from the list below.
+2. Based on your graph, what variables are needed to achieve conditional exchangeability?
+    - If any of these variables did not have a direct mapping from Step 1, these may potentially be unobserved factors (threatening conditional exchangeability). Are there any variables below that would be good proxies/surrogates for those factors?
+3. If at the end of this process, you still have unobserved variables in your conditional exchangeability set, that's fine. Just note what those are. (Later in the semester we'll learn about tools for addressing the potential impact of unmeasured variables.)
+
+<br>
+
+**Treatment and primary outcome:**
+
+- `gncs`: Is a gender-neutral clock-stopping policy in place at this person's school? (treatment)
+- `tenure_policy_school`: Did this person get tenure at the university with the clock-stopping policy? (primary outcome)
+
+<br>
+
+**Additional outcomes (mediators):**
+
+- `top_pubsX`: cumulative number of peer-reviewed publications in top-5 journals by year X (3, 5, 7, and 9) since PhD completion 
+- `PUBSX`: cumulative number of non-top-5 peer-reviewed publications by year X (3, 5 7, and 9) since PhD completion
+
+<br>
+
+**Additional covariates:**
+
+- `female`: Is the faculty member a female?
+- `pol_u`: policy university identifier (values are randomized for privacy reasons)
+- `pol_job_start`: identifier for year the job at the policy university started (values are randomized for privacy reasons)
+- `phd_rank`: 1-5 categorical variable of PhD program tier based on placements into the top-50 departments in our sample
+- `phd_rank_miss`: indicator for missing PhD information
+- `post_doc`: indicator for doing a post-doc before the first tenure-track position
+- `ug_students`: number of undergraduate students at the university, in thousands 
+- `grad_students`: number of graduate students at the university, in thousands 
+- `faculty`: number of faculty at the university (all disciplines), in hundreds 
+- `full_av_salary`: average salary of full professors at the university, in thousands 
+- `assist_av_salary`: average salary of assistant professors at the university, in thousands, 
+- `revenue`: annual revenue of the university, in 10,000,000s 
+- `female_ratio`: fraction of the faculty at the university who are female 
+- `full_ratio`: fraction of the faculty at the university who are full professors
+- `any_birth`: indicator for having at least one child within 5 years of PhD completion 
+- `all_birth`: number of children by 5 years after PhD completion 
+- `havekids`: indicator for ever having at least one child 
+- `numkids`: number of children ever born
+
+(Information on additional variables is available in the ReadMe file in [this folder](https://moodle.macalester.edu/mod/folder/view.php?id=36846) on Moodle.)
+

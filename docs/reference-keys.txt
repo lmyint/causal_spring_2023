@@ -6,3 +6,4 @@ key-structures-in-causal-graphs
 graphical-structure-of-confounding
 graphical-structure-of-selection-bias
 the-smoking-birth-weight-paradox
+building-causal-graphs-for-applied-analyses
