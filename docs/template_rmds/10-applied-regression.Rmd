@@ -1,0 +1,147 @@
+---
+title: "Applied Analysis: Regression"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+## Data context and research questions
+
+```{r}
+library(tidyverse)
+library(splines) # Make sure that the splines package is installed before running
+
+tenure <- read_csv("aer_primarysample.csv")
+
+tenure <- tenure %>%
+    mutate(
+        faculty = ifelse(faculty_miss==1, NA, faculty),
+        revenue = ifelse(revenue_miss==1, NA, revenue),
+        female_ratio = ifelse(female_ratio_miss==1, NA, female_ratio),
+        full_ratio = ifelse(full_ratio_miss==1, NA, full_ratio),
+        phd_rank = ifelse(phd_rank_miss==1, NA, phd_rank),
+        max_csstops = ifelse(max_csstops_miss==1, NA, max_csstops)
+    )
+```
+
+**Research questions:** Does a policy that delays the tenure process (for new parents) actually help tenure outcomes? Does it help men and women equally?
+
+The data and full codebook are available [on Moodle](https://moodle.macalester.edu/mod/folder/view.php?id=36846) (`aer_primarysample.csv` and `ReadMe.pdf`). An abbreviated codebook is below:
+
+**Treatment and primary outcome:**
+
+- `gncs`: Is a gender-neutral clock-stopping policy in place at this person's school? (treatment)
+- `tenure_policy_school`: Did this person get tenure at the university with the clock-stopping policy? (primary outcome)
+
+<br>
+
+**Additional outcomes (mediators):**
+
+- `top_pubsX`: cumulative number of peer-reviewed publications in top-5 journals by year X (3, 5, 7, and 9) since PhD completion 
+- `PUBSX`: cumulative number of non-top-5 peer-reviewed publications by year X (3, 5 7, and 9) since PhD completion
+
+<br>
+
+**Additional covariates:**
+
+- `female`: Is the faculty member a female?
+- `pol_u`: policy university identifier (values are randomized for privacy reasons)
+- `pol_job_start`: identifier for year the job at the policy university started (values are randomized for privacy reasons)
+- `phd_rank`: 1-5 categorical variable of PhD program tier based on placements into the top-50 departments in our sample
+- `phd_rank_miss`: indicator for missing PhD information
+- `post_doc`: indicator for doing a post-doc before the first tenure-track position
+- `ug_students`: number of undergraduate students at the university, in thousands 
+- `grad_students`: number of graduate students at the university, in thousands 
+- `faculty`: number of faculty at the university (all disciplines), in hundreds 
+- `full_av_salary`: average salary of full professors at the university, in thousands 
+- `assist_av_salary`: average salary of assistant professors at the university, in thousands, 
+- `revenue`: annual revenue of the university, in 10,000,000s 
+- `female_ratio`: fraction of the faculty at the university who are female 
+- `full_ratio`: fraction of the faculty at the university who are full professors
+- `RANK`: equal to 1 for top-10 departments and 2 for all other departments
+- `max_csstops`: number of children born within five years of PhD completion
+
+
+
+## Part 1: Finalize adjustment set
+
+If you constructed your causal graph on DAGitty last class, paste your model code into [this Google Doc](https://docs.google.com/document/d/16NMaOKVHDaFy43tuHYjIaYRqSM3ct0Op97kC8uxT9es/edit?usp=sharing), and report the variables needed to achieve conditional exchangeability.
+
+- Pick one graph to focus on for the remainder of this analysis. Open [DAGitty](http://www.dagitty.net/dags.html) and paste the model code from the Google Doc into the "Model code" pane on the right. Click "Update DAG" to view the graph.
+
+- Spend a *short* amount of time reviewing this graph to see if you generally agree with the relationships depicted. Make any updates that you think are sensible. (Again, keep this short - in practice, this should take weeks of thorough literature review and expert consultation.)
+
+- If any variables do not directly correspond to available variables, find proxies for them. (Several variables may end up serving as a proxy for one unmeasured variable on your graph.) Based on this, decide on your final adjustment set.
+
+
+
+
+
+
+
+## Part 2: Exploratory analysis
+
+Construct visualizations to inform your regression model specification. Your visualizations should:
+
+- Explore nonlinear relationships between conditioning variables and the outcome
+- Explore an interaction between **one pair** of conditioning variables. (To keep our analysis short)
+
+**Note:** All of the variables are coded as numeric, so if you need to make bar plots, you may need to wrap the variable name inside `factor()`, e.g., `factor(female)`.
+
+The code below will be useful for exploring nonlinearity in covariate-outcome relationships. The blue smooth reflects observed data trends, and the red smooth shows the predictions from a logistic regression model with a specific model formula.
+
+- Formula `y ~ x`: Covariate is included as a linear term
+- Formula `y ~ ns(x,3)`: Covariate is modeled with a flexible nonlinear function (a "spline" with 3 degrees of freedom--don't worry about the details of this)
+
+The model predictions should generally align with observed data trends. If they don't line up well using formula `y ~ x`, update the formula to `y ~ ns(x, 3)` to see if there is an improvement.
+
+```{r}
+ggplot(data, aes(x = covariate, y = tenure_policy_school)) +
+    geom_point() +
+    geom_smooth(se = FALSE, color = "blue") +
+    geom_smooth(formula = INSERT_MODEL_FORMULA, method = "glm",
+        method.args = list(family="binomial"),
+        se = FALSE, color = "red"
+    )
+```
+
+
+
+
+
+## Part 3: Modeling
+
+Fit a model to estimate the overall average causal effect and another to estimate the subgroup average causal effects for males and females. (Recall: `A*B` in a model formula creates an interaction between `A` and `B`.)
+
+For both models, display the summarized output table and 95% confidence intervals for the coefficients of interest.
+
+Interpret the coefficients of interest on the natural (exponentiated) scale.
+
+```{r}
+mod_overall <- glm(INSERT_MODEL_FORMULA, data = tenure, family = "binomial")
+mod_bygender <- glm(INSERT_MODEL_FORMULA, data = tenure, family = "binomial")
+
+summary(mod_overall)
+summary(mod_bygender)
+
+# On the log scale
+confint(mod_overall)
+confint(mod_bygender)
+
+# On the natural scale
+confint(mod_overall) %>% exp()
+confint(mod_bygender) %>% exp()
+```
+
+
+
+
+
+## Part 4: Interpretation and discussion
+
+- Using both the confidence intervals and effect magnitudes, discuss the results of your analysis in a contextually meaningful way. (Tie these results back to the research questions.)
+
+- Discuss limitations of your analysis by acknowledging the points in the analysis process that were most uncertain.
+
+

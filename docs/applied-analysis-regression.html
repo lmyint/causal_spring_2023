@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Topic 8 The Smoking-Birth Weight Paradox | STAT 451: Causal Inference</title>
+  <title>Topic 10 Applied Analysis: Regression | STAT 451: Causal Inference</title>
   <meta name="description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Topic 8 The Smoking-Birth Weight Paradox | STAT 451: Causal Inference" />
+  <meta property="og:title" content="Topic 10 Applied Analysis: Regression | STAT 451: Causal Inference" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   <meta name="github-repo" content="lmyint/causal_spring_2023" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Topic 8 The Smoking-Birth Weight Paradox | STAT 451: Causal Inference" />
+  <meta name="twitter:title" content="Topic 10 Applied Analysis: Regression | STAT 451: Causal Inference" />
   
   <meta name="twitter:description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="graphical-structure-of-selection-bias.html"/>
-<link rel="next" href="building-causal-graphs-for-applied-analyses.html"/>
+<link rel="prev" href="building-causal-graphs-for-applied-analyses.html"/>
+<link rel="next" href="homework-1.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -303,43 +303,143 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="the-smoking-birth-weight-paradox" class="section level1 hasAnchor" number="8">
-<h1><span class="header-section-number">Topic 8</span> The Smoking-Birth Weight Paradox<a href="the-smoking-birth-weight-paradox.html#the-smoking-birth-weight-paradox" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Slides from today are available <a href="https://docs.google.com/presentation/d/1e-w_A0S79bdNMhTIKqC7Ev8EIKKKaJzojA0HFvyO8Hk/edit?usp=sharing">here</a>.</p>
-<div id="our-task" class="section level2 unnumbered hasAnchor">
-<h2>Our Task<a href="the-smoking-birth-weight-paradox.html#our-task" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><strong>Goal:</strong> Create a set of slides for a capstone-style presentation explaining the paradox in story form. Aim for the presentation to be fully accessible to STAT 451 students who have not read the paper, and to be somewhat accessible to STAT 155 students.</p>
-<p><br></p>
-<p><strong>Group roles:</strong> To facilitate our work today, it may be helpful to divide the work along the following group roles:</p>
+<div id="applied-analysis-regression" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">Topic 10</span> Applied Analysis: Regression<a href="applied-analysis-regression.html#applied-analysis-regression" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="learning-goals-7" class="section level2 unnumbered hasAnchor">
+<h2>Learning Goals<a href="applied-analysis-regression.html#learning-goals-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li><strong>Recorder:</strong> This person is crafting the slides (with guidance from others). This person creates the Google Slides file and shares it with the team and the instructor.</li>
-<li><strong>Referencer:</strong> This person has the paper open to refer to key claims.</li>
-<li><strong>Visioner:</strong> This person keeps the big picture in mind to guide the construction of the presentation.</li>
-<li><strong>Facilitator:</strong> This person keeps everyone on track, manages time, and ensures that works is progressing at a good pace.</li>
-<li><strong>Checker:</strong> This person monitors the accuracy of what has been created and keeps the guiding prompts below in mind, bringing them into the discussion when appropriate.</li>
+<li>Conduct and interpret results from a regression analysis to estimate average causal effects and subgroup average causal effects</li>
 </ul>
 <p><br></p>
-<p><strong>Guiding prompts:</strong> Use these prompts to guide the crafting of your presentation to ensure that you consider key points:</p>
-<ol style="list-style-type: decimal">
-<li><p>In all causal diagrams considered in this paper, no confounders of maternal smoking and mortality are shown. Given the intent of the paper, do you think this is a problem?</p></li>
-<li><p>Consider the choice and sequencing of causal diagrams presented in the paper. Which of Figures 3.1-3.6 will you choose to highlight in your presentation? (Figure 3.7 is the most complete and should go in your presentation.)</p></li>
-<li><p>It may help to use Figure 3.6 to outline your explanation before tackling the more complex Figure 3.7.</p>
+<p>Slides from today are available <a href="https://docs.google.com/presentation/d/1kDpUsGSmvGP29rw2MB5VCErWz1oR0ez9YohzfEqZUwI/edit?usp=sharing">here</a>.</p>
+<p><br><br><br></p>
+</div>
+<div id="analysis" class="section level2 unnumbered hasAnchor">
+<h2>Analysis<a href="applied-analysis-regression.html#analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>You can download a template RMarkdown file to start from <a href="template_rmds/10-applied-regression.Rmd">here</a>.</strong></p>
+<div id="data-context-and-research-questions" class="section level3 unnumbered hasAnchor">
+<h3>Data context and research questions<a href="applied-analysis-regression.html#data-context-and-research-questions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="applied-analysis-regression.html#cb7-1" aria-hidden="true"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb7-2"><a href="applied-analysis-regression.html#cb7-2" aria-hidden="true"></a><span class="kw">library</span>(splines) <span class="co"># Make sure that the splines package is installed before running</span></span>
+<span id="cb7-3"><a href="applied-analysis-regression.html#cb7-3" aria-hidden="true"></a></span>
+<span id="cb7-4"><a href="applied-analysis-regression.html#cb7-4" aria-hidden="true"></a>tenure &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;aer_primarysample.csv&quot;</span>)</span>
+<span id="cb7-5"><a href="applied-analysis-regression.html#cb7-5" aria-hidden="true"></a></span>
+<span id="cb7-6"><a href="applied-analysis-regression.html#cb7-6" aria-hidden="true"></a>tenure &lt;-<span class="st"> </span>tenure <span class="op">%&gt;%</span></span>
+<span id="cb7-7"><a href="applied-analysis-regression.html#cb7-7" aria-hidden="true"></a><span class="st">    </span><span class="kw">mutate</span>(</span>
+<span id="cb7-8"><a href="applied-analysis-regression.html#cb7-8" aria-hidden="true"></a>        <span class="dt">faculty =</span> <span class="kw">ifelse</span>(faculty_miss<span class="op">==</span><span class="dv">1</span>, <span class="ot">NA</span>, faculty),</span>
+<span id="cb7-9"><a href="applied-analysis-regression.html#cb7-9" aria-hidden="true"></a>        <span class="dt">revenue =</span> <span class="kw">ifelse</span>(revenue_miss<span class="op">==</span><span class="dv">1</span>, <span class="ot">NA</span>, revenue),</span>
+<span id="cb7-10"><a href="applied-analysis-regression.html#cb7-10" aria-hidden="true"></a>        <span class="dt">female_ratio =</span> <span class="kw">ifelse</span>(female_ratio_miss<span class="op">==</span><span class="dv">1</span>, <span class="ot">NA</span>, female_ratio),</span>
+<span id="cb7-11"><a href="applied-analysis-regression.html#cb7-11" aria-hidden="true"></a>        <span class="dt">full_ratio =</span> <span class="kw">ifelse</span>(full_ratio_miss<span class="op">==</span><span class="dv">1</span>, <span class="ot">NA</span>, full_ratio),</span>
+<span id="cb7-12"><a href="applied-analysis-regression.html#cb7-12" aria-hidden="true"></a>        <span class="dt">phd_rank =</span> <span class="kw">ifelse</span>(phd_rank_miss<span class="op">==</span><span class="dv">1</span>, <span class="ot">NA</span>, phd_rank),</span>
+<span id="cb7-13"><a href="applied-analysis-regression.html#cb7-13" aria-hidden="true"></a>        <span class="dt">max_csstops =</span> <span class="kw">ifelse</span>(max_csstops_miss<span class="op">==</span><span class="dv">1</span>, <span class="ot">NA</span>, max_csstops)</span>
+<span id="cb7-14"><a href="applied-analysis-regression.html#cb7-14" aria-hidden="true"></a>    )</span></code></pre></div>
+<p><strong>Research questions:</strong> Does a policy that delays the tenure process (for new parents) actually help tenure outcomes? Does it help men and women equally?</p>
+<p>The data and full codebook are available <a href="https://moodle.macalester.edu/mod/folder/view.php?id=36846">on Moodle</a> (<code>aer_primarysample.csv</code> and <code>ReadMe.pdf</code>). An abbreviated codebook is below:</p>
+<p><strong>Treatment and primary outcome:</strong></p>
 <ul>
-<li>Both collider stratification and relative effect magnitudes (strengths of relationships along individual arrows) will be important in your explanation.</li>
-</ul></li>
-<li><p>The discussions in the paper focus on the impacts of conditioning on <code>Low birth weight = Yes</code>. Do you think the paradox would hold if we condition on <code>Low birth weight = No</code>?</p></li>
-<li><p>(If time permits) Incorporate the alcoholism-liver cancer example at the end of the paper (just before the Discussion section).</p></li>
-</ol>
+<li><code>gncs</code>: Is a gender-neutral clock-stopping policy in place at this person’s school? (treatment)</li>
+<li><code>tenure_policy_school</code>: Did this person get tenure at the university with the clock-stopping policy? (primary outcome)</li>
+</ul>
+<p><br></p>
+<p><strong>Additional outcomes (mediators):</strong></p>
+<ul>
+<li><code>top_pubsX</code>: cumulative number of peer-reviewed publications in top-5 journals by year X (3, 5, 7, and 9) since PhD completion</li>
+<li><code>PUBSX</code>: cumulative number of non-top-5 peer-reviewed publications by year X (3, 5 7, and 9) since PhD completion</li>
+</ul>
+<p><br></p>
+<p><strong>Additional covariates:</strong></p>
+<ul>
+<li><code>female</code>: Is the faculty member a female?</li>
+<li><code>pol_u</code>: policy university identifier (values are randomized for privacy reasons)</li>
+<li><code>pol_job_start</code>: identifier for year the job at the policy university started (values are randomized for privacy reasons)</li>
+<li><code>phd_rank</code>: 1-5 categorical variable of PhD program tier based on placements into the top-50 departments in our sample</li>
+<li><code>phd_rank_miss</code>: indicator for missing PhD information</li>
+<li><code>post_doc</code>: indicator for doing a post-doc before the first tenure-track position</li>
+<li><code>ug_students</code>: number of undergraduate students at the university, in thousands</li>
+<li><code>grad_students</code>: number of graduate students at the university, in thousands</li>
+<li><code>faculty</code>: number of faculty at the university (all disciplines), in hundreds</li>
+<li><code>full_av_salary</code>: average salary of full professors at the university, in thousands</li>
+<li><code>assist_av_salary</code>: average salary of assistant professors at the university, in thousands,</li>
+<li><code>revenue</code>: annual revenue of the university, in 10,000,000s</li>
+<li><code>female_ratio</code>: fraction of the faculty at the university who are female</li>
+<li><code>full_ratio</code>: fraction of the faculty at the university who are full professors</li>
+<li><code>RANK</code>: equal to 1 for top-10 departments and 2 for all other departments</li>
+<li><code>max_csstops</code>: number of children born within five years of PhD completion</li>
+</ul>
+</div>
+<div id="part-1-finalize-adjustment-set" class="section level3 unnumbered hasAnchor">
+<h3>Part 1: Finalize adjustment set<a href="applied-analysis-regression.html#part-1-finalize-adjustment-set" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If you constructed your causal graph on DAGitty last class, paste your model code into <a href="https://docs.google.com/document/d/16NMaOKVHDaFy43tuHYjIaYRqSM3ct0Op97kC8uxT9es/edit?usp=sharing">this Google Doc</a>, and report the variables needed to achieve conditional exchangeability.</p>
+<ul>
+<li><p>Pick one graph to focus on for the remainder of this analysis. Open <a href="http://www.dagitty.net/dags.html">DAGitty</a> and paste the model code from the Google Doc into the “Model code” pane on the right. Click “Update DAG” to view the graph.</p></li>
+<li><p>Spend a <em>short</em> amount of time reviewing this graph to see if you generally agree with the relationships depicted. Make any updates that you think are sensible. (Again, keep this short - in practice, this should take weeks of thorough literature review and expert consultation.)</p></li>
+<li><p>If any variables do not directly correspond to available variables, find proxies for them. (Several variables may end up serving as a proxy for one unmeasured variable on your graph.) Based on this, decide on your final adjustment set.</p></li>
+</ul>
+<p><br><br></p>
+</div>
+<div id="part-2-exploratory-analysis" class="section level3 unnumbered hasAnchor">
+<h3>Part 2: Exploratory analysis<a href="applied-analysis-regression.html#part-2-exploratory-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Construct visualizations to inform your regression model specification. Your visualizations should:</p>
+<ul>
+<li>Explore nonlinear relationships between conditioning variables and the outcome</li>
+<li>Explore an interaction between <strong>one pair</strong> of conditioning variables. (To keep our analysis short)</li>
+</ul>
+<p><strong>Note:</strong> All of the variables are coded as numeric, so if you need to make bar plots, you may need to wrap the variable name inside <code>factor()</code>, e.g., <code>factor(female)</code>.</p>
+<p>The code below will be useful for exploring nonlinearity in covariate-outcome relationships. The blue smooth reflects observed data trends, and the red smooth shows the predictions from a logistic regression model with a specific model formula.</p>
+<ul>
+<li>Formula <code>y ~ x</code>: Covariate is included as a linear term</li>
+<li>Formula <code>y ~ ns(x,3)</code>: Covariate is modeled with a flexible nonlinear function (a “spline” with 3 degrees of freedom–don’t worry about the details of this)</li>
+</ul>
+<p>The model predictions should generally align with observed data trends. If they don’t line up well using formula <code>y ~ x</code>, update the formula to <code>y ~ ns(x, 3)</code> to see if there is an improvement.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="applied-analysis-regression.html#cb8-1" aria-hidden="true"></a><span class="kw">ggplot</span>(data, <span class="kw">aes</span>(<span class="dt">x =</span> covariate, <span class="dt">y =</span> tenure_policy_school)) <span class="op">+</span></span>
+<span id="cb8-2"><a href="applied-analysis-regression.html#cb8-2" aria-hidden="true"></a><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
+<span id="cb8-3"><a href="applied-analysis-regression.html#cb8-3" aria-hidden="true"></a><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></span>
+<span id="cb8-4"><a href="applied-analysis-regression.html#cb8-4" aria-hidden="true"></a><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">formula =</span> INSERT_MODEL_FORMULA, <span class="dt">method =</span> <span class="st">&quot;glm&quot;</span>,</span>
+<span id="cb8-5"><a href="applied-analysis-regression.html#cb8-5" aria-hidden="true"></a>        <span class="dt">method.args =</span> <span class="kw">list</span>(<span class="dt">family=</span><span class="st">&quot;binomial&quot;</span>),</span>
+<span id="cb8-6"><a href="applied-analysis-regression.html#cb8-6" aria-hidden="true"></a>        <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span></span>
+<span id="cb8-7"><a href="applied-analysis-regression.html#cb8-7" aria-hidden="true"></a>    )</span></code></pre></div>
+<p><br><br></p>
+</div>
+<div id="part-3-modeling" class="section level3 unnumbered hasAnchor">
+<h3>Part 3: Modeling<a href="applied-analysis-regression.html#part-3-modeling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Fit a model to estimate the overall average causal effect and another to estimate the subgroup average causal effects for males and females. (Recall: <code>A*B</code> in a model formula creates an interaction between <code>A</code> and <code>B</code>.)</p>
+<p>For both models, display the summarized output table and 95% confidence intervals for the coefficients of interest.</p>
+<p>Interpret the coefficients of interest on the natural (exponentiated) scale.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="applied-analysis-regression.html#cb9-1" aria-hidden="true"></a>mod_overall &lt;-<span class="st"> </span><span class="kw">glm</span>(INSERT_MODEL_FORMULA, <span class="dt">data =</span> tenure, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
+<span id="cb9-2"><a href="applied-analysis-regression.html#cb9-2" aria-hidden="true"></a>mod_bygender &lt;-<span class="st"> </span><span class="kw">glm</span>(INSERT_MODEL_FORMULA, <span class="dt">data =</span> tenure, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
+<span id="cb9-3"><a href="applied-analysis-regression.html#cb9-3" aria-hidden="true"></a></span>
+<span id="cb9-4"><a href="applied-analysis-regression.html#cb9-4" aria-hidden="true"></a><span class="kw">summary</span>(mod_overall)</span>
+<span id="cb9-5"><a href="applied-analysis-regression.html#cb9-5" aria-hidden="true"></a><span class="kw">summary</span>(mod_bygender)</span>
+<span id="cb9-6"><a href="applied-analysis-regression.html#cb9-6" aria-hidden="true"></a></span>
+<span id="cb9-7"><a href="applied-analysis-regression.html#cb9-7" aria-hidden="true"></a><span class="co"># On the log scale</span></span>
+<span id="cb9-8"><a href="applied-analysis-regression.html#cb9-8" aria-hidden="true"></a><span class="kw">confint</span>(mod_overall)</span>
+<span id="cb9-9"><a href="applied-analysis-regression.html#cb9-9" aria-hidden="true"></a><span class="kw">confint</span>(mod_bygender)</span>
+<span id="cb9-10"><a href="applied-analysis-regression.html#cb9-10" aria-hidden="true"></a></span>
+<span id="cb9-11"><a href="applied-analysis-regression.html#cb9-11" aria-hidden="true"></a><span class="co"># On the natural scale</span></span>
+<span id="cb9-12"><a href="applied-analysis-regression.html#cb9-12" aria-hidden="true"></a><span class="kw">confint</span>(mod_overall) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">exp</span>()</span>
+<span id="cb9-13"><a href="applied-analysis-regression.html#cb9-13" aria-hidden="true"></a><span class="kw">confint</span>(mod_bygender) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">exp</span>()</span></code></pre></div>
+<p><br><br></p>
+</div>
+<div id="part-4-interpretation-and-discussion" class="section level3 unnumbered hasAnchor">
+<h3>Part 4: Interpretation and discussion<a href="applied-analysis-regression.html#part-4-interpretation-and-discussion" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>Using both the confidence intervals and effect magnitudes, discuss the results of your analysis in a contextually meaningful way. (Tie these results back to the research questions.)</p></li>
+<li><p>Discuss limitations of your analysis by acknowledging the points in the analysis process that were most uncertain.</p></li>
+</ul>
 
 </div>
 </div>
+</div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="graphical-structure-of-selection-bias.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="building-causal-graphs-for-applied-analyses.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="building-causal-graphs-for-applied-analyses.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="homework-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
