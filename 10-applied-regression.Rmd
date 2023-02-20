@@ -162,3 +162,9 @@ confint(mod_bygender) %>% exp()
 - Discuss limitations of your analysis by acknowledging the points in the analysis process that were most uncertain.
 
 
+<br><br>
+
+
+## Simulation study planning
+
+Describe in detail how you would implement a simulation study to study the impact of model misspecfication (incorrect form) on the accuracy of regression for estimating causal effects. It may help to draw a specific small causal graph as the basis of your simulation.
