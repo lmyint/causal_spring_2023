@@ -165,6 +165,6 @@ confint(mod_bygender) %>% exp()
 <br><br>
 
 
-## Simulation study planning
+## Simulation study planning {-}
 
 Describe in detail how you would implement a simulation study to study the impact of model misspecfication (incorrect form) on the accuracy of regression for estimating causal effects. It may help to draw a specific small causal graph as the basis of your simulation.
