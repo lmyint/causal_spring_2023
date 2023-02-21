@@ -1,0 +1,94 @@
+```{r hw4_setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, eval=FALSE)
+```
+
+# Homework 4 {-}
+
+## General instructions {-}
+
+**Note: Two different due dates for main exercises and for project proposal**
+
+- Main exercises (Revisions, Drawing causal graphs, General workflow for regression and IPW, and Metacognitive Reflection) due **Friday, March 3** at midnight CST.
+
+- Final project proposal due **Friday, March 10** at midnight CST.
+
+Continue using the same Google Doc from HW1 for both the main exercises and project proposal.
+
+
+<br><br>
+
+
+## Revisions {-}
+
+If you would like to make revisions to any parts of prior assignments, please do the following:
+
+- Keep all old writing and feedback intact
+- Un-highlight yellow text that has already been addressed with feedback and revisions
+- Write an updated response just below your previous response and highlight the new writing in yellow
+
+
+<br><br>
+
+
+## Drawing causal graphs {-}
+
+Read the [Drawing Causal Diagrams](https://theeffectbook.net/ch-DrawingCausalDiagrams.html) chapter of The Effect, an online causal inference textbook by Nick Huntington-Klein.
+
+What ideas from our causal graph construction activity (Topic 9) were reinforced from this reading? What new ideas were presented that you found helpful? What ideas were you unsure about or disagreed with?
+
+
+<br><br>
+
+
+## General workflow for regression and IPW {-}
+
+Write a general workflow for conducting (1) an outcome regression analysis and (2) an inverse probability weighting analysis to estimate average causal effects (overall effects and subgroup effects).
+
+- Provide guidance for the causal graph construction stage
+- Describe any steps that should be taken before modeling and their purpose
+- Describe the models that should be fit and the output that is used
+- Describe the balance checks (diagnostics) that should accompany an IPW analysis and their rationale
+- Describe general limitations to be wary of in these analyses (What parts of the analysis process that are generally most uncertain?)
+
+
+<br><br>
+
+
+## Metacognitive Reflection {-}
+
+We will be having 1-on-1 learning conferences the week before Spring Break (3/6 - 3/10) to discuss your learning so far and your course goals. The goal of this reflection is to prepare for these conferences.
+
+Please directly address all of the following prompts:
+
+- What are your goals for this course? What are you hoping to be able to do or understand deeply by the end of the semester?
+
+- How do you feel about your progress towards these learning goals? What can you do, and what can the instructor do to make the remainder of the semester as successful as possible?
+
+- For each of the following topics, comment on what you understand well and what you don't understand as well. In doing so, please look back at your homework responses and feedback. Does my Enduring/Important/Familiar breakdown below align with your opinions of what ideas are important? (If they differ, that's fine - let's discuss.)
+    - Enduring concepts:
+        - Potential outcomes and their role in defining causal effects
+        - The fundamental problem of causal inference (We can only ever observe a single potential outcome for any unit.)
+        - The big picture idea behind the assumption of exchangeability (not necessarily at the level of conditional independence)
+        - What role do causal graphs play in a causal analysis?
+    - Important concepts:
+        - Applying the concept of exchangeability to estimate causal effects from small datasets by hand
+        - Causal and noncausal paths, d-separation, exchangeability and the links between these ideas
+        - Workflow for conducting outcome regression and IPW analyses
+        - How are simulation studies useful for understanding statistical ideas and exploring properties of statistical methods?
+    - Concepts worth being familiar with:
+        - Causal Markov assumption / product decomposition rule
+        - Implementation of simulations to understand statistical ideas and study properties of statistical methods
+        - What new types of research questions can we pose with the time-varying treatments framework?
+
+- Based on your responses above, propose a midterm grade for yourself using the guidelines discussed on page 4 of our syllabus.
+
+I will read your reflection before our conference. The goal of our conference will be to discuss your progress so far and to clarify a plan for the remainder of the semester. We'll also discuss your plans for the final project to ensure that it has good scope and aligns with your goals.
+
+
+<br><br>
+
+
+## Final Project Proposal
+
+Take a look at our [Final Project page](final-project.html) and complete the Project Proposal described under the Timeline section, Deadline 1. Put your responses in a new "Final Project Proposal" section of your Google Doc for this course.
+

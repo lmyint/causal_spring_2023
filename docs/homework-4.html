@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Homework 1 | STAT 451: Causal Inference</title>
+  <title>Homework 4 | STAT 451: Causal Inference</title>
   <meta name="description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Homework 1 | STAT 451: Causal Inference" />
+  <meta property="og:title" content="Homework 4 | STAT 451: Causal Inference" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   <meta name="github-repo" content="lmyint/causal_spring_2023" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Homework 1 | STAT 451: Causal Inference" />
+  <meta name="twitter:title" content="Homework 4 | STAT 451: Causal Inference" />
   
   <meta name="twitter:description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="applied-analysis-regression.html"/>
-<link rel="next" href="homework-2.html"/>
+<link rel="prev" href="homework-3.html"/>
+<link rel="next" href="final-project.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -326,138 +326,97 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="homework-1" class="section level1 unnumbered hasAnchor">
-<h1>Homework 1<a href="homework-1.html#homework-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="general-instructions" class="section level2 unnumbered hasAnchor">
-<h2>General instructions<a href="homework-1.html#general-instructions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Due: Friday, January 27 at midnight CST.</p>
+<div id="homework-4" class="section level1 unnumbered hasAnchor">
+<h1>Homework 4<a href="homework-4.html#homework-4" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="general-instructions-3" class="section level2 unnumbered hasAnchor">
+<h2>General instructions<a href="homework-4.html#general-instructions-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Note: Two different due dates for main exercises and for project proposal</strong></p>
 <ul>
-<li>Set up a <strong>single Google Doc</strong> that you will use for your homework responses (and revisions) <strong>all semester</strong>. (A single doc facilitates seeing feedback and revisions over time.)</li>
-<li>Share this Google Doc with the instructor and preceptor with either edit or comment access by the due date.</li>
+<li><p>Main exercises (Revisions, Drawing causal graphs, General workflow for regression and IPW, and Metacognitive Reflection) due <strong>Friday, March 3</strong> at midnight CST.</p></li>
+<li><p>Final project proposal due <strong>Friday, March 10</strong> at midnight CST.</p></li>
+</ul>
+<p>Continue using the same Google Doc from HW1 for both the main exercises and project proposal.</p>
+<p><br><br></p>
+</div>
+<div id="revisions-2" class="section level2 unnumbered hasAnchor">
+<h2>Revisions<a href="homework-4.html#revisions-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If you would like to make revisions to any parts of prior assignments, please do the following:</p>
+<ul>
+<li>Keep all old writing and feedback intact</li>
+<li>Un-highlight yellow text that has already been addressed with feedback and revisions</li>
+<li>Write an updated response just below your previous response and highlight the new writing in yellow</li>
 </ul>
 <p><br><br></p>
 </div>
-<div id="part-1" class="section level2 unnumbered hasAnchor">
-<h2>Part 1<a href="homework-1.html#part-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Related to course components: Metacognitive Reflection, Enduring Concept</p>
-<p>Our <a href="motivation-and-review.html">first day discussions</a> prompted different ways of thinking about causation. How did these discussions affect how you might think about causation going forward? In your response:</p>
+<div id="drawing-causal-graphs" class="section level2 unnumbered hasAnchor">
+<h2>Drawing causal graphs<a href="homework-4.html#drawing-causal-graphs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Read the <a href="https://theeffectbook.net/ch-DrawingCausalDiagrams.html">Drawing Causal Diagrams</a> chapter of The Effect, an online causal inference textbook by Nick Huntington-Klein.</p>
+<p>What ideas from our causal graph construction activity (Topic 9) were reinforced from this reading? What new ideas were presented that you found helpful? What ideas were you unsure about or disagreed with?</p>
+<p><br><br></p>
+</div>
+<div id="general-workflow-for-regression-and-ipw" class="section level2 unnumbered hasAnchor">
+<h2>General workflow for regression and IPW<a href="homework-4.html#general-workflow-for-regression-and-ipw" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Write a general workflow for conducting (1) an outcome regression analysis and (2) an inverse probability weighting analysis to estimate average causal effects (overall effects and subgroup effects).</p>
 <ul>
-<li>Incorporate thoughts from all 4 prompts (Considering causes, Sinful saying or mandatory mantra?, Sufficiency and necessity, Evaluating evidence for causation: Bradford Hill criteria)</li>
-<li>Incorporate self-noticings and peer-noticings</li>
-<li>Suggestion: Write as if you were going to publish a blog post entitled “10 things you probably never realized about causation” (or some number other than 10)</li>
-<li>No length requirement/restriction, but suggested to stay under 500 words</li>
+<li>Provide guidance for the causal graph construction stage</li>
+<li>Describe any steps that should be taken before modeling and their purpose</li>
+<li>Describe the models that should be fit and the output that is used</li>
+<li>Describe the balance checks (diagnostics) that should accompany an IPW analysis and their rationale</li>
+<li>Describe general limitations to be wary of in these analyses (What parts of the analysis process that are generally most uncertain?)</li>
 </ul>
 <p><br><br></p>
 </div>
-<div id="part-2" class="section level2 unnumbered hasAnchor">
-<h2>Part 2<a href="homework-1.html#part-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Related to course components: Enduring Concept</p>
-<p>When, if ever, is a direct comparison of the observed outcomes in the treated and untreated a good estimate of an average causal effect? Explain your answer with relevant discussion of exchangeability and study designs.</p>
+<div id="metacognitive-reflection-1" class="section level2 unnumbered hasAnchor">
+<h2>Metacognitive Reflection<a href="homework-4.html#metacognitive-reflection-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We will be having 1-on-1 learning conferences the week before Spring Break (3/6 - 3/10) to discuss your learning so far and your course goals. The goal of this reflection is to prepare for these conferences.</p>
+<p>Please directly address all of the following prompts:</p>
+<ul>
+<li><p>What are your goals for this course? What are you hoping to be able to do or understand deeply by the end of the semester?</p></li>
+<li><p>How do you feel about your progress towards these learning goals? What can you do, and what can the instructor do to make the remainder of the semester as successful as possible?</p></li>
+<li><p>For each of the following topics, comment on what you understand well and what you don’t understand as well. In doing so, please look back at your homework responses and feedback. Does my Enduring/Important/Familiar breakdown below align with your opinions of what ideas are important? (If they differ, that’s fine - let’s discuss.)</p>
+<ul>
+<li>Enduring concepts:
+<ul>
+<li>Potential outcomes and their role in defining causal effects</li>
+<li>The fundamental problem of causal inference (We can only ever observe a single potential outcome for any unit.)</li>
+<li>The big picture idea behind the assumption of exchangeability (not necessarily at the level of conditional independence)</li>
+<li>What role do causal graphs play in a causal analysis?</li>
+</ul></li>
+<li>Important concepts:
+<ul>
+<li>Applying the concept of exchangeability to estimate causal effects from small datasets by hand</li>
+<li>Causal and noncausal paths, d-separation, exchangeability and the links between these ideas</li>
+<li>Workflow for conducting outcome regression and IPW analyses</li>
+<li>How are simulation studies useful for understanding statistical ideas and exploring properties of statistical methods?</li>
+</ul></li>
+<li>Concepts worth being familiar with:
+<ul>
+<li>Causal Markov assumption / product decomposition rule</li>
+<li>Implementation of simulations to understand statistical ideas and study properties of statistical methods</li>
+<li>What new types of research questions can we pose with the time-varying treatments framework?</li>
+</ul></li>
+</ul></li>
+<li><p>Based on your responses above, propose a midterm grade for yourself using the guidelines discussed on page 4 of our syllabus.</p></li>
+</ul>
+<p>I will read your reflection before our conference. The goal of our conference will be to discuss your progress so far and to clarify a plan for the remainder of the semester. We’ll also discuss your plans for the final project to ensure that it has good scope and aligns with your goals.</p>
 <p><br><br></p>
 </div>
-<div id="part-3" class="section level2 unnumbered hasAnchor">
-<h2>Part 3<a href="homework-1.html#part-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Related to course components: Important Concept</p>
-<p>The table below shows data on a binary outcome <span class="math inline">\(A\)</span>, a binary covariate <span class="math inline">\(Z\)</span>, and a quantitative outcome <span class="math inline">\(Y\)</span>. Assume that the treatment groups are conditionally exchangeable given <span class="math inline">\(Z\)</span>.</p>
-<table>
-<thead>
-<tr class="header">
-<th align="center"><span class="math inline">\(Z\)</span></th>
-<th align="center"><span class="math inline">\(A\)</span></th>
-<th align="center"><span class="math inline">\(Y\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">A</td>
-<td align="center">1</td>
-<td align="center">40</td>
-</tr>
-<tr class="even">
-<td align="center">A</td>
-<td align="center">1</td>
-<td align="center">40</td>
-</tr>
-<tr class="odd">
-<td align="center">A</td>
-<td align="center">1</td>
-<td align="center">40</td>
-</tr>
-<tr class="even">
-<td align="center">A</td>
-<td align="center">1</td>
-<td align="center">40</td>
-</tr>
-<tr class="odd">
-<td align="center">B</td>
-<td align="center">1</td>
-<td align="center">20</td>
-</tr>
-<tr class="even">
-<td align="center">B</td>
-<td align="center">1</td>
-<td align="center">20</td>
-</tr>
-<tr class="odd">
-<td align="center">A</td>
-<td align="center">0</td>
-<td align="center">30</td>
-</tr>
-<tr class="even">
-<td align="center">A</td>
-<td align="center">0</td>
-<td align="center">30</td>
-</tr>
-<tr class="odd">
-<td align="center">B</td>
-<td align="center">0</td>
-<td align="center">10</td>
-</tr>
-<tr class="even">
-<td align="center">B</td>
-<td align="center">0</td>
-<td align="center">10</td>
-</tr>
-<tr class="odd">
-<td align="center">B</td>
-<td align="center">0</td>
-<td align="center">10</td>
-</tr>
-<tr class="even">
-<td align="center">B</td>
-<td align="center">0</td>
-<td align="center">10</td>
-</tr>
-</tbody>
-</table>
-<ol style="list-style-type: lower-alpha">
-<li><p>Estimate the average causal effect <span class="math inline">\(E[Y^{a=1}-Y^{a=0}]\)</span>. Show and explain your work.</p></li>
-<li><p>Does <em>marginal</em> exchangeability hold? Show and explain your work.</p></li>
-</ol>
-<p><br><br></p>
-</div>
-<div id="part-4" class="section level2 unnumbered hasAnchor">
-<h2>Part 4<a href="homework-1.html#part-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Related to course components: Enduring Concept</p>
-<p>Let’s think about study designs in terms of something you would genuinely want to study!</p>
-<p>What are you obsessed with? What do you find yourself thinking about all the time? What do you wish came up in conversation more often? (What’s your <a href="https://www.lesliemyint.org/lightning-lure">“lightning lure”</a>?)</p>
-<p>What is a causal question that you wish you could answer related to that obsession? What study design would be most feasible to implement to answer that question? In your response, please also discuss why you think other designs would not be as feasible.</p>
-<p><br><br></p>
-</div>
-<div id="part-5" class="section level2 unnumbered hasAnchor">
-<h2>Part 5<a href="homework-1.html#part-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Related to course components: Metacognitive Reflection</p>
-<p>How do you feel about your level of understanding for the Exchangeability and Study Designs topics? What were some notable themes in self- and peer-noticings? How do these reflections inform your next steps for developing stronger understanding and/or advising future students learning about these topics?</p>
+<div id="final-project-proposal" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> Final Project Proposal<a href="homework-4.html#final-project-proposal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Take a look at our <a href="final-project.html">Final Project page</a> and complete the Project Proposal described under the Timeline section, Deadline 1. Put your responses in a new “Final Project Proposal” section of your Google Doc for this course.</p>
 
 </div>
 </div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="applied-analysis-regression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="homework-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="homework-3.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="final-project.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

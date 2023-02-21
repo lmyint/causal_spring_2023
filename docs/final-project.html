@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Homework 1 | STAT 451: Causal Inference</title>
+  <title>Final Project | STAT 451: Causal Inference</title>
   <meta name="description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Homework 1 | STAT 451: Causal Inference" />
+  <meta property="og:title" content="Final Project | STAT 451: Causal Inference" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   <meta name="github-repo" content="lmyint/causal_spring_2023" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Homework 1 | STAT 451: Causal Inference" />
+  <meta name="twitter:title" content="Final Project | STAT 451: Causal Inference" />
   
   <meta name="twitter:description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="applied-analysis-regression.html"/>
-<link rel="next" href="homework-2.html"/>
+<link rel="prev" href="homework-4.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -326,128 +326,117 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="homework-1" class="section level1 unnumbered hasAnchor">
-<h1>Homework 1<a href="homework-1.html#homework-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="general-instructions" class="section level2 unnumbered hasAnchor">
-<h2>General instructions<a href="homework-1.html#general-instructions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Due: Friday, January 27 at midnight CST.</p>
+<div id="final-project" class="section level1 unnumbered hasAnchor">
+<h1>Final Project<a href="final-project.html#final-project" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>My sole hope for this project is for it to <strong><em>further your goals</em></strong> for taking this course. Let’s collaborate to make it a good experience for you.</p>
+<p><br><br><br><br></p>
+<div id="project-options" class="section level2 unnumbered hasAnchor">
+<h2>Project Options<a href="final-project.html#project-options" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="option-1-data-analysis" class="section level3 unnumbered hasAnchor">
+<h3>Option 1: Data analysis<a href="final-project.html#option-1-data-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Collaboration:</strong> Groups of up to 3. Individual work is fine.</p>
+<p>Perform a causal analysis on a dataset of your choice.</p>
 <ul>
-<li>Set up a <strong>single Google Doc</strong> that you will use for your homework responses (and revisions) <strong>all semester</strong>. (A single doc facilitates seeing feedback and revisions over time.)</li>
-<li>Share this Google Doc with the instructor and preceptor with either edit or comment access by the due date.</li>
+<li>The methods you use for analysis will vary depending on your research questions and the structure of your data (e.g., different methods for quasi-experimental designs vs. general observational studies).
+<ul>
+<li>You’ll plan your methods in collaboration with the instructor.</li>
+</ul></li>
+<li>A key part of all analyses will be sensitivity analyses to assess robustness of results to points of uncertainty in the analysis process.</li>
+</ul>
+<p>Resources for finding data:</p>
+<ul>
+<li><a href="https://datasetsearch.research.google.com/">Google Dataset Search</a></li>
+<li><a href="https://dataverse.harvard.edu/">Harvard Dataverse</a></li>
+<li><a href="https://www.icpsr.umich.edu/">Inter-university Consortium for Political and Social Research (ICPSR)</a></li>
+<li><a href="https://ipums.org/">IPUMS</a></li>
+<li>Macalester’s librarians can also be a great resource for finding data. Schedule an appointment with them <a href="https://www.macalester.edu/library/askus/">here</a>.</li>
+</ul>
+<!-- (From https://www.macalester.edu/seriecenter/sample-syllabus-statements-and-policies/#library-resources) -->
+<p><br><br></p>
+</div>
+<div id="option-2-blog-posts" class="section level3 unnumbered hasAnchor">
+<h3>Option 2: Blog posts<a href="final-project.html#option-2-blog-posts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Collaboration:</strong> Individual only.</p>
+<p>Write two blog posts explaining causal inference ideas to a general audience.</p>
+<ul>
+<li>Post 1: A Tour of Causal Inference
+<ul>
+<li>Which of our course ideas resonated most with you?</li>
+<li>Lead the reader through these topics in an engaging and cohesive way.</li>
+</ul></li>
+<li>Post 2: Pick any media item that has interested you. Write a reaction to it / an analysis of it from a causal inference perspective.
+<ul>
+<li>If you’re looking to explore some media, the <a href="https://casualinfer.libsyn.com/">Casual Inference podcast</a> is a fun one!</li>
+</ul></li>
 </ul>
 <p><br><br></p>
 </div>
-<div id="part-1" class="section level2 unnumbered hasAnchor">
-<h2>Part 1<a href="homework-1.html#part-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Related to course components: Metacognitive Reflection, Enduring Concept</p>
-<p>Our <a href="motivation-and-review.html">first day discussions</a> prompted different ways of thinking about causation. How did these discussions affect how you might think about causation going forward? In your response:</p>
+<div id="option-3-learn-an-advanced-topic" class="section level3 unnumbered hasAnchor">
+<h3>Option 3: Learn an advanced topic<a href="final-project.html#option-3-learn-an-advanced-topic" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Collaboration:</strong> Groups of up to 3. Individual work is fine.</p>
+<p>Dig deeper into existing course topics or learn a new topic. Examples could include:</p>
 <ul>
-<li>Incorporate thoughts from all 4 prompts (Considering causes, Sinful saying or mandatory mantra?, Sufficiency and necessity, Evaluating evidence for causation: Bradford Hill criteria)</li>
-<li>Incorporate self-noticings and peer-noticings</li>
-<li>Suggestion: Write as if you were going to publish a blog post entitled “10 things you probably never realized about causation” (or some number other than 10)</li>
-<li>No length requirement/restriction, but suggested to stay under 500 words</li>
+<li>Methods for transportability (generalizability) of effects</li>
+<li>Interference</li>
+<li>Details of methods for time-varying treatments</li>
+<li>Specialized considerations for particular study designs</li>
 </ul>
 <p><br><br></p>
 </div>
-<div id="part-2" class="section level2 unnumbered hasAnchor">
-<h2>Part 2<a href="homework-1.html#part-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Related to course components: Enduring Concept</p>
-<p>When, if ever, is a direct comparison of the observed outcomes in the treated and untreated a good estimate of an average causal effect? Explain your answer with relevant discussion of exchangeability and study designs.</p>
-<p><br><br></p>
+<div id="option-4-other" class="section level3 unnumbered hasAnchor">
+<h3>Option 4: Other<a href="final-project.html#option-4-other" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If none of these options piques your interest, I’m happy to discuss alternatives with you.</p>
+<p><br><br><br><br></p>
 </div>
-<div id="part-3" class="section level2 unnumbered hasAnchor">
-<h2>Part 3<a href="homework-1.html#part-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Related to course components: Important Concept</p>
-<p>The table below shows data on a binary outcome <span class="math inline">\(A\)</span>, a binary covariate <span class="math inline">\(Z\)</span>, and a quantitative outcome <span class="math inline">\(Y\)</span>. Assume that the treatment groups are conditionally exchangeable given <span class="math inline">\(Z\)</span>.</p>
-<table>
-<thead>
-<tr class="header">
-<th align="center"><span class="math inline">\(Z\)</span></th>
-<th align="center"><span class="math inline">\(A\)</span></th>
-<th align="center"><span class="math inline">\(Y\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">A</td>
-<td align="center">1</td>
-<td align="center">40</td>
-</tr>
-<tr class="even">
-<td align="center">A</td>
-<td align="center">1</td>
-<td align="center">40</td>
-</tr>
-<tr class="odd">
-<td align="center">A</td>
-<td align="center">1</td>
-<td align="center">40</td>
-</tr>
-<tr class="even">
-<td align="center">A</td>
-<td align="center">1</td>
-<td align="center">40</td>
-</tr>
-<tr class="odd">
-<td align="center">B</td>
-<td align="center">1</td>
-<td align="center">20</td>
-</tr>
-<tr class="even">
-<td align="center">B</td>
-<td align="center">1</td>
-<td align="center">20</td>
-</tr>
-<tr class="odd">
-<td align="center">A</td>
-<td align="center">0</td>
-<td align="center">30</td>
-</tr>
-<tr class="even">
-<td align="center">A</td>
-<td align="center">0</td>
-<td align="center">30</td>
-</tr>
-<tr class="odd">
-<td align="center">B</td>
-<td align="center">0</td>
-<td align="center">10</td>
-</tr>
-<tr class="even">
-<td align="center">B</td>
-<td align="center">0</td>
-<td align="center">10</td>
-</tr>
-<tr class="odd">
-<td align="center">B</td>
-<td align="center">0</td>
-<td align="center">10</td>
-</tr>
-<tr class="even">
-<td align="center">B</td>
-<td align="center">0</td>
-<td align="center">10</td>
-</tr>
-</tbody>
-</table>
-<ol style="list-style-type: lower-alpha">
-<li><p>Estimate the average causal effect <span class="math inline">\(E[Y^{a=1}-Y^{a=0}]\)</span>. Show and explain your work.</p></li>
-<li><p>Does <em>marginal</em> exchangeability hold? Show and explain your work.</p></li>
-</ol>
-<p><br><br></p>
 </div>
-<div id="part-4" class="section level2 unnumbered hasAnchor">
-<h2>Part 4<a href="homework-1.html#part-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Related to course components: Enduring Concept</p>
-<p>Let’s think about study designs in terms of something you would genuinely want to study!</p>
-<p>What are you obsessed with? What do you find yourself thinking about all the time? What do you wish came up in conversation more often? (What’s your <a href="https://www.lesliemyint.org/lightning-lure">“lightning lure”</a>?)</p>
-<p>What is a causal question that you wish you could answer related to that obsession? What study design would be most feasible to implement to answer that question? In your response, please also discuss why you think other designs would not be as feasible.</p>
-<p><br><br></p>
+<div id="deliverables" class="section level2 unnumbered hasAnchor">
+<h2>Deliverables<a href="final-project.html#deliverables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>There is a lot of flexibility in the form that your project takes. Examples include:</p>
+<ul>
+<li>A video presentation</li>
+<li>A podcast-style recording</li>
+<li>A set of blog posts</li>
+<li>A project webpage on a personal website</li>
+</ul>
+<p>Work with the instructor to determine the most suitable deliverable for your project, depending on the option you pick.</p>
+<p><br><br><br><br></p>
 </div>
-<div id="part-5" class="section level2 unnumbered hasAnchor">
-<h2>Part 5<a href="homework-1.html#part-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Related to course components: Metacognitive Reflection</p>
-<p>How do you feel about your level of understanding for the Exchangeability and Study Designs topics? What were some notable themes in self- and peer-noticings? How do these reflections inform your next steps for developing stronger understanding and/or advising future students learning about these topics?</p>
+<div id="timeline" class="section level2 unnumbered hasAnchor">
+<h2>Timeline<a href="final-project.html#timeline" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><strong>Deadline 1: Project Proposal</strong> Choose your final project option, topic, and group by Friday, March 10 at midnight CST.
+<ul>
+<li>Data analysis option: Find a dataset and formulate causal question(s) that you want to answer.</li>
+<li>Blog post option: Outline ideas for one post</li>
+<li>Advanced topic option: Settle on an advanced topic, and do some preliminary research to identify key ideas within this topic.</li>
+</ul></li>
+<li>More timeline information to be added soon</li>
+</ul>
+<!-- <br>
+
+- **Deadline 2:** Monday, October 12 or Tuesday, October 13. Schedule a discussion time with me on [Google Calendar](https://calendar.google.com/calendar/selfsched?sstoken=UUFBWjVpaTNFb2JUfGRlZmF1bHR8ODFhZGU4ZWQ5MjJkOWY2M2Q4YjZhNTgwN2IyMmFlM2Y).
+    - Data analysis option: Come prepared to talk about your causal graph, your analysis plan, and exploratory visualizations that you have made.
+    - Blog post option: Write 500 words for each post and share with me 24 hours before our meeting so that I can give feedback and discuss with you.
+    - Advanced topic option: Come prepared to tell me a bit about what you've learned on your topic. If you were giving a 15 minute presentation on the topic, this should be about the amount of content you would cover in the first 5 minutes.
+
+<br>
+
+- **Deadline 3:** Thursday, October 15 or Friday, October 16. Schedule a discussion time with me on [Google Calendar](https://calendar.google.com/calendar/selfsched?sstoken=UUFBWjVpaTNFb2JUfGRlZmF1bHR8ODFhZGU4ZWQ5MjJkOWY2M2Q4YjZhNTgwN2IyMmFlM2Y).
+    - Data analysis option: Come prepared to tell me about the models you've fit and your interpretations. Share a draft of your artifact so far with me 24 hours in advance.
+    - Blog post option: Complete full drafts of both posts and share with me 24 hours before our meeting so that I can give feedback and discuss with you.
+    - Advanced topic option: Come prepared to tell me more about new material that is the equivalent of the second 5 minutes of a 15 minute presentation. Share a draft of your artifact so far with me 24 hours in advance.
+
+<br>
+
+- **Deadline 4:** Monday, October 19 or Tuesday, October 20. Schedule a discussion time with me on [Google Calendar](https://calendar.google.com/calendar/selfsched?sstoken=UUFBWjVpaTNFb2JUfGRlZmF1bHR8ODFhZGU4ZWQ5MjJkOWY2M2Q4YjZhNTgwN2IyMmFlM2Y).
+    - Data analysis option: Come prepared to discuss final points of feedback from the previous meeting (deadline 3). Finalize your artifact draft, and share with me 24 hours in advance.
+    - Blog post option: Act on feedback from the previous meeting (deadline 3), and share with me 24 hours before our meeting.
+    - Advanced topic option: Come prepared to tell me more about new material that is the equivalent of the last 5 minutes of a 15 minute presentation. Finalize your artifact draft, and share with me 24 hours in advance.
+
+<br>
+
+- **Final deadline:** Friday, October 23. By midnight CST, submit the final version of your digital artifact [on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=39212).
+    - We will not have a showcase/presentation day in class, but instead, I look forward to seeing you showcase your work for the department at either of our two departmental capstone unveiling days! (One will be at the end of Module 2 and the other at the end of Module 4.) -->
 
 </div>
 </div>
@@ -456,8 +445,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="applied-analysis-regression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="homework-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="homework-4.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
