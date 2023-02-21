@@ -88,7 +88,7 @@ I will read your reflection before our conference. The goal of our conference wi
 <br><br>
 
 
-## Final Project Proposal
+## Final Project Proposal {-}
 
 Take a look at our [Final Project page](final-project.html) and complete the Project Proposal described under the Timeline section, Deadline 1. Put your responses in a new "Final Project Proposal" section of your Google Doc for this course.
 

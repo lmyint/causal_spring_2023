@@ -8,4 +8,3 @@ graphical-structure-of-selection-bias
 the-smoking-birth-weight-paradox
 building-causal-graphs-for-applied-analyses
 applied-analysis-regression
-final-project-proposal
