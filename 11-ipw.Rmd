@@ -1,0 +1,130 @@
+```{r 11_setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, eval=FALSE, fig.align="center")
+```
+
+# Inverse Probability Weighting
+
+## Learning Goals {-}
+
+- Connect inverse probability weighting to the exchangeability computations we have done previously
+
+<br>
+
+Slides from today are available [here](https://docs.google.com/presentation/d/1QNh8p3S6hNHLbFEX6KV0MyN3wioic4D8cPpUlWj-LUg/edit?usp=sharing).
+
+<br><br><br>
+
+
+## Exercises {-}
+
+We'll do Exercises 1 and 2 as a class. You'll work on Exercise 3 and 4 in groups.
+
+### Exercise 1 {-}
+
+Assume that we have conditional exchangeability given $Z$. For the outcome, let high = 1, low = 0.
+
+ $n$   $Z$   $A$               $Y$
+----- ----- ----- ------------------------------
+ 30     1     1     90% high (27), 10% low (3)
+ 30     1     0     40% high (12), 60% low (18)
+ 30     0     1     70% high (21), 30% low (9)
+ 10     0     0     20% high (2), 80% low (8)
+
+a. Create columns $Y^{a=1}$ and $Y^{a=0}$, and fill them in using the conditional exchangeability assumption.
+
+b. Within $Y^{a=1}$ and $Y^{a=0}$, total the number of highs and lows within $Z=1$ and within $Z=0$.
+
+c. Verify that you would get the same totals by...
+    - Scaling the 30 with Z=1, A=1 up to 60 by giving the original 30 a weight of 2.
+    - Scaling the 30 with Z=0, A=1 up to 40 by giving the original 30 a weight of 4/3.
+    - Scaling the 30 with Z=1, A=0 up to 60 by giving the original 30 a weight of 2.
+    - Scaling the 10 with Z=0, A=0 up to 40 by giving the original 10 a weight of 4.
+    - How are all of these weights related to the fraction of those who receive their particular value of treatment among the $Z$ subgroup ($P(A\mid Z)$)?
+
+d. Write out the calculation for the ACE ($P(Y^{a=1}=\text{high}) - P(Y^{a=0}=\text{high})$) in two ways:
+    - Directly using the total number of highs in the two columns
+    - As a weighted mean
+
+e. We can view the data in columns $Y^{a=1}$ and $Y^{a=0}$ as a *pseudopopulation* in which all 100 units exist twice: once as their treated version and once as their untreated version. Verify that within $Z=1$ half of the "pseudounits" recive treatment and the other half don't. Do the same for $Z=0$. What does this tell us about the relationship between $Z$ and $A$ in the weighted sample (the pseudopopulation)?
+
+
+<br>
+
+
+### Exercise 2 {-}
+
+Assume that we have conditional exchangeability given $Z$.
+
+ $n$   $Z$   $A$   $E[Y\mid A, Z]$
+----- ----- ----- -----------------
+  80    A     1         40
+  20    A     0         20
+  20    B     1         30
+  80    B     0         20
+
+a. Create columns $E[Y^{a=1} \mid Z]$ and $E[Y^{a=0} \mid Z]$, and fill them in using the conditional exchangeability assumption.
+
+b. Within $Y^{a=1}$ and $Y^{a=0}$, find the **total** (sum) outcome within $Z=1$ and within $Z=0$.
+
+c. Verify that you would get the same totals by...
+    - Scaling the 80 with Z=A, A=1 up to 100 by giving the original 80 a weight of 100/80.
+    - Scaling the 20 with Z=B, A=1 up to 100 by giving the original 30 a weight of 5.
+    - Scaling the 20 with Z=A, A=0 up to 100 by giving the original 30 a weight of 5.
+    - Scaling the 80 with Z=B, A=0 up to 100 by giving the original 10 a weight of 100/80.
+    - How are all of these weights related to the fraction of those who receive their particular value of treatment among the $Z$ subgroup ($P(A\mid Z)$)?
+
+d. Write out the calculation for the ACE ($E[Y^{a=1}] - E[Y^{a=0}]$) in two ways:
+    - Directly using the total in the two columns
+    - As a weighted mean
+
+e. Verify that within $Z=A$ half of the "pseudounits" recive treatment and the other half don't. Do the same for $Z=B$. What does this tell us about the relationship between $Z$ and $A$ in the weighted sample (the pseudopopulation)?
+
+
+<br>
+
+
+### Exercise 3 {-}
+
+Assume that we have conditional exchangeability given $Z$.
+
+ $n$   $Z$   $A$                $Y$
+----- ----- ----- -------------------------------
+ 10     1     1     60% high (6), 40% low (4)
+ 40     1     0     50% high (20), 50% low (20)
+ 10     0     1     50% high (5), 50% low (5)
+ 50     0     0     40% high (20), 60% low (30)
+
+Use the same process we went through in Exercises 1 and 2 to compute the ACE ($P(Y^{a=1}=\text{high}) - P(Y^{a=0}=\text{high})$) in two ways:
+
+- Directly using the total number of highs in the two columns (the "old" way)
+- As a weighted mean (inverse probability weighting (IPW))
+
+
+<br>
+
+
+### Exercise 4 {-}
+
+Assume that we have conditional exchangeability given $Z$.
+
+ $n$   $Z$   $A$   $E[Y\mid A, Z]$
+----- ----- ----- -----------------
+  80    A     1         30
+  20    A     0         20
+  40    B     1         60
+  60    B     0         10
+
+Use the same process we went through in Exercises 1 and 2 to compute the ACE ($E[Y^{a=1}] - E[Y^{a=0}]$) in two ways:
+
+- Directly using the total number of highs in the two columns (the "old" way)
+- As a weighted mean (IPW)
+
+
+<br>
+
+
+## Debrief {-}
+
+- What commonalities do you notice across the 4 exercises?
+- What questions remain about inverse probability weighting?
+

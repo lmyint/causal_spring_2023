@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | STAT 451: Causal Inference</title>
+  <title>Topic 11 Inverse Probability Weighting | STAT 451: Causal Inference</title>
   <meta name="description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | STAT 451: Causal Inference" />
+  <meta property="og:title" content="Topic 11 Inverse Probability Weighting | STAT 451: Causal Inference" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   <meta name="github-repo" content="lmyint/causal_spring_2023" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | STAT 451: Causal Inference" />
+  <meta name="twitter:title" content="Topic 11 Inverse Probability Weighting | STAT 451: Causal Inference" />
   
   <meta name="twitter:description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-
+<link rel="prev" href="applied-analysis-regression.html"/>
+<link rel="next" href="homework-1.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -338,19 +338,250 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="inverse-probability-weighting" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">Topic 11</span> Inverse Probability Weighting<a href="inverse-probability-weighting.html#inverse-probability-weighting" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="learning-goals-8" class="section level2 unnumbered hasAnchor">
+<h2>Learning Goals<a href="inverse-probability-weighting.html#learning-goals-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Connect inverse probability weighting to the exchangeability computations we have done previously</li>
+</ul>
+<p><br></p>
+<p>Slides from today are available <a href="https://docs.google.com/presentation/d/1QNh8p3S6hNHLbFEX6KV0MyN3wioic4D8cPpUlWj-LUg/edit?usp=sharing">here</a>.</p>
+<p><br><br><br></p>
 </div>
+<div id="exercises-7" class="section level2 unnumbered hasAnchor">
+<h2>Exercises<a href="inverse-probability-weighting.html#exercises-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We’ll do Exercises 1 and 2 as a class. You’ll work on Exercise 3 and 4 in groups.</p>
+<div id="exercise-1-6" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 1<a href="inverse-probability-weighting.html#exercise-1-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Assume that we have conditional exchangeability given <span class="math inline">\(Z\)</span>. For the outcome, let high = 1, low = 0.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><span class="math inline">\(n\)</span></th>
+<th align="center"><span class="math inline">\(Z\)</span></th>
+<th align="center"><span class="math inline">\(A\)</span></th>
+<th align="center"><span class="math inline">\(Y\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">30</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">90% high (27), 10% low (3)</td>
+</tr>
+<tr class="even">
+<td align="center">30</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">40% high (12), 60% low (18)</td>
+</tr>
+<tr class="odd">
+<td align="center">30</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">70% high (21), 30% low (9)</td>
+</tr>
+<tr class="even">
+<td align="center">10</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">20% high (2), 80% low (8)</td>
+</tr>
+</tbody>
+</table>
+<ol style="list-style-type: lower-alpha">
+<li><p>Create columns <span class="math inline">\(Y^{a=1}\)</span> and <span class="math inline">\(Y^{a=0}\)</span>, and fill them in using the conditional exchangeability assumption.</p></li>
+<li><p>Within <span class="math inline">\(Y^{a=1}\)</span> and <span class="math inline">\(Y^{a=0}\)</span>, total the number of highs and lows within <span class="math inline">\(Z=1\)</span> and within <span class="math inline">\(Z=0\)</span>.</p></li>
+<li><p>Verify that you would get the same totals by…</p>
+<ul>
+<li>Scaling the 30 with Z=1, A=1 up to 60 by giving the original 30 a weight of 2.</li>
+<li>Scaling the 30 with Z=0, A=1 up to 40 by giving the original 30 a weight of 4/3.</li>
+<li>Scaling the 30 with Z=1, A=0 up to 60 by giving the original 30 a weight of 2.</li>
+<li>Scaling the 10 with Z=0, A=0 up to 40 by giving the original 10 a weight of 4.</li>
+<li>How are all of these weights related to the fraction of those who receive their particular value of treatment among the <span class="math inline">\(Z\)</span> subgroup (<span class="math inline">\(P(A\mid Z)\)</span>)?</li>
+</ul></li>
+<li><p>Write out the calculation for the ACE (<span class="math inline">\(P(Y^{a=1}=\text{high}) - P(Y^{a=0}=\text{high})\)</span>) in two ways:</p>
+<ul>
+<li>Directly using the total number of highs in the two columns</li>
+<li>As a weighted mean</li>
+</ul></li>
+<li><p>We can view the data in columns <span class="math inline">\(Y^{a=1}\)</span> and <span class="math inline">\(Y^{a=0}\)</span> as a <em>pseudopopulation</em> in which all 100 units exist twice: once as their treated version and once as their untreated version. Verify that within <span class="math inline">\(Z=1\)</span> half of the “pseudounits” recive treatment and the other half don’t. Do the same for <span class="math inline">\(Z=0\)</span>. What does this tell us about the relationship between <span class="math inline">\(Z\)</span> and <span class="math inline">\(A\)</span> in the weighted sample (the pseudopopulation)?</p></li>
+</ol>
+<p><br></p>
+</div>
+<div id="exercise-2-5" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 2<a href="inverse-probability-weighting.html#exercise-2-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Assume that we have conditional exchangeability given <span class="math inline">\(Z\)</span>.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><span class="math inline">\(n\)</span></th>
+<th align="center"><span class="math inline">\(Z\)</span></th>
+<th align="center"><span class="math inline">\(A\)</span></th>
+<th align="center"><span class="math inline">\(E[Y\mid A, Z]\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">80</td>
+<td align="center">A</td>
+<td align="center">1</td>
+<td align="center">40</td>
+</tr>
+<tr class="even">
+<td align="center">20</td>
+<td align="center">A</td>
+<td align="center">0</td>
+<td align="center">20</td>
+</tr>
+<tr class="odd">
+<td align="center">20</td>
+<td align="center">B</td>
+<td align="center">1</td>
+<td align="center">30</td>
+</tr>
+<tr class="even">
+<td align="center">80</td>
+<td align="center">B</td>
+<td align="center">0</td>
+<td align="center">20</td>
+</tr>
+</tbody>
+</table>
+<ol style="list-style-type: lower-alpha">
+<li><p>Create columns <span class="math inline">\(E[Y^{a=1} \mid Z]\)</span> and <span class="math inline">\(E[Y^{a=0} \mid Z]\)</span>, and fill them in using the conditional exchangeability assumption.</p></li>
+<li><p>Within <span class="math inline">\(Y^{a=1}\)</span> and <span class="math inline">\(Y^{a=0}\)</span>, find the <strong>total</strong> (sum) outcome within <span class="math inline">\(Z=1\)</span> and within <span class="math inline">\(Z=0\)</span>.</p></li>
+<li><p>Verify that you would get the same totals by…</p>
+<ul>
+<li>Scaling the 80 with Z=A, A=1 up to 100 by giving the original 80 a weight of 100/80.</li>
+<li>Scaling the 20 with Z=B, A=1 up to 100 by giving the original 30 a weight of 5.</li>
+<li>Scaling the 20 with Z=A, A=0 up to 100 by giving the original 30 a weight of 5.</li>
+<li>Scaling the 80 with Z=B, A=0 up to 100 by giving the original 10 a weight of 100/80.</li>
+<li>How are all of these weights related to the fraction of those who receive their particular value of treatment among the <span class="math inline">\(Z\)</span> subgroup (<span class="math inline">\(P(A\mid Z)\)</span>)?</li>
+</ul></li>
+<li><p>Write out the calculation for the ACE (<span class="math inline">\(E[Y^{a=1}] - E[Y^{a=0}]\)</span>) in two ways:</p>
+<ul>
+<li>Directly using the total in the two columns</li>
+<li>As a weighted mean</li>
+</ul></li>
+<li><p>Verify that within <span class="math inline">\(Z=A\)</span> half of the “pseudounits” recive treatment and the other half don’t. Do the same for <span class="math inline">\(Z=B\)</span>. What does this tell us about the relationship between <span class="math inline">\(Z\)</span> and <span class="math inline">\(A\)</span> in the weighted sample (the pseudopopulation)?</p></li>
+</ol>
+<p><br></p>
+</div>
+<div id="exercise-3-5" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 3<a href="inverse-probability-weighting.html#exercise-3-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Assume that we have conditional exchangeability given <span class="math inline">\(Z\)</span>.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><span class="math inline">\(n\)</span></th>
+<th align="center"><span class="math inline">\(Z\)</span></th>
+<th align="center"><span class="math inline">\(A\)</span></th>
+<th align="center"><span class="math inline">\(Y\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">10</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">60% high (6), 40% low (4)</td>
+</tr>
+<tr class="even">
+<td align="center">40</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">50% high (20), 50% low (20)</td>
+</tr>
+<tr class="odd">
+<td align="center">10</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">50% high (5), 50% low (5)</td>
+</tr>
+<tr class="even">
+<td align="center">50</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">40% high (20), 60% low (30)</td>
+</tr>
+</tbody>
+</table>
+<p>Use the same process we went through in Exercises 1 and 2 to compute the ACE (<span class="math inline">\(P(Y^{a=1}=\text{high}) - P(Y^{a=0}=\text{high})\)</span>) in two ways:</p>
+<ul>
+<li>Directly using the total number of highs in the two columns (the “old” way)</li>
+<li>As a weighted mean (inverse probability weighting (IPW))</li>
+</ul>
+<p><br></p>
+</div>
+<div id="exercise-4-2" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 4<a href="inverse-probability-weighting.html#exercise-4-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Assume that we have conditional exchangeability given <span class="math inline">\(Z\)</span>.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><span class="math inline">\(n\)</span></th>
+<th align="center"><span class="math inline">\(Z\)</span></th>
+<th align="center"><span class="math inline">\(A\)</span></th>
+<th align="center"><span class="math inline">\(E[Y\mid A, Z]\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">80</td>
+<td align="center">A</td>
+<td align="center">1</td>
+<td align="center">30</td>
+</tr>
+<tr class="even">
+<td align="center">20</td>
+<td align="center">A</td>
+<td align="center">0</td>
+<td align="center">20</td>
+</tr>
+<tr class="odd">
+<td align="center">40</td>
+<td align="center">B</td>
+<td align="center">1</td>
+<td align="center">60</td>
+</tr>
+<tr class="even">
+<td align="center">60</td>
+<td align="center">B</td>
+<td align="center">0</td>
+<td align="center">10</td>
+</tr>
+</tbody>
+</table>
+<p>Use the same process we went through in Exercises 1 and 2 to compute the ACE (<span class="math inline">\(E[Y^{a=1}] - E[Y^{a=0}]\)</span>) in two ways:</p>
+<ul>
+<li>Directly using the total number of highs in the two columns (the “old” way)</li>
+<li>As a weighted mean (IPW)</li>
+</ul>
+<p><br></p>
+</div>
+</div>
+<div id="debrief" class="section level2 unnumbered hasAnchor">
+<h2>Debrief<a href="inverse-probability-weighting.html#debrief" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>What commonalities do you notice across the 4 exercises?</li>
+<li>What questions remain about inverse probability weighting?</li>
+</ul>
+
+</div>
+</div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-
-
+<a href="applied-analysis-regression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="homework-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
