@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Topic 5 Key Structures in Causal Graphs | STAT 451: Causal Inference</title>
+  <title>Topic 12 IPW: Simulation | STAT 451: Causal Inference</title>
   <meta name="description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Topic 5 Key Structures in Causal Graphs | STAT 451: Causal Inference" />
+  <meta property="og:title" content="Topic 12 IPW: Simulation | STAT 451: Causal Inference" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   <meta name="github-repo" content="lmyint/causal_spring_2023" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Topic 5 Key Structures in Causal Graphs | STAT 451: Causal Inference" />
+  <meta name="twitter:title" content="Topic 12 IPW: Simulation | STAT 451: Causal Inference" />
   
   <meta name="twitter:description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="causal-graphs-as-statistical-models.html"/>
-<link rel="next" href="graphical-structure-of-confounding.html"/>
+<link rel="prev" href="inverse-probability-weighting.html"/>
+<link rel="next" href="homework-1.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -348,85 +348,108 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="key-structures-in-causal-graphs" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">Topic 5</span> Key Structures in Causal Graphs<a href="key-structures-in-causal-graphs.html#key-structures-in-causal-graphs" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="learning-goals-3" class="section level2 unnumbered hasAnchor">
-<h2>Learning Goals<a href="key-structures-in-causal-graphs.html#learning-goals-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="ipw-simulation" class="section level1 hasAnchor" number="12">
+<h1><span class="header-section-number">Topic 12</span> IPW: Simulation<a href="ipw-simulation.html#ipw-simulation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="learning-goals-9" class="section level2 unnumbered hasAnchor">
+<h2>Learning Goals<a href="ipw-simulation.html#learning-goals-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>Explain the intuition behind marginal and conditional (in)dependence relations in chains, forks, and colliders in causal graphs</li>
-<li>Simulate data from causal graphs under linear and logistic regression structural equation models to check these properties through regression modeling and visualization</li>
+<li>Use simulation to understand the importance of correct model specification on the performance of IPW and to verify the “arrow-removing” property of IPW</li>
 </ul>
 <p><br></p>
-<p>Slides from today are available <a href="https://docs.google.com/presentation/d/1dkymOl7ke3SkK6srMC9FNKEw56qfKkH_h0zFRftkdt8/edit?usp=sharing">here</a>.</p>
+<p>Slides from today are available <a href="https://docs.google.com/presentation/d/1rcLtG98kZIIQUxwyT_MqgzSG06xN5qGiSJLVGEOZPo4/edit?usp=sharing">here</a>.</p>
 <p><br><br><br></p>
 </div>
-<div id="exercises-3" class="section level2 unnumbered hasAnchor">
-<h2>Exercises<a href="key-structures-in-causal-graphs.html#exercises-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><strong>You can download a template RMarkdown file to start from <a href="template_rmds/05-graphs-key-structures.Rmd">here</a>.</strong></p>
-<p>In these exercises, you’ll be practicing simulating data from structural equation models and verifying marginal and conditional (in)dependence properties in DAG structures.</p>
+<div id="exercises-8" class="section level2 hasAnchor" number="12.1">
+<h2><span class="header-section-number">12.1</span> Exercises<a href="ipw-simulation.html#exercises-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>You can download a template RMarkdown file to start from <a href="template_rmds/12-ipw-simulation.Rmd">here</a>.</strong></p>
+<!-- UPDATE THESE TO USE FUNCTIONS TO REPEAT SIMS MANY TIMES? -->
+<!-- NO, not really necessary now, but do note this aloud to the students -->
+<!-- FUNCTION ARGS: arrow strengths, or even a formula object...no allow the coefficient on the interaction term to vary--this allows students to play with the degree of mispecification for the Z+W model -->
+<div id="exercise-1-simulate" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 1: Simulate<a href="ipw-simulation.html#exercise-1-simulate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We’ll simulate data from the causal graph below where <span class="math inline">\(Z\)</span>, <span class="math inline">\(W\)</span>, and <span class="math inline">\(A\)</span> are binary, and <span class="math inline">\(Y\)</span> is quantitative. Use the structural equations below for <span class="math inline">\(A\)</span> and <span class="math inline">\(Y\)</span>, and store your simulated data as <code>sim_data</code>.</p>
 <ul>
-<li>Always use a regression model as a check.</li>
-<li>If the situation readily corresponds to a plot, also make a plot as a check.</li>
+<li><span class="math inline">\(\log(\mathrm{odds}(A = 1)) = -1 + 0.4 Z + 0.4 W + 0.9 Z*W\)</span></li>
+<li><span class="math inline">\(Y\)</span> follows a normal distribution with mean <span class="math inline">\(10 + 5A + 6Z + 7W\)</span> and standard deviation 2.</li>
 </ul>
-<p><strong>Coding note:</strong> When you simulate binary variables and store them in a dataset, it is useful to store them explicitly as categorical as below. (This is most helpful for plotting.)</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="key-structures-in-causal-graphs.html#cb6-1" aria-hidden="true"></a><span class="co"># X is binary. Y and Z are quantitative.</span></span>
-<span id="cb6-2"><a href="key-structures-in-causal-graphs.html#cb6-2" aria-hidden="true"></a>sim_data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">X =</span> <span class="kw">factor</span>(X), Y, Z)</span></code></pre></div>
-<p><br></p>
-<div id="exercise-1-3" class="section level3 unnumbered hasAnchor">
-<h3>Exercise 1<a href="key-structures-in-causal-graphs.html#exercise-1-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Simulate a chain <code>X -&gt; Y -&gt; Z</code> where all three variables are quantitative. (Use a sample size of 10,000 and a significance level of 0.05 throughout these exercises.)</p>
-<ol style="list-style-type: lower-alpha">
-<li><p>What conditional relationship is implied by this chain structure? What is the intuition behind/rationale for this relationship?</p></li>
-<li><p>Use appropriate check(s) to verify this conditional relationship.</p></li>
-</ol>
+<p>Based on the structural equation for <span class="math inline">\(Y\)</span>, what is the true ACE? Based on the causal graph, what variables are needed to achieve conditional exchangeability?</p>
+<p><img src="causal_manual_files/figure-html/11_ex1-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="ipw-simulation.html#cb10-1" aria-hidden="true"></a><span class="kw">set.seed</span>(<span class="dv">451</span>)</span>
+<span id="cb10-2"><a href="ipw-simulation.html#cb10-2" aria-hidden="true"></a>n &lt;-<span class="st"> </span><span class="dv">10000</span></span>
+<span id="cb10-3"><a href="ipw-simulation.html#cb10-3" aria-hidden="true"></a>Z &lt;-<span class="st"> </span><span class="kw">rbinom</span>(n, <span class="dt">size =</span> <span class="dv">1</span>, <span class="dt">prob =</span> <span class="fl">0.5</span>)</span>
+<span id="cb10-4"><a href="ipw-simulation.html#cb10-4" aria-hidden="true"></a>W &lt;-<span class="st"> </span><span class="kw">rbinom</span>(n, <span class="dt">size =</span> <span class="dv">1</span>, <span class="dt">prob =</span> <span class="fl">0.5</span>)</span>
+<span id="cb10-5"><a href="ipw-simulation.html#cb10-5" aria-hidden="true"></a></span>
+<span id="cb10-6"><a href="ipw-simulation.html#cb10-6" aria-hidden="true"></a>log_odds_A &lt;-<span class="st"> </span></span>
+<span id="cb10-7"><a href="ipw-simulation.html#cb10-7" aria-hidden="true"></a>odds_A &lt;-<span class="st"> </span></span>
+<span id="cb10-8"><a href="ipw-simulation.html#cb10-8" aria-hidden="true"></a>p_A &lt;-<span class="st"> </span></span>
+<span id="cb10-9"><a href="ipw-simulation.html#cb10-9" aria-hidden="true"></a>A &lt;-<span class="st"> </span></span>
+<span id="cb10-10"><a href="ipw-simulation.html#cb10-10" aria-hidden="true"></a></span>
+<span id="cb10-11"><a href="ipw-simulation.html#cb10-11" aria-hidden="true"></a>noise_Y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(___)</span>
+<span id="cb10-12"><a href="ipw-simulation.html#cb10-12" aria-hidden="true"></a>mean_Y &lt;-<span class="st"> </span></span>
+<span id="cb10-13"><a href="ipw-simulation.html#cb10-13" aria-hidden="true"></a>Y &lt;-<span class="st"> </span>mean_Y <span class="op">+</span><span class="st"> </span>noise_Y</span>
+<span id="cb10-14"><a href="ipw-simulation.html#cb10-14" aria-hidden="true"></a></span>
+<span id="cb10-15"><a href="ipw-simulation.html#cb10-15" aria-hidden="true"></a>sim_data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Z =</span> <span class="kw">factor</span>(Z), <span class="dt">W =</span> <span class="kw">factor</span>(W), <span class="dt">A =</span> <span class="kw">factor</span>(A), Y)</span></code></pre></div>
 <p><br><br></p>
 </div>
-<div id="exercise-2-2" class="section level3 unnumbered hasAnchor">
-<h3>Exercise 2<a href="key-structures-in-causal-graphs.html#exercise-2-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Simulate a fork <code>X &lt;- Y -&gt; Z</code> where <code>X</code> and <code>Z</code> are quantitative, and <code>Y</code> is binary.</p>
+<div id="exercise-2-inverse-probability-weighting" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 2: Inverse probability weighting<a href="ipw-simulation.html#exercise-2-inverse-probability-weighting" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Here, we’ll check the performance of inverse probability weighting for estimating the average causal effect.</p>
 <ol style="list-style-type: lower-alpha">
-<li><p>What conditional relationship is implied by this fork structure? What is the intuition behind/rationale for this relationship?</p></li>
-<li><p>Use appropriate check(s) to verify this conditional relationship.</p></li>
+<li><p>The accuracy of IPW depends on having the right model for treatment as a function of the variables needed to achieve conditional exchangeability.</p>
+<ul>
+<li>Based on our simulation, what is the correct logistic regression model that should be fit? Fit this model as <code>ps_mod_complex</code>.</li>
+<li>Also fit a wrong model called <code>ps_mod_simple</code> that uses the formula <code>A ~ Z + W</code>. (In this way, we can explore the impact of model misspecification.)</li>
+</ul></li>
+<li><p>The code below uses your models to compute (right and wrong) IP weights.</p>
+<ul>
+<li><code>predict(logistic_mod, newdata = data_to_make_predictions_for, type = "response")</code> is used to predict probabilities from a logistic regression model. (Without <code>type = "response"</code>, log-odds are computed.)</li>
+<li>Add comments to this code to document these different pieces, and check in with the instructor if you have questions.</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="ipw-simulation.html#cb11-1" aria-hidden="true"></a>sim_data &lt;-<span class="st"> </span>sim_data <span class="op">%&gt;%</span></span>
+<span id="cb11-2"><a href="ipw-simulation.html#cb11-2" aria-hidden="true"></a><span class="st">    </span><span class="kw">mutate</span>(</span>
+<span id="cb11-3"><a href="ipw-simulation.html#cb11-3" aria-hidden="true"></a>        <span class="dt">ps_simple =</span> <span class="kw">predict</span>(ps_mod_simple, <span class="dt">newdata =</span> sim_data, <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>),</span>
+<span id="cb11-4"><a href="ipw-simulation.html#cb11-4" aria-hidden="true"></a>        <span class="dt">ipw_simple =</span> <span class="kw">case_when</span>(</span>
+<span id="cb11-5"><a href="ipw-simulation.html#cb11-5" aria-hidden="true"></a>            A<span class="op">==</span><span class="dv">1</span> <span class="op">~</span><span class="st"> </span><span class="dv">1</span><span class="op">/</span>ps_simple,</span>
+<span id="cb11-6"><a href="ipw-simulation.html#cb11-6" aria-hidden="true"></a>            A<span class="op">==</span><span class="dv">0</span> <span class="op">~</span><span class="st"> </span><span class="dv">1</span><span class="op">/</span>(<span class="dv">1</span><span class="op">-</span>ps_simple)</span>
+<span id="cb11-7"><a href="ipw-simulation.html#cb11-7" aria-hidden="true"></a>        )</span>
+<span id="cb11-8"><a href="ipw-simulation.html#cb11-8" aria-hidden="true"></a>    ) <span class="op">%&gt;%</span></span>
+<span id="cb11-9"><a href="ipw-simulation.html#cb11-9" aria-hidden="true"></a><span class="st">    </span><span class="kw">mutate</span>(</span>
+<span id="cb11-10"><a href="ipw-simulation.html#cb11-10" aria-hidden="true"></a>        <span class="dt">ps_complex =</span> <span class="kw">predict</span>(ps_mod_complex, <span class="dt">newdata =</span> sim_data, <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>),</span>
+<span id="cb11-11"><a href="ipw-simulation.html#cb11-11" aria-hidden="true"></a>        <span class="dt">ipw_complex =</span> <span class="kw">case_when</span>(</span>
+<span id="cb11-12"><a href="ipw-simulation.html#cb11-12" aria-hidden="true"></a>            A<span class="op">==</span><span class="dv">1</span> <span class="op">~</span><span class="st"> </span><span class="dv">1</span><span class="op">/</span>ps_complex,</span>
+<span id="cb11-13"><a href="ipw-simulation.html#cb11-13" aria-hidden="true"></a>            A<span class="op">==</span><span class="dv">0</span> <span class="op">~</span><span class="st"> </span><span class="dv">1</span><span class="op">/</span>(<span class="dv">1</span><span class="op">-</span>ps_complex)</span>
+<span id="cb11-14"><a href="ipw-simulation.html#cb11-14" aria-hidden="true"></a>        )</span>
+<span id="cb11-15"><a href="ipw-simulation.html#cb11-15" aria-hidden="true"></a>    )</span></code></pre></div></li>
+<li><p>Fit an ordinary regression model <code>Y ~ A</code> that ignores the IP weights. Is the estimated ACE what you expected?</p></li>
+<li><p>Incorporate the IP weights into your analysis by modifying your model from part c as below. (As discussed in 12.4 of WHATIF, this weighting fits a <strong>marginal structural model (MSM)</strong> that allows us to directly estimate the ACE.) Is the estimated ACE what you expected?</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="ipw-simulation.html#cb12-1" aria-hidden="true"></a><span class="kw">lm</span>(..., <span class="dt">data =</span> ..., <span class="dt">weights =</span> ipw_simple)</span>
+<span id="cb12-2"><a href="ipw-simulation.html#cb12-2" aria-hidden="true"></a><span class="kw">lm</span>(..., <span class="dt">data =</span> ..., <span class="dt">weights =</span> ipw_complex)</span></code></pre></div></li>
 </ol>
+<p><strong>Note:</strong> Using <code>weights = ...</code> in <code>glm(..., family = "binomial")</code> does not work exactly the way we want it to. (It works as we want for <code>lm()</code>.) Going forward, we will use a specialized package (the <code>survey</code> package) for dealing with weights.</p>
 <p><br><br></p>
 </div>
-<div id="exercise-3-2" class="section level3 unnumbered hasAnchor">
-<h3>Exercise 3<a href="key-structures-in-causal-graphs.html#exercise-3-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Simulate a collider <code>X -&gt; Y &lt;- Z</code> where <code>Y</code> also has a child <code>A</code> (<code>Y -&gt; A</code>). Let all 4 variables be binary.</p>
+<div id="exercise-3-balance-checking" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 3: Balance checking<a href="ipw-simulation.html#exercise-3-balance-checking" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: lower-alpha">
-<li><p>What marginal and conditional relationships between <code>X</code> and <code>Z</code> are implied by this collider structure? What is the intuition behind/rationale for this relationship?</p></li>
-<li><p>Use appropriate check(s) to verify these relationships.</p></li>
-</ol>
-<p><br><br></p>
-</div>
-<div id="exercise-4-1" class="section level3 unnumbered hasAnchor">
-<h3>Exercise 4<a href="key-structures-in-causal-graphs.html#exercise-4-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Can we extend building block thinking to longer, more complex structures? Let’s investigate here (conceptually, no simulation).</p>
-<ol style="list-style-type: lower-alpha">
-<li><p>Consider the longer structure <code>A &lt;- B &lt;- C -&gt; D</code>. What do you expect about marginal/conditional (in)dependence of <code>A</code> and <code>D</code>? Explain.</p></li>
-<li><p>Consider the longer structure <code>A -&gt; B &lt;- C &lt;- D -&gt; E</code>. What do you expect about marginal/conditional (in)dependence of <code>A</code> and <code>E</code>? Explain.</p></li>
-</ol>
-<p><br><br></p>
-</div>
-<div id="extra-2" class="section level3 unnumbered hasAnchor">
-<h3>Extra<a href="key-structures-in-causal-graphs.html#extra-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>If you would like to delve more into the probability theory behind these ideas, try the following exercise.</p>
-<p>Use the Causal Markov assumption/product decomposition rule to prove:</p>
-<ol style="list-style-type: decimal">
-<li>The conditional independence relations in forks and chains</li>
-<li>The marginal independence and conditional dependence relations in colliders</li>
+<li><p>What is the key differentiator between regression and inverse probability weighting?</p></li>
+<li><p>Let’s verify that unique property of IP weighting. Make plots to show the relationship between <span class="math inline">\(Z\)</span> and <span class="math inline">\(A\)</span> and between <span class="math inline">\(W\)</span> and <span class="math inline">\(A\)</span> in the original, unweighted data.</p></li>
+<li><p>Modify your plot to incorporate the IP weights by adding the following to <code>aes()</code>. What property of IP weighting does this show?</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="ipw-simulation.html#cb13-1" aria-hidden="true"></a><span class="kw">aes</span>(..., <span class="dt">weight =</span> ipw_complex)</span></code></pre></div></li>
 </ol>
 
 </div>
 </div>
 </div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="causal-graphs-as-statistical-models.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="graphical-structure-of-confounding.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="inverse-probability-weighting.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="homework-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -9,3 +9,5 @@ the-smoking-birth-weight-paradox
 building-causal-graphs-for-applied-analyses
 applied-analysis-regression
 inverse-probability-weighting
+ipw-simulation
+exercises-8
