@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Topic 12 IPW: Simulation | STAT 451: Causal Inference</title>
+  <title>Topic 13 Applied Analysis: IPW | STAT 451: Causal Inference</title>
   <meta name="description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Topic 12 IPW: Simulation | STAT 451: Causal Inference" />
+  <meta property="og:title" content="Topic 13 Applied Analysis: IPW | STAT 451: Causal Inference" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   <meta name="github-repo" content="lmyint/causal_spring_2023" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Topic 12 IPW: Simulation | STAT 451: Causal Inference" />
+  <meta name="twitter:title" content="Topic 13 Applied Analysis: IPW | STAT 451: Causal Inference" />
   
   <meta name="twitter:description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="inverse-probability-weighting.html"/>
-<link rel="next" href="applied-analysis-ipw.html"/>
+<link rel="prev" href="ipw-simulation.html"/>
+<link rel="next" href="homework-1.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -361,105 +361,179 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ipw-simulation" class="section level1 hasAnchor" number="12">
-<h1><span class="header-section-number">Topic 12</span> IPW: Simulation<a href="ipw-simulation.html#ipw-simulation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="learning-goals-9" class="section level2 unnumbered hasAnchor">
-<h2>Learning Goals<a href="ipw-simulation.html#learning-goals-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="applied-analysis-ipw" class="section level1 hasAnchor" number="13">
+<h1><span class="header-section-number">Topic 13</span> Applied Analysis: IPW<a href="applied-analysis-ipw.html#applied-analysis-ipw" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="learning-goals-10" class="section level2 unnumbered hasAnchor">
+<h2>Learning Goals<a href="applied-analysis-ipw.html#learning-goals-10" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>Use simulation to understand the importance of correct model specification on the performance of IPW and to verify the “arrow-removing” property of IPW</li>
+<li>Conduct and interpret results from an appropriate IPW analysis to estimate causal effects and effect modification of causal effects.</li>
 </ul>
 <p><br></p>
-<p>Slides from today are available <a href="https://docs.google.com/presentation/d/1rcLtG98kZIIQUxwyT_MqgzSG06xN5qGiSJLVGEOZPo4/edit?usp=sharing">here</a>.</p>
+<p>Slides from today are available <a href="https://docs.google.com/presentation/d/1gclqUwHE67Q1dBv8l7TfB_-ePfYBq0v143ycJoKohRc/edit?usp=sharing">here</a>.</p>
 <p><br><br><br></p>
 </div>
-<div id="exercises-8" class="section level2 unnumbered hasAnchor">
-<h2>Exercises<a href="ipw-simulation.html#exercises-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><strong>You can download a template RMarkdown file to start from <a href="template_rmds/12-ipw-simulation.Rmd">here</a>.</strong></p>
-<!-- UPDATE THESE TO USE FUNCTIONS TO REPEAT SIMS MANY TIMES? -->
-<!-- NO, not really necessary now, but do note this aloud to the students -->
-<!-- FUNCTION ARGS: arrow strengths, or even a formula object...no allow the coefficient on the interaction term to vary--this allows students to play with the degree of mispecification for the Z+W model -->
-<div id="exercise-1-simulate" class="section level3 unnumbered hasAnchor">
-<h3>Exercise 1: Simulate<a href="ipw-simulation.html#exercise-1-simulate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>We’ll simulate data from the causal graph below where <span class="math inline">\(Z\)</span>, <span class="math inline">\(W\)</span>, and <span class="math inline">\(A\)</span> are binary, and <span class="math inline">\(Y\)</span> is quantitative. Use the structural equations below for <span class="math inline">\(A\)</span> and <span class="math inline">\(Y\)</span>, and store your simulated data as <code>sim_data</code>.</p>
+<div id="analysis-1" class="section level2 unnumbered hasAnchor">
+<h2>Analysis<a href="applied-analysis-ipw.html#analysis-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>You can download a template RMarkdown file to start from <a href="template_rmds/13-applied-ipw.Rmd">here</a>.</strong></p>
+<div id="data-context-and-research-questions-1" class="section level3 unnumbered hasAnchor">
+<h3>Data context and research questions<a href="applied-analysis-ipw.html#data-context-and-research-questions-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Research questions:</strong> Does a policy that delays the tenure process (for new parents) actually help tenure outcomes? Does it help men and women equally?</p>
+<p>The data and full codebook are available <a href="https://moodle.macalester.edu/mod/folder/view.php?id=36846">on Moodle</a> (<code>aer_primarysample.csv</code> and <code>ReadMe.pdf</code>). An abbreviated codebook is below:</p>
+<p><strong>Treatment and primary outcome:</strong></p>
 <ul>
-<li><span class="math inline">\(\log(\mathrm{odds}(A = 1)) = -1 + 0.4 Z + 0.4 W + 0.9 Z*W\)</span></li>
-<li><span class="math inline">\(Y\)</span> follows a normal distribution with mean <span class="math inline">\(10 + 5A + 6Z + 7W\)</span> and standard deviation 2.</li>
+<li><code>gncs</code>: Is a gender-neutral clock-stopping policy in place at this person’s school? (treatment)</li>
+<li><code>tenure_policy_school</code>: Did this person get tenure at the university with the clock-stopping policy? (primary outcome)</li>
 </ul>
-<p>Based on the structural equation for <span class="math inline">\(Y\)</span>, what is the true ACE? Based on the causal graph, what variables are needed to achieve conditional exchangeability?</p>
-<p><img src="causal_manual_files/figure-html/11_ex1-1.png" width="1152" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="ipw-simulation.html#cb10-1" aria-hidden="true"></a><span class="kw">set.seed</span>(<span class="dv">451</span>)</span>
-<span id="cb10-2"><a href="ipw-simulation.html#cb10-2" aria-hidden="true"></a>n &lt;-<span class="st"> </span><span class="dv">10000</span></span>
-<span id="cb10-3"><a href="ipw-simulation.html#cb10-3" aria-hidden="true"></a>Z &lt;-<span class="st"> </span><span class="kw">rbinom</span>(n, <span class="dt">size =</span> <span class="dv">1</span>, <span class="dt">prob =</span> <span class="fl">0.5</span>)</span>
-<span id="cb10-4"><a href="ipw-simulation.html#cb10-4" aria-hidden="true"></a>W &lt;-<span class="st"> </span><span class="kw">rbinom</span>(n, <span class="dt">size =</span> <span class="dv">1</span>, <span class="dt">prob =</span> <span class="fl">0.5</span>)</span>
-<span id="cb10-5"><a href="ipw-simulation.html#cb10-5" aria-hidden="true"></a></span>
-<span id="cb10-6"><a href="ipw-simulation.html#cb10-6" aria-hidden="true"></a>log_odds_A &lt;-<span class="st"> </span></span>
-<span id="cb10-7"><a href="ipw-simulation.html#cb10-7" aria-hidden="true"></a>odds_A &lt;-<span class="st"> </span></span>
-<span id="cb10-8"><a href="ipw-simulation.html#cb10-8" aria-hidden="true"></a>p_A &lt;-<span class="st"> </span></span>
-<span id="cb10-9"><a href="ipw-simulation.html#cb10-9" aria-hidden="true"></a>A &lt;-<span class="st"> </span></span>
-<span id="cb10-10"><a href="ipw-simulation.html#cb10-10" aria-hidden="true"></a></span>
-<span id="cb10-11"><a href="ipw-simulation.html#cb10-11" aria-hidden="true"></a>noise_Y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(___)</span>
-<span id="cb10-12"><a href="ipw-simulation.html#cb10-12" aria-hidden="true"></a>mean_Y &lt;-<span class="st"> </span></span>
-<span id="cb10-13"><a href="ipw-simulation.html#cb10-13" aria-hidden="true"></a>Y &lt;-<span class="st"> </span>mean_Y <span class="op">+</span><span class="st"> </span>noise_Y</span>
-<span id="cb10-14"><a href="ipw-simulation.html#cb10-14" aria-hidden="true"></a></span>
-<span id="cb10-15"><a href="ipw-simulation.html#cb10-15" aria-hidden="true"></a>sim_data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Z =</span> <span class="kw">factor</span>(Z), <span class="dt">W =</span> <span class="kw">factor</span>(W), <span class="dt">A =</span> <span class="kw">factor</span>(A), Y)</span></code></pre></div>
+<p><br></p>
+<p><strong>Additional outcomes (mediators):</strong></p>
+<ul>
+<li><code>top_pubsX</code>: cumulative number of peer-reviewed publications in top-5 journals by year X (3, 5, 7, and 9) since PhD completion</li>
+<li><code>PUBSX</code>: cumulative number of non-top-5 peer-reviewed publications by year X (3, 5 7, and 9) since PhD completion</li>
+</ul>
+<p><br></p>
+<p><strong>Additional covariates:</strong></p>
+<ul>
+<li><code>female</code>: Is the faculty member a female?</li>
+<li><code>pol_u</code>: policy university identifier (values are randomized for privacy reasons)</li>
+<li><code>pol_job_start</code>: identifier for year the job at the policy university started (values are randomized for privacy reasons)</li>
+<li><code>phd_rank</code>: 1-5 categorical variable of PhD program tier based on placements into the top-50 departments in our sample</li>
+<li><code>phd_rank_miss</code>: indicator for missing PhD information</li>
+<li><code>post_doc</code>: indicator for doing a post-doc before the first tenure-track position</li>
+<li><code>ug_students</code>: number of undergraduate students at the university, in thousands</li>
+<li><code>grad_students</code>: number of graduate students at the university, in thousands</li>
+<li><code>faculty</code>: number of faculty at the university (all disciplines), in hundreds</li>
+<li><code>full_av_salary</code>: average salary of full professors at the university, in thousands</li>
+<li><code>assist_av_salary</code>: average salary of assistant professors at the university, in thousands,</li>
+<li><code>revenue</code>: annual revenue of the university, in 10,000,000s</li>
+<li><code>female_ratio</code>: fraction of the faculty at the university who are female</li>
+<li><code>full_ratio</code>: fraction of the faculty at the university who are full professors</li>
+<li><code>RANK</code>: equal to 1 for top-10 departments and 2 for all other departments</li>
+<li><code>max_csstops</code>: number of children born within five years of PhD completion</li>
+</ul>
+</div>
+<div id="loading-data-and-packages" class="section level3 hasAnchor" number="13.0.1">
+<h3><span class="header-section-number">13.0.1</span> Loading data and packages<a href="applied-analysis-ipw.html#loading-data-and-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You’ll need to install the <code>survey</code> package first.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="applied-analysis-ipw.html#cb14-1" aria-hidden="true"></a><span class="kw">library</span>(survey) <span class="co"># install.packages(&quot;survey&quot;)</span></span>
+<span id="cb14-2"><a href="applied-analysis-ipw.html#cb14-2" aria-hidden="true"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb14-3"><a href="applied-analysis-ipw.html#cb14-3" aria-hidden="true"></a><span class="kw">library</span>(splines) <span class="co"># Make sure that the splines package is installed before running</span></span>
+<span id="cb14-4"><a href="applied-analysis-ipw.html#cb14-4" aria-hidden="true"></a></span>
+<span id="cb14-5"><a href="applied-analysis-ipw.html#cb14-5" aria-hidden="true"></a>tenure &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;aer_primarysample.csv&quot;</span>)</span>
+<span id="cb14-6"><a href="applied-analysis-ipw.html#cb14-6" aria-hidden="true"></a></span>
+<span id="cb14-7"><a href="applied-analysis-ipw.html#cb14-7" aria-hidden="true"></a>tenure &lt;-<span class="st"> </span>tenure <span class="op">%&gt;%</span></span>
+<span id="cb14-8"><a href="applied-analysis-ipw.html#cb14-8" aria-hidden="true"></a><span class="st">    </span><span class="kw">mutate</span>(</span>
+<span id="cb14-9"><a href="applied-analysis-ipw.html#cb14-9" aria-hidden="true"></a>        <span class="dt">faculty =</span> <span class="kw">ifelse</span>(faculty_miss<span class="op">==</span><span class="dv">1</span>, <span class="ot">NA</span>, faculty),</span>
+<span id="cb14-10"><a href="applied-analysis-ipw.html#cb14-10" aria-hidden="true"></a>        <span class="dt">revenue =</span> <span class="kw">ifelse</span>(revenue_miss<span class="op">==</span><span class="dv">1</span>, <span class="ot">NA</span>, revenue),</span>
+<span id="cb14-11"><a href="applied-analysis-ipw.html#cb14-11" aria-hidden="true"></a>        <span class="dt">female_ratio =</span> <span class="kw">ifelse</span>(female_ratio_miss<span class="op">==</span><span class="dv">1</span>, <span class="ot">NA</span>, female_ratio),</span>
+<span id="cb14-12"><a href="applied-analysis-ipw.html#cb14-12" aria-hidden="true"></a>        <span class="dt">full_ratio =</span> <span class="kw">ifelse</span>(full_ratio_miss<span class="op">==</span><span class="dv">1</span>, <span class="ot">NA</span>, full_ratio),</span>
+<span id="cb14-13"><a href="applied-analysis-ipw.html#cb14-13" aria-hidden="true"></a>        <span class="dt">phd_rank =</span> <span class="kw">ifelse</span>(phd_rank_miss<span class="op">==</span><span class="dv">1</span>, <span class="ot">NA</span>, phd_rank),</span>
+<span id="cb14-14"><a href="applied-analysis-ipw.html#cb14-14" aria-hidden="true"></a>        <span class="dt">max_csstops =</span> <span class="kw">ifelse</span>(max_csstops_miss<span class="op">==</span><span class="dv">1</span>, <span class="ot">NA</span>, max_csstops)</span>
+<span id="cb14-15"><a href="applied-analysis-ipw.html#cb14-15" aria-hidden="true"></a>    )</span></code></pre></div>
+<p><br></p>
+</div>
+<div id="part-1-review-outcome-regression-results" class="section level3 unnumbered hasAnchor">
+<h3>Part 1: Review outcome regression results<a href="applied-analysis-ipw.html#part-1-review-outcome-regression-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Previously we used outcome regression to estimate the overall effect of tenure clock stopping policies and the effects for males and females. Models from one of our analyses are displayed here.</p>
+<p>Review the results of this analysis by interpreting the relevant coefficients and confidence intervals on the odds ratio scale.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="applied-analysis-ipw.html#cb15-1" aria-hidden="true"></a><span class="co"># Overall ACE</span></span>
+<span id="cb15-2"><a href="applied-analysis-ipw.html#cb15-2" aria-hidden="true"></a>mod_overall &lt;-<span class="st"> </span><span class="kw">glm</span>(tenure_policy_school <span class="op">~</span><span class="st"> </span>gncs <span class="op">+</span><span class="st"> </span><span class="kw">ns</span>(female_ratio, <span class="dv">3</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ns</span>(full_ratio, <span class="dv">3</span>) <span class="op">+</span><span class="st"> </span><span class="kw">factor</span>(max_csstops)<span class="op">*</span>female, <span class="dt">data =</span> tenure, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
+<span id="cb15-3"><a href="applied-analysis-ipw.html#cb15-3" aria-hidden="true"></a><span class="kw">summary</span>(mod_overall)</span>
+<span id="cb15-4"><a href="applied-analysis-ipw.html#cb15-4" aria-hidden="true"></a><span class="kw">confint</span>(mod_overall)</span>
+<span id="cb15-5"><a href="applied-analysis-ipw.html#cb15-5" aria-hidden="true"></a></span>
+<span id="cb15-6"><a href="applied-analysis-ipw.html#cb15-6" aria-hidden="true"></a><span class="co"># Subgroup ACEs</span></span>
+<span id="cb15-7"><a href="applied-analysis-ipw.html#cb15-7" aria-hidden="true"></a>mod_subgroup &lt;-<span class="st"> </span><span class="kw">glm</span>(tenure_policy_school <span class="op">~</span><span class="st"> </span>gncs<span class="op">*</span>female <span class="op">+</span><span class="st"> </span><span class="kw">ns</span>(female_ratio, <span class="dv">3</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ns</span>(full_ratio, <span class="dv">3</span>) <span class="op">+</span><span class="st"> </span><span class="kw">factor</span>(max_csstops)<span class="op">*</span>female, <span class="dt">data =</span> tenure, <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
+<span id="cb15-8"><a href="applied-analysis-ipw.html#cb15-8" aria-hidden="true"></a><span class="kw">summary</span>(mod_subgroup)</span>
+<span id="cb15-9"><a href="applied-analysis-ipw.html#cb15-9" aria-hidden="true"></a><span class="kw">confint</span>(mod_subgroup)</span></code></pre></div>
 <p><br><br></p>
 </div>
-<div id="exercise-2-inverse-probability-weighting" class="section level3 unnumbered hasAnchor">
-<h3>Exercise 2: Inverse probability weighting<a href="ipw-simulation.html#exercise-2-inverse-probability-weighting" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Here, we’ll check the performance of inverse probability weighting for estimating the average causal effect.</p>
-<ol style="list-style-type: lower-alpha">
-<li><p>The accuracy of IPW depends on having the right model for treatment as a function of the variables needed to achieve conditional exchangeability.</p>
+<div id="part-2-propensity-score-modeling" class="section level3 unnumbered hasAnchor">
+<h3>Part 2: Propensity score modeling<a href="applied-analysis-ipw.html#part-2-propensity-score-modeling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We will assume that the <code>female_ratio</code>, <code>full_ratio</code>, and <code>max_csstops</code> are sufficient (proxies for) variables needed to achieve conditional exchangeability. (<code>female</code> was included in the outcome regresion models for assessing subgroup effects but wasn’t determined to be part of a noncausal path in our causal graph analysis.)</p>
 <ul>
-<li>Based on our simulation, what is the correct logistic regression model that should be fit? Fit this model as <code>ps_mod_complex</code>.</li>
-<li>Also fit a wrong model called <code>ps_mod_simple</code> that uses the formula <code>A ~ Z + W</code>. (In this way, we can explore the impact of model misspecification.)</li>
+<li><p>Fit an appropriate propensity score model called <code>ps_mod</code>. Use visualizations to inform the construction of your model. (Just focus on appropriately handling nonlinearity.)</p></li>
+<li><p>Use your model to compute appropriate weights, and add these weights to the dataset.</p></li>
+<li><p>Use “before and after” visualizations to compare balance of key variables before and after weighting. You’ll need to use <code>factor(gncs)</code> to make your visualizations–this forces R to view <code>gncs</code> as a categorical variable.</p>
+<ul>
+<li>Note: If any distributions look dissimilar after weighting, this is an indication that the propensity score model may be misspecified. We won’t address this in our analysis today for time reasons, but in practice, more flexible modeling techniques would be explored.</li>
 </ul></li>
-<li><p>The code below uses your models to compute (right and wrong) IP weights.</p>
-<ul>
-<li><code>predict(logistic_mod, newdata = data_to_make_predictions_for, type = "response")</code> is used to predict probabilities from a logistic regression model. (Without <code>type = "response"</code>, log-odds are computed.)</li>
-<li>Add comments to this code to document these different pieces, and check in with the instructor if you have questions.</li>
 </ul>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="ipw-simulation.html#cb11-1" aria-hidden="true"></a>sim_data &lt;-<span class="st"> </span>sim_data <span class="op">%&gt;%</span></span>
-<span id="cb11-2"><a href="ipw-simulation.html#cb11-2" aria-hidden="true"></a><span class="st">    </span><span class="kw">mutate</span>(</span>
-<span id="cb11-3"><a href="ipw-simulation.html#cb11-3" aria-hidden="true"></a>        <span class="dt">ps_simple =</span> <span class="kw">predict</span>(ps_mod_simple, <span class="dt">newdata =</span> sim_data, <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>),</span>
-<span id="cb11-4"><a href="ipw-simulation.html#cb11-4" aria-hidden="true"></a>        <span class="dt">ipw_simple =</span> <span class="kw">case_when</span>(</span>
-<span id="cb11-5"><a href="ipw-simulation.html#cb11-5" aria-hidden="true"></a>            A<span class="op">==</span><span class="dv">1</span> <span class="op">~</span><span class="st"> </span><span class="dv">1</span><span class="op">/</span>ps_simple,</span>
-<span id="cb11-6"><a href="ipw-simulation.html#cb11-6" aria-hidden="true"></a>            A<span class="op">==</span><span class="dv">0</span> <span class="op">~</span><span class="st"> </span><span class="dv">1</span><span class="op">/</span>(<span class="dv">1</span><span class="op">-</span>ps_simple)</span>
-<span id="cb11-7"><a href="ipw-simulation.html#cb11-7" aria-hidden="true"></a>        )</span>
-<span id="cb11-8"><a href="ipw-simulation.html#cb11-8" aria-hidden="true"></a>    ) <span class="op">%&gt;%</span></span>
-<span id="cb11-9"><a href="ipw-simulation.html#cb11-9" aria-hidden="true"></a><span class="st">    </span><span class="kw">mutate</span>(</span>
-<span id="cb11-10"><a href="ipw-simulation.html#cb11-10" aria-hidden="true"></a>        <span class="dt">ps_complex =</span> <span class="kw">predict</span>(ps_mod_complex, <span class="dt">newdata =</span> sim_data, <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>),</span>
-<span id="cb11-11"><a href="ipw-simulation.html#cb11-11" aria-hidden="true"></a>        <span class="dt">ipw_complex =</span> <span class="kw">case_when</span>(</span>
-<span id="cb11-12"><a href="ipw-simulation.html#cb11-12" aria-hidden="true"></a>            A<span class="op">==</span><span class="dv">1</span> <span class="op">~</span><span class="st"> </span><span class="dv">1</span><span class="op">/</span>ps_complex,</span>
-<span id="cb11-13"><a href="ipw-simulation.html#cb11-13" aria-hidden="true"></a>            A<span class="op">==</span><span class="dv">0</span> <span class="op">~</span><span class="st"> </span><span class="dv">1</span><span class="op">/</span>(<span class="dv">1</span><span class="op">-</span>ps_complex)</span>
-<span id="cb11-14"><a href="ipw-simulation.html#cb11-14" aria-hidden="true"></a>        )</span>
-<span id="cb11-15"><a href="ipw-simulation.html#cb11-15" aria-hidden="true"></a>    )</span></code></pre></div></li>
-<li><p>Fit an ordinary regression model <code>Y ~ A</code> that ignores the IP weights. Is the estimated ACE what you expected?</p></li>
-<li><p>Incorporate the IP weights into your analysis by modifying your model from part c as below. (As discussed in 12.4 of WHATIF, this weighting fits a <strong>marginal structural model (MSM)</strong> that allows us to directly estimate the ACE.) Is the estimated ACE what you expected?</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="ipw-simulation.html#cb12-1" aria-hidden="true"></a><span class="kw">lm</span>(..., <span class="dt">data =</span> ..., <span class="dt">weights =</span> ipw_simple)</span>
-<span id="cb12-2"><a href="ipw-simulation.html#cb12-2" aria-hidden="true"></a><span class="kw">lm</span>(..., <span class="dt">data =</span> ..., <span class="dt">weights =</span> ipw_complex)</span></code></pre></div></li>
-</ol>
-<p><strong>Note:</strong> Using <code>weights = ...</code> in <code>glm(..., family = "binomial")</code> does not work exactly the way we want it to. (It works as we want for <code>lm()</code>.) Going forward, we will use a specialized package (the <code>survey</code> package) for dealing with weights.</p>
+<p><br></p>
+<p>Coding notes:</p>
+<p>The code below will be useful for exploring nonlinearity in covariate-treatment relationships. The blue smooth reflects observed data trends, and the red smooth shows the predictions from a logistic regression model with a specific model formula.</p>
+<ul>
+<li>Formula <code>y ~ x</code>: Covariate is included as a linear term</li>
+<li>Formula <code>y ~ ns(x,3)</code>: Covariate is modeled with a flexible nonlinear function (a “spline” with 3 degrees of freedom–don’t worry about the details of this)</li>
+</ul>
+<p>The model predictions should generally align with observed data trends. If they don’t line up well using formula <code>y ~ x</code>, update the formula to <code>y ~ ns(x, 3)</code> to see if there is an improvement.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="applied-analysis-ipw.html#cb16-1" aria-hidden="true"></a><span class="kw">ggplot</span>(DATA, <span class="kw">aes</span>(<span class="dt">x =</span> COVARIATE, <span class="dt">y =</span> OUTCOME)) <span class="op">+</span></span>
+<span id="cb16-2"><a href="applied-analysis-ipw.html#cb16-2" aria-hidden="true"></a><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
+<span id="cb16-3"><a href="applied-analysis-ipw.html#cb16-3" aria-hidden="true"></a><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">method =</span> <span class="st">&quot;loess&quot;</span>) <span class="op">+</span></span>
+<span id="cb16-4"><a href="applied-analysis-ipw.html#cb16-4" aria-hidden="true"></a><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">formula =</span> INSERT_MODEL_FORMULA, <span class="dt">method =</span> <span class="st">&quot;glm&quot;</span>,</span>
+<span id="cb16-5"><a href="applied-analysis-ipw.html#cb16-5" aria-hidden="true"></a>        <span class="dt">method.args =</span> <span class="kw">list</span>(<span class="dt">family=</span><span class="st">&quot;binomial&quot;</span>),</span>
+<span id="cb16-6"><a href="applied-analysis-ipw.html#cb16-6" aria-hidden="true"></a>        <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span></span>
+<span id="cb16-7"><a href="applied-analysis-ipw.html#cb16-7" aria-hidden="true"></a>    )</span></code></pre></div>
+<p><br></p>
+<p>The (incomplete) code below is useful for computing appropriate weights:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="applied-analysis-ipw.html#cb17-1" aria-hidden="true"></a>DATA &lt;-<span class="st"> </span>DATA <span class="op">%&gt;%</span></span>
+<span id="cb17-2"><a href="applied-analysis-ipw.html#cb17-2" aria-hidden="true"></a><span class="st">    </span><span class="kw">mutate</span>(</span>
+<span id="cb17-3"><a href="applied-analysis-ipw.html#cb17-3" aria-hidden="true"></a>        <span class="dt">ps =</span> <span class="kw">predict</span>(ps_mod, <span class="dt">newdata =</span> DATA, <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>),</span>
+<span id="cb17-4"><a href="applied-analysis-ipw.html#cb17-4" aria-hidden="true"></a>        <span class="dt">ipw =</span> <span class="kw">case_when</span>(</span>
+<span id="cb17-5"><a href="applied-analysis-ipw.html#cb17-5" aria-hidden="true"></a>            TREAT_VAR<span class="op">==</span><span class="dv">1</span> <span class="op">~</span><span class="st"> </span>???,</span>
+<span id="cb17-6"><a href="applied-analysis-ipw.html#cb17-6" aria-hidden="true"></a>            TREAT_VAR<span class="op">==</span><span class="dv">0</span> <span class="op">~</span><span class="st"> </span>???</span>
+<span id="cb17-7"><a href="applied-analysis-ipw.html#cb17-7" aria-hidden="true"></a>        )</span>
+<span id="cb17-8"><a href="applied-analysis-ipw.html#cb17-8" aria-hidden="true"></a>    )</span></code></pre></div>
+<p><br></p>
+<p>You can incorporate weights into most <code>ggplot2</code> figures by adding <code>weight</code> to the <code>aes</code>thetics:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="applied-analysis-ipw.html#cb18-1" aria-hidden="true"></a><span class="kw">aes</span>(..., <span class="dt">weight =</span> ip_weight)</span></code></pre></div>
 <p><br><br></p>
 </div>
-<div id="exercise-3-balance-checking" class="section level3 unnumbered hasAnchor">
-<h3>Exercise 3: Balance checking<a href="ipw-simulation.html#exercise-3-balance-checking" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ol style="list-style-type: lower-alpha">
-<li><p>What is the key differentiator between regression and inverse probability weighting?</p></li>
-<li><p>Let’s verify that unique property of IP weighting. Make plots to show the relationship between <span class="math inline">\(Z\)</span> and <span class="math inline">\(A\)</span> and between <span class="math inline">\(W\)</span> and <span class="math inline">\(A\)</span> in the original, unweighted data.</p></li>
-<li><p>Modify your plot to incorporate the IP weights by adding the following to <code>aes()</code>. What property of IP weighting does this show?</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="ipw-simulation.html#cb13-1" aria-hidden="true"></a><span class="kw">aes</span>(..., <span class="dt">weight =</span> ipw_complex)</span></code></pre></div></li>
-</ol>
+<div id="part-3-modeling-with-ip-weights" class="section level3 unnumbered hasAnchor">
+<h3>Part 3: Modeling with IP weights<a href="applied-analysis-ipw.html#part-3-modeling-with-ip-weights" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We can use the IP weights constructed above in a weighted regression model to estimate causal effects.</p>
+<ul>
+<li><p>Note: The <code>svydesign()</code> and <code>svyglm()</code> functions from the <code>survey</code> package are used to ensure that the weights are treated appropriately.</p></li>
+<li><p>Note that we are removing cases with missing values for the weights. (These cases had missing values in the covariates used in the propensity score model.) You’ll think about whether this biases the analysis in Part 4.</p></li>
+<li><p>The code for estimating the overall ACE is complete. Adapt this code to estimate subgroup ACEs in males and females.</p></li>
+<li><p>Using both the confidence intervals and effect magnitudes, discuss the results of your analysis in a contextually meaningful way. (Tie these results back to the research questions.)</p></li>
+<li><p>How do confidence interval widths compare to those from outcome regression?</p></li>
+</ul>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="applied-analysis-ipw.html#cb19-1" aria-hidden="true"></a><span class="co"># Remove cases with missing weights</span></span>
+<span id="cb19-2"><a href="applied-analysis-ipw.html#cb19-2" aria-hidden="true"></a>tenure_subs &lt;-<span class="st"> </span>tenure <span class="op">%&gt;%</span></span>
+<span id="cb19-3"><a href="applied-analysis-ipw.html#cb19-3" aria-hidden="true"></a><span class="st">    </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(ipw))</span>
+<span id="cb19-4"><a href="applied-analysis-ipw.html#cb19-4" aria-hidden="true"></a></span>
+<span id="cb19-5"><a href="applied-analysis-ipw.html#cb19-5" aria-hidden="true"></a><span class="co"># Set up information about weights</span></span>
+<span id="cb19-6"><a href="applied-analysis-ipw.html#cb19-6" aria-hidden="true"></a>design &lt;-<span class="st"> </span><span class="kw">svydesign</span>(<span class="dt">ids =</span> <span class="op">~</span><span class="dv">0</span>, <span class="dt">weights =</span> tenure_subs<span class="op">$</span>ipw, <span class="dt">data =</span> tenure_subs)</span>
+<span id="cb19-7"><a href="applied-analysis-ipw.html#cb19-7" aria-hidden="true"></a></span>
+<span id="cb19-8"><a href="applied-analysis-ipw.html#cb19-8" aria-hidden="true"></a><span class="co"># Fit a marginal structural model to estimate overall ACE</span></span>
+<span id="cb19-9"><a href="applied-analysis-ipw.html#cb19-9" aria-hidden="true"></a>overall_fit &lt;-<span class="st"> </span><span class="kw">svyglm</span>(</span>
+<span id="cb19-10"><a href="applied-analysis-ipw.html#cb19-10" aria-hidden="true"></a>    tenure_policy_school <span class="op">~</span><span class="st"> </span>gncs,</span>
+<span id="cb19-11"><a href="applied-analysis-ipw.html#cb19-11" aria-hidden="true"></a>    <span class="dt">data =</span> tenure_subs,</span>
+<span id="cb19-12"><a href="applied-analysis-ipw.html#cb19-12" aria-hidden="true"></a>    <span class="dt">design =</span> design</span>
+<span id="cb19-13"><a href="applied-analysis-ipw.html#cb19-13" aria-hidden="true"></a>)</span>
+<span id="cb19-14"><a href="applied-analysis-ipw.html#cb19-14" aria-hidden="true"></a><span class="kw">summary</span>(overall_fit)</span>
+<span id="cb19-15"><a href="applied-analysis-ipw.html#cb19-15" aria-hidden="true"></a><span class="kw">confint</span>(overall_fit)</span>
+<span id="cb19-16"><a href="applied-analysis-ipw.html#cb19-16" aria-hidden="true"></a></span>
+<span id="cb19-17"><a href="applied-analysis-ipw.html#cb19-17" aria-hidden="true"></a><span class="co"># Adapt the svyglm() code above to include an interaction between treatment and female</span></span>
+<span id="cb19-18"><a href="applied-analysis-ipw.html#cb19-18" aria-hidden="true"></a>subgroup_fit &lt;-<span class="st"> </span></span></code></pre></div>
+<p><br><br></p>
+</div>
+<div id="part-4-causal-graphs-and-missing-data" class="section level3 unnumbered hasAnchor">
+<h3>Part 4: Causal graphs and missing data<a href="applied-analysis-ipw.html#part-4-causal-graphs-and-missing-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Challenge! How might we use causal graphs to analyze the impact of dropping missing data (a complete case analysis)? Can we use ideas from representing selection bias with causal graphs?</p>
 
 </div>
 </div>
 </div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="inverse-probability-weighting.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="applied-analysis-ipw.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="ipw-simulation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="homework-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

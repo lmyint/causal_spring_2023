@@ -64,6 +64,7 @@ Dig deeper into existing course topics or learn a new topic. Examples could incl
 - Interference
 - Details of methods for time-varying treatments
 - Specialized considerations for particular study designs
+- Doubly-robust estimation
 
 
 <br><br>
@@ -71,7 +72,10 @@ Dig deeper into existing course topics or learn a new topic. Examples could incl
 
 ### Option 4: Other {-}
 
-If none of these options piques your interest, I'm happy to discuss alternatives with you.
+If none of these options piques your interest, I'm happy to discuss alternatives with you. Some ideas:
+
+- Design a Shiny app to illustrate causal concepts to students
+- Write (part of) an R package for making it easier to work with causal graphs
 
 
 <br><br><br><br>

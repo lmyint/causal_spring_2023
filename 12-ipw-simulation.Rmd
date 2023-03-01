@@ -16,7 +16,7 @@ Slides from today are available [here](https://docs.google.com/presentation/d/1r
 <br><br><br>
 
 
-## Exercises
+## Exercises {-}
 
 **You can download a template RMarkdown file to start from [here](template_rmds/12-ipw-simulation.Rmd).**
 
