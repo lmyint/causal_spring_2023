@@ -11,4 +11,3 @@ applied-analysis-regression
 inverse-probability-weighting
 ipw-simulation
 applied-analysis-ipw
-loading-data-and-packages

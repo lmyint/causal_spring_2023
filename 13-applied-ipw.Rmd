@@ -59,7 +59,7 @@ The data and full codebook are available [on Moodle](https://moodle.macalester.e
 - `RANK`: equal to 1 for top-10 departments and 2 for all other departments
 - `max_csstops`: number of children born within five years of PhD completion
 
-### Loading data and packages
+### Loading data and packages {-}
 
 You'll need to install the `survey` package first.
 
