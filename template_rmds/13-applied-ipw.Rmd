@@ -95,7 +95,7 @@ confint(mod_subgroup)
 
 ## Part 2: Propensity score modeling
 
-We will assume that the `female_ratio`, `full_ratio`, and `max_csstops` are sufficient (proxies for) variables needed to achieve conditional exchangeability. (`female` was included in the outcome regresion models for assessing subgroup effects but wasn't determined to be part of a noncausal path in our causal graph analysis.)
+We will assume that the `revenue`, `female_ratio`, `full_ratio`, and `max_csstops` are sufficient (proxies for) variables needed to achieve conditional exchangeability. (`female` was included in the outcome regresion models for assessing subgroup effects but wasn't determined to be part of a noncausal path in our causal graph analysis.)
 
 - Fit an appropriate propensity score model called `ps_mod`. Use visualizations to inform the construction of your model. (Just focus on appropriately handling nonlinearity.)
 
@@ -154,7 +154,7 @@ aes(..., weight = ip_weight)
 
 We can use the IP weights constructed above in a weighted regression model to estimate causal effects.
 
-- Note: The `svydesign()` and `svyglm()` functions from the `survey` package are used to ensure that the weights are treated appropriately.
+- Note: The `svydesign()` and `svyglm()` functions from the `survey` package are used to ensure that the weights are treated appropriately. (An updated ("robust") standard error calculation method is used to appropriately account for the fact that the IP weights are estimated and have uncertainty.)
 
 - Note that we are removing cases with missing values for the weights. (These cases had missing values in the covariates used in the propensity score model.) You'll think about whether this biases the analysis in Part 4.
 
@@ -176,7 +176,8 @@ design <- svydesign(ids = ~0, weights = tenure_subs$ipw, data = tenure_subs)
 overall_fit <- svyglm(
     tenure_policy_school ~ gncs,
     data = tenure_subs,
-    design = design
+    design = design,
+    family = "quasibinomial"
 )
 summary(overall_fit)
 confint(overall_fit)
