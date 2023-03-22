@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>STAT 451: Causal Inference</title>
+  <title>Topic 14 Time-Varying Treatments and Mediation Analysis | STAT 451: Causal Inference</title>
   <meta name="description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="STAT 451: Causal Inference" />
+  <meta property="og:title" content="Topic 14 Time-Varying Treatments and Mediation Analysis | STAT 451: Causal Inference" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   <meta name="github-repo" content="lmyint/causal_spring_2023" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="STAT 451: Causal Inference" />
+  <meta name="twitter:title" content="Topic 14 Time-Varying Treatments and Mediation Analysis | STAT 451: Causal Inference" />
   
   <meta name="twitter:description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="references.html"/>
+<link rel="prev" href="applied-analysis-ipw.html"/>
+<link rel="next" href="sensitivity-analyses-for-unmeasured-variables.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -379,33 +379,68 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">STAT 451: Causal Inference</h1>
+<div id="time-varying-treatments-and-mediation-analysis" class="section level1 hasAnchor" number="14">
+<h1><span class="header-section-number">Topic 14</span> Time-Varying Treatments and Mediation Analysis<a href="time-varying-treatments-and-mediation-analysis.html#time-varying-treatments-and-mediation-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="learning-goals-11" class="section level2 unnumbered hasAnchor">
+<h2>Learning Goals<a href="time-varying-treatments-and-mediation-analysis.html#learning-goals-11" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Formulate research questions that can be answered in a time-varying treatment setting</li>
+<li>Formulate research questions that can be answered via mediation analysis</li>
+<li>Explain why regression does not generally work in time-varying settings with treatment-confounder feedback using d-separation ideas</li>
+<li>Relate d-separation ideas to exchangeability conditions for mediation</li>
+</ul>
+<p><br></p>
+<p>Slides from today are available <a href="https://docs.google.com/presentation/d/1bAYaNzoYV9mKyOwNxk5uLyuqzTZmpuWZRRleec61fNo/edit?usp=sharing">here</a>.</p>
+<p><br><br><br></p>
 </div>
-<div id="welcome" class="section level1 unnumbered hasAnchor">
-<h1>Welcome!<a href="index.html#welcome" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<center>
-<p><img src="https://img.freepik.com/free-photo/closeup-wooden-dominoes-falling-white-surface_181624-38949.jpg?w=2000&t=st=1673724379~exp=1673724979~hmac=326c16ade69912327c8e3d3e55bf55c62b6b178aaa49fa2311e19ac12689b7a9" width=500 height=333></p>
-Image source: <a href="https://www.freepik.com/free-photo/closeup-wooden-dominoes-falling-white-surface_15671221.htm">Freepik</a>
-</center>
-<p><br></p>
-<p>This is the course website for STAT 451: Causal Inference at Macalester College for the Spring 2023 semester. The content here was made by <a href="https://www.lesliemyint.org">Leslie Myint</a> and draws upon several resources, all of which are listed on the <a href="references.html#references">References</a> page.</p>
-<p><br></p>
-<!-- **For the most recent versions of my course websites and associated content, please see the [Teaching section](https://www.lesliemyint.org/teaching) of my [website](https://www.lesliemyint.org).** -->
-<p><br>
-<br>
-<br></p>
-<p><img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png" alt="CC BY-NC-SA" width=88 height=31></p>
-<p>This work is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+<div id="exercises-9" class="section level2 unnumbered hasAnchor">
+<h2>Exercises<a href="time-varying-treatments-and-mediation-analysis.html#exercises-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="exercise-1-7" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 1<a href="time-varying-treatments-and-mediation-analysis.html#exercise-1-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For those of you working on a data analysis (or a plan of a data analysis) for the final project, share your data context and research questions with others.</p>
+<ul>
+<li>Mediation
+<ul>
+<li>Brainstorm some research questions that could be answered in a mediation analysis framework.</li>
+<li>What mediators would be of interest? (That is, what direct and indirect effects would be of interest?)</li>
+<li>How realistic would it be to collect data on those mediators?</li>
+</ul></li>
+<li>Time-varying treatments
+<ul>
+<li>Brainstorm some research questions that could be answered in a time-varying treatments framework.</li>
+<li>Is it more useful to consider time-fixed or time-varying treatments in your context?</li>
+<li>How realistic would it be to collect the longitudinal data needed for a time-varying treatments analysis?</li>
+</ul></li>
+</ul>
+</div>
+<div id="exercise-2-6" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 2<a href="time-varying-treatments-and-mediation-analysis.html#exercise-2-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The following causal graph shows a time-varying treatment setting where treatment is measured at two time points (<code>A0</code> and <code>A1</code>). It depicts a common occurrence in longitudinal data: <strong>treatment-confounder feedback</strong>. This is when past treatment <span class="math inline">\(A_{t-1}\)</span> affects the value of future confounders <span class="math inline">\(L_{t}\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Using causal graph ideas, explain why a regression model of the form <span class="math inline">\(E[Y \mid A_0, A_1, L_1]\)</span> creates a problem for estimating the effect of a treatment strategy for <span class="math inline">\(A_0\)</span> and <span class="math inline">\(A_1\)</span>.</p></li>
+<li><p>How would you expect this graph to change under inverse probability weighting? Why does IPW allow us to estimate the effect of a treatment strategy for <span class="math inline">\(A_0\)</span> and <span class="math inline">\(A_1\)</span>?</p></li>
+</ol>
+<p><img src="causal_manual_files/figure-html/14_tvt-1.png" width="1056" style="display: block; margin: auto;" /></p>
+</div>
+<div id="exercise-3-6" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 3<a href="time-varying-treatments-and-mediation-analysis.html#exercise-3-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In mediation analysis, a common first instinct to estimate direct effects is to control for the mediator by including it in a regression model. Let’s explore this intuition by examining the following causal graph.</p>
+<p><img src="causal_manual_files/figure-html/14_mediation-1.png" width="1056" style="display: block; margin: auto;" /></p>
+<p>Based on this graph, what considerations need to be kept in mind in order for this approach to validly estimate a direct effect?</p>
 
 </div>
+</div>
+</div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="references.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="applied-analysis-ipw.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sensitivity-analyses-for-unmeasured-variables.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

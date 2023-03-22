@@ -1,0 +1,97 @@
+```{r 14_setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, eval=FALSE, fig.align="center")
+```
+
+# (PART) New Research Questions {-}
+
+# Time-Varying Treatments and Mediation Analysis
+
+## Learning Goals {-}
+
+- Formulate research questions that can be answered in a time-varying treatment setting
+- Formulate research questions that can be answered via mediation analysis
+- Explain why regression does not generally work in time-varying settings with treatment-confounder feedback using d-separation ideas
+- Relate d-separation ideas to exchangeability conditions for mediation
+
+
+<br>
+
+
+Slides from today are available [here](https://docs.google.com/presentation/d/1bAYaNzoYV9mKyOwNxk5uLyuqzTZmpuWZRRleec61fNo/edit?usp=sharing).
+
+
+<br><br><br>
+
+
+## Exercises {-}
+
+### Exercise 1 {-}
+
+For those of you working on a data analysis (or a plan of a data analysis) for the final project, share your data context and research questions with others.
+
+- Mediation
+    - Brainstorm some research questions that could be answered in a mediation analysis framework.
+    - What mediators would be of interest? (That is, what direct and indirect effects would be of interest?)
+    - How realistic would it be to collect data on those mediators?
+
+- Time-varying treatments
+    - Brainstorm some research questions that could be answered in a time-varying treatments framework.
+    - Is it more useful to consider time-fixed or time-varying treatments in your context?
+    - How realistic would it be to collect the longitudinal data needed for a time-varying treatments analysis?
+
+
+### Exercise 2 {-}
+
+The following causal graph shows a time-varying treatment setting where treatment is measured at two time points (`A0` and `A1`). It depicts a common occurrence in longitudinal data: **treatment-confounder feedback**. This is when past treatment $A_{t-1}$ affects the value of future confounders $L_{t}$.
+
+a. Using causal graph ideas, explain why a regression model of the form $E[Y \mid A_0, A_1, L_1]$ creates a problem for estimating the effect of a treatment strategy for $A_0$ and $A_1$.
+
+b. How would you expect this graph to change under inverse probability weighting? Why does IPW allow us to estimate the effect of a treatment strategy for $A_0$ and $A_1$?
+
+```{r 14_tvt, echo=FALSE, eval=TRUE, fig.width=11, fig.align="center"}
+library(dagitty)
+dag <- dagitty("dag {
+bb=\"0,0,1,1\"
+A0 [pos=\"0.135,0.400\"]
+A1 [pos=\"0.472,0.400\"]
+L1 [pos=\"0.300,0.400\"]
+U1 [pos=\"0.300,0.565\"]
+Y [pos=\"0.691,0.400\"]
+A0 -> L1
+L1 -> A1
+U1 -> L1
+U1 -> Y
+}
+")
+plot(dag)
+```
+
+
+### Exercise 3 {-}
+
+In mediation analysis, a common first instinct to estimate direct effects is to control for the mediator by including it in a regression model. Let's explore this intuition by examining the following causal graph.
+
+```{r 14_mediation, echo=FALSE, eval=TRUE, fig.width=11, fig.align="center"}
+dag <- dagitty("dag {
+bb=\"0,0,1,1\"
+A [exposure,pos=\"0.200,0.400\"]
+C1 [pos=\"0.500,0.200\"]
+C2 [pos=\"0.334,0.569\"]
+C3 [pos=\"0.658,0.581\"]
+M [pos=\"0.500,0.400\"]
+Y [outcome,pos=\"0.800,0.400\"]
+A -> M
+A -> Y [pos=\"0.500,0.200\"]
+C1 -> A
+C1 -> Y
+C2 -> A
+C2 -> M
+C3 -> M
+C3 -> Y
+M -> Y
+}
+")
+plot(dag)
+```
+
+Based on this graph, what considerations need to be kept in mind in order for this approach to validly estimate a direct effect?

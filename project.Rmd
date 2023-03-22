@@ -16,6 +16,8 @@ My sole hope for this project is for it to ***further your goals*** for taking t
 
 ### Option 1: Data analysis {-}
 
+<!-- Clarify that this can just be a **PLAN** for a data analysis. Ask questions that you are genuinely interested in and describe what data would need to be collected. -->
+
 **Collaboration:** Groups of up to 3. Individual work is fine.
 
 Perform a causal analysis on a dataset of your choice.
