@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Topic 5 Key Structures in Causal Graphs | STAT 451: Causal Inference</title>
+  <title>Homework 5 | STAT 451: Causal Inference</title>
   <meta name="description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Topic 5 Key Structures in Causal Graphs | STAT 451: Causal Inference" />
+  <meta property="og:title" content="Homework 5 | STAT 451: Causal Inference" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   <meta name="github-repo" content="lmyint/causal_spring_2023" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Topic 5 Key Structures in Causal Graphs | STAT 451: Causal Inference" />
+  <meta name="twitter:title" content="Homework 5 | STAT 451: Causal Inference" />
   
   <meta name="twitter:description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="causal-graphs-as-statistical-models.html"/>
-<link rel="next" href="graphical-structure-of-confounding.html"/>
+<link rel="prev" href="homework-4.html"/>
+<link rel="next" href="final-project.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -402,85 +402,201 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="key-structures-in-causal-graphs" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">Topic 5</span> Key Structures in Causal Graphs<a href="key-structures-in-causal-graphs.html#key-structures-in-causal-graphs" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="learning-goals-3" class="section level2 unnumbered hasAnchor">
-<h2>Learning Goals<a href="key-structures-in-causal-graphs.html#learning-goals-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="homework-5" class="section level1 unnumbered hasAnchor">
+<h1>Homework 5<a href="homework-5.html#homework-5" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="general-instructions-4" class="section level2 unnumbered hasAnchor">
+<h2>General instructions<a href="homework-5.html#general-instructions-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>Explain the intuition behind marginal and conditional (in)dependence relations in chains, forks, and colliders in causal graphs</li>
-<li>Simulate data from causal graphs under linear and logistic regression structural equation models to check these properties through regression modeling and visualization</li>
+<li>Due <strong>Friday, March 31</strong> at midnight CST.</li>
+<li>Please complete the exercises marked (REQD). (Project Work, Metacognitive Reflection, Sensitivity Analysis, and Causal Discovery)</li>
+<li>The other exercises provide opportunities to explore ideas more deeply and re-engage with past ideas. Complete whatever aligns with your goals.</li>
 </ul>
-<p><br></p>
-<p>Slides from today are available <a href="https://docs.google.com/presentation/d/1dkymOl7ke3SkK6srMC9FNKEw56qfKkH_h0zFRftkdt8/edit?usp=sharing">here</a>.</p>
-<p><br><br><br></p>
+<p><br><br></p>
 </div>
-<div id="exercises-3" class="section level2 unnumbered hasAnchor">
-<h2>Exercises<a href="key-structures-in-causal-graphs.html#exercises-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><strong>You can download a template RMarkdown file to start from <a href="template_rmds/05-graphs-key-structures.Rmd">here</a>.</strong></p>
-<p>In these exercises, you’ll be practicing simulating data from structural equation models and verifying marginal and conditional (in)dependence properties in DAG structures.</p>
+<div id="revisions-3" class="section level2 unnumbered hasAnchor">
+<h2>Revisions<a href="homework-5.html#revisions-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If you would like to make revisions to any parts of prior assignments, please do the following:</p>
 <ul>
-<li>Always use a regression model as a check.</li>
-<li>If the situation readily corresponds to a plot, also make a plot as a check.</li>
+<li>Keep all old writing and feedback intact</li>
+<li>Un-highlight yellow text that has already been addressed with feedback and revisions</li>
+<li>Write an updated response just below your previous response and highlight the new writing in yellow</li>
 </ul>
-<p><strong>Coding note:</strong> When you simulate binary variables and store them in a dataset, it is useful to store them explicitly as categorical as below. (This is most helpful for plotting.)</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="key-structures-in-causal-graphs.html#cb6-1" aria-hidden="true"></a><span class="co"># X is binary. Y and Z are quantitative.</span></span>
-<span id="cb6-2"><a href="key-structures-in-causal-graphs.html#cb6-2" aria-hidden="true"></a>sim_data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">X =</span> <span class="kw">factor</span>(X), Y, Z)</span></code></pre></div>
-<p><br></p>
-<div id="exercise-1-3" class="section level3 unnumbered hasAnchor">
-<h3>Exercise 1<a href="key-structures-in-causal-graphs.html#exercise-1-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Simulate a chain <code>X -&gt; Y -&gt; Z</code> where all three variables are quantitative. (Use a sample size of 10,000 and a significance level of 0.05 throughout these exercises.)</p>
-<ol style="list-style-type: lower-alpha">
-<li><p>What conditional relationship is implied by this chain structure? What is the intuition behind/rationale for this relationship?</p></li>
-<li><p>Use appropriate check(s) to verify this conditional relationship.</p></li>
-</ol>
 <p><br><br></p>
 </div>
-<div id="exercise-2-2" class="section level3 unnumbered hasAnchor">
-<h3>Exercise 2<a href="key-structures-in-causal-graphs.html#exercise-2-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Simulate a fork <code>X &lt;- Y -&gt; Z</code> where <code>X</code> and <code>Z</code> are quantitative, and <code>Y</code> is binary.</p>
-<ol style="list-style-type: lower-alpha">
-<li><p>What conditional relationship is implied by this fork structure? What is the intuition behind/rationale for this relationship?</p></li>
-<li><p>Use appropriate check(s) to verify this conditional relationship.</p></li>
-</ol>
+<div id="project-work-reqd" class="section level2 unnumbered hasAnchor">
+<h2>Project Work (REQD)<a href="homework-5.html#project-work-reqd" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Take a look at our <a href="final-project.html">Final Project page</a> and make as much progress as you can towards Milestone 2. <strong>Create a separate Google Doc for your project work</strong>, and share this document with the instructor. (Just create one Google Doc per team if you’re working with teammates.)</p>
+<p>This project-specific Google Doc is where intermediate work and feedback will be recorded even if the ultimate deliverable ends up being something other than a written report (e.g., presentation, website).</p>
 <p><br><br></p>
 </div>
-<div id="exercise-3-2" class="section level3 unnumbered hasAnchor">
-<h3>Exercise 3<a href="key-structures-in-causal-graphs.html#exercise-3-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Simulate a collider <code>X -&gt; Y &lt;- Z</code> where <code>Y</code> also has a child <code>A</code> (<code>Y -&gt; A</code>). Let all 4 variables be binary.</p>
-<ol style="list-style-type: lower-alpha">
-<li><p>What marginal and conditional relationships between <code>X</code> and <code>Z</code> are implied by this collider structure? What is the intuition behind/rationale for this relationship?</p></li>
-<li><p>Use appropriate check(s) to verify these relationships.</p></li>
-</ol>
+<div id="metacognitive-reflection-reqd" class="section level2 unnumbered hasAnchor">
+<h2>Metacognitive Reflection (REQD)<a href="homework-5.html#metacognitive-reflection-reqd" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For this reflection, check in on your understanding of our new topics in light of the breakdown below (which you can disagree with!). (Do this reflection after the main exercises.)</p>
+<ul>
+<li>Enduring concepts:
+<ul>
+<li>Why do we do sensitivity analyses for unmeasured variables and how, in general, do we interpret results?</li>
+<li>What is the goal of causal discovery?</li>
+</ul></li>
+<li>Important concepts:
+<ul>
+<li>Making connections between the probability underlying casual graphs and why we need to specify parameters in sensitivity analyses</li>
+<li>Details of how the causal discovery algorithm covered in the concept video</li>
+</ul></li>
+<li>Concepts worth being familiar with:
+<ul>
+<li>What do you think should go under this category?</li>
+</ul></li>
+</ul>
 <p><br><br></p>
 </div>
-<div id="exercise-4-1" class="section level3 unnumbered hasAnchor">
-<h3>Exercise 4<a href="key-structures-in-causal-graphs.html#exercise-4-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Can we extend building block thinking to longer, more complex structures? Let’s investigate here (conceptually, no simulation).</p>
-<ol style="list-style-type: lower-alpha">
-<li><p>Consider the longer structure <code>A &lt;- B &lt;- C -&gt; D</code>. What do you expect about marginal/conditional (in)dependence of <code>A</code> and <code>D</code>? Explain.</p></li>
-<li><p>Consider the longer structure <code>A -&gt; B &lt;- C &lt;- D -&gt; E</code>. What do you expect about marginal/conditional (in)dependence of <code>A</code> and <code>E</code>? Explain.</p></li>
-</ol>
+<div id="sensitivity-analysis-for-unmeasured-confounding-reqd" class="section level2 unnumbered hasAnchor">
+<h2>Sensitivity analysis for unmeasured confounding (REQD)<a href="homework-5.html#sensitivity-analysis-for-unmeasured-confounding-reqd" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="context" class="section level3 unnumbered hasAnchor">
+<h3>Context<a href="homework-5.html#context" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Does smoking actually cause lung cancer? There was great debate in the 1950s and 1960s on this issue. A prominent statistician R. A. Fisher (a longtime smoker) was dubious of the actual causal relationship and proposed that some genetic variant might be more common in smokers and also increase lung cancer risk.</p>
+<p>In the paper <a href="https://academic.oup.com/ije/article-pdf/38/5/1175/18480532/dyp289.pdf">Smoking and lung cancer: recent evidence and a discussion of some questions</a>, Jerome Cornfield and co-authors report on a sensitivity analysis for unmeasured confounding to address Fisher’s proposition (second column on page 1186). We’ll corroborate these results in this exercise.</p>
+</div>
+<div id="implementation-with-tipr" class="section level3 unnumbered hasAnchor">
+<h3>Implementation with <code>tipr</code><a href="homework-5.html#implementation-with-tipr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Use the <code>adjust_rr_with_binary()</code> function in the <code>tipr</code> package to implement a sensitivity analysis. <code>rr</code> stands for relative risk and is a probability ratio (as opposed to an odds ratio). Relative risks are alternate effect measures for binary outcomes.</p>
+<ul>
+<li>First look at the <a href="https://lucymcgowan.github.io/tipr/reference/adjust_rr_with_binary.html">documentation</a> for this function.
+<ul>
+<li>Note that because our causal effect is a relative risk, the <code>confounder_outcome_effect</code> is also quantified with a relative risk.</li>
+</ul></li>
+<li>Use the <code>seq()</code> function to generate a sequence of regularly spaced values for the <code>exposed_confounder_prev</code>, <code>unexposed_confounder_prev</code>, and <code>confounder_outcome_effect</code> arguments.
+<ul>
+<li>Look at the documentation for the <code>seq()</code> function to understand how the arguments work.</li>
+<li>The only background information that we’re starting with is</li>
+</ul></li>
+<li><a href="https://bmjopen.bmj.com/content/8/10/e021611">A recent study</a> suggests that the causal effect (before considering any unmeasured confounders) is a relative risk of about 7.</li>
+</ul>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="homework-5.html#cb25-1" aria-hidden="true"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb25-2"><a href="homework-5.html#cb25-2" aria-hidden="true"></a><span class="kw">library</span>(tipr)</span>
+<span id="cb25-3"><a href="homework-5.html#cb25-3" aria-hidden="true"></a></span>
+<span id="cb25-4"><a href="homework-5.html#cb25-4" aria-hidden="true"></a><span class="co"># This creates all combinations of values across the 3 parameters</span></span>
+<span id="cb25-5"><a href="homework-5.html#cb25-5" aria-hidden="true"></a>parameter_combos &lt;-<span class="st"> </span>tidyr<span class="op">::</span><span class="kw">crossing</span>(</span>
+<span id="cb25-6"><a href="homework-5.html#cb25-6" aria-hidden="true"></a>    <span class="dt">exposed_confounder_prev =</span> <span class="kw">seq</span>(<span class="dt">from =</span> ___, <span class="dt">to =</span> ___, <span class="dt">by =</span> ___),</span>
+<span id="cb25-7"><a href="homework-5.html#cb25-7" aria-hidden="true"></a>    <span class="dt">unexposed_confounder_prev =</span> <span class="kw">seq</span>(<span class="dt">from =</span> ___, <span class="dt">to =</span> ___, <span class="dt">by =</span> ___),</span>
+<span id="cb25-8"><a href="homework-5.html#cb25-8" aria-hidden="true"></a>    <span class="dt">confounder_outcome_effect =</span> <span class="kw">seq</span>(<span class="dt">from =</span> ___, <span class="dt">to =</span> ___, <span class="dt">by =</span> ___)</span>
+<span id="cb25-9"><a href="homework-5.html#cb25-9" aria-hidden="true"></a>)</span>
+<span id="cb25-10"><a href="homework-5.html#cb25-10" aria-hidden="true"></a></span>
+<span id="cb25-11"><a href="homework-5.html#cb25-11" aria-hidden="true"></a><span class="co"># Use dplyr::filter() to remove combinations that won&#39;t &quot;explain away&quot; (make null) the observed causal effect</span></span>
+<span id="cb25-12"><a href="homework-5.html#cb25-12" aria-hidden="true"></a><span class="co"># i.e., make sure that the parameters indicate the correct sign of the U-&gt;A relationship</span></span>
+<span id="cb25-13"><a href="homework-5.html#cb25-13" aria-hidden="true"></a>parameter_combos &lt;-<span class="st"> </span>parameter_combos <span class="op">%&gt;%</span></span>
+<span id="cb25-14"><a href="homework-5.html#cb25-14" aria-hidden="true"></a><span class="st">    </span><span class="kw">filter</span>()</span>
+<span id="cb25-15"><a href="homework-5.html#cb25-15" aria-hidden="true"></a></span>
+<span id="cb25-16"><a href="homework-5.html#cb25-16" aria-hidden="true"></a><span class="co"># Run sensitivity analysis</span></span>
+<span id="cb25-17"><a href="homework-5.html#cb25-17" aria-hidden="true"></a>sens_results &lt;-<span class="st"> </span><span class="kw">adjust_rr_with_binary</span>(</span>
+<span id="cb25-18"><a href="homework-5.html#cb25-18" aria-hidden="true"></a>    <span class="dt">effect_observed =</span> ___,</span>
+<span id="cb25-19"><a href="homework-5.html#cb25-19" aria-hidden="true"></a>    <span class="dt">exposed_confounder_prev =</span> parameter_combos<span class="op">$</span>exposed_confounder_prev,</span>
+<span id="cb25-20"><a href="homework-5.html#cb25-20" aria-hidden="true"></a>    <span class="dt">unexposed_confounder_prev =</span> parameter_combos<span class="op">$</span>unexposed_confounder_prev,</span>
+<span id="cb25-21"><a href="homework-5.html#cb25-21" aria-hidden="true"></a>    <span class="dt">confounder_outcome_effect =</span> parameter_combos<span class="op">$</span>confounder_outcome_effect,</span>
+<span id="cb25-22"><a href="homework-5.html#cb25-22" aria-hidden="true"></a>    <span class="dt">verbose =</span> <span class="ot">FALSE</span></span>
+<span id="cb25-23"><a href="homework-5.html#cb25-23" aria-hidden="true"></a>)</span></code></pre></div>
+</div>
+<div id="visualize" class="section level3 unnumbered hasAnchor">
+<h3>Visualize<a href="homework-5.html#visualize" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Visualize the sensitivity analysis results in a way that you find effective.</p>
+<ul>
+<li>The instructor found it helpful to collapse the <code>exposed_confounder_prev</code> and <code>unexposed_confounder_prev</code> parameters into a single parameter:</li>
+<li>You may find it helpful to show all 3 parameters directly in your visualization.</li>
+</ul>
+</div>
+<div id="interpret" class="section level3 unnumbered hasAnchor">
+<h3>Interpret<a href="homework-5.html#interpret" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Explain the general trends you see in your visualization.</li>
+<li>Use both your visualization and the <code>sens_results</code> data frame to identify what parameter combinations nullify the observed causal effect (at least approximately).</li>
+<li>Based on these results, comment on the robustness of the original causal effect estimate. Describe what background research you might need to conduct to contextualize how realistic the nullifying parameters are.</li>
+</ul>
 <p><br><br></p>
 </div>
-<div id="extra-2" class="section level3 unnumbered hasAnchor">
-<h3>Extra<a href="key-structures-in-causal-graphs.html#extra-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>If you would like to delve more into the probability theory behind these ideas, try the following exercise.</p>
-<p>Use the Causal Markov assumption/product decomposition rule to prove:</p>
-<ol style="list-style-type: decimal">
-<li>The conditional independence relations in forks and chains</li>
-<li>The marginal independence and conditional dependence relations in colliders</li>
-</ol>
+</div>
+<div id="causal-discovery-reqd" class="section level2 unnumbered hasAnchor">
+<h2>Causal discovery (REQD)<a href="homework-5.html#causal-discovery-reqd" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="exercise-1-8" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 1<a href="homework-5.html#exercise-1-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Consider data that truly come from a fork <code>X &lt;- Y -&gt; Z</code>. What pattern would a causal discovery algorithm report?</p>
+<p>If you could supply prior knowledge to the algorithm on only one edge that is required to be present, what edge (if any) would allow the entire structure to be learned? Explain briefly.</p>
+</div>
+<div id="exercise-2-7" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 2<a href="homework-5.html#exercise-2-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We have learned the following structure from the skeleton building phase.</p>
+<p><img src="causal_manual_files/figure-html/hw5_dag-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>We have the following results from conditional independence tests (<span class="math inline">\(H_0\)</span> indicates conditional independence, significance level = 0.01):</p>
+<ul>
+<li><span class="math inline">\(X \perp\!\!\!\perp Z \mid Y\)</span>? p-value = 0.001</li>
+<li><span class="math inline">\(X \perp\!\!\!\perp W \mid Y\)</span>? p-value = 0.1</li>
+<li><span class="math inline">\(Y \perp\!\!\!\perp V \mid W\)</span>? p-value = 0.1</li>
+<li><span class="math inline">\(U \perp\!\!\!\perp W \mid V\)</span>? p-value = 0.1</li>
+</ul>
+<p>What pattern would a causal discovery algorithm report? Show your work.</p>
+</div>
+<div id="exercise-3-7" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 3<a href="homework-5.html#exercise-3-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We have measured 3 variables <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span>, and <span class="math inline">\(Z\)</span> (all quantitative). You can read in the data below.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="homework-5.html#cb26-1" aria-hidden="true"></a>disc_data &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_csv</span>(<span class="st">&quot;https://www.dropbox.com/s/moj3k3fed7puicr/discovery_data.csv?dl=1&quot;</span>)</span></code></pre></div>
+<ul>
+<li>Step through the causal discovery process, using regression models as your conditional independence test. Use a type 1 error rate (significance level) of <span class="math inline">\(\alpha=0.01\)</span>. Show all work. This involves:
+<ul>
+<li>Showing model output.</li>
+<li>Writing a sentence using numbers from the output at each step to show the decisions made by the algorithm.</li>
+</ul></li>
+<li>Report the final output that the discovery algorithm would give.</li>
+</ul>
+<p><br><br></p>
+</div>
+<div id="simulation-study-for-sensitivity-analyses" class="section level3 unnumbered hasAnchor">
+<h3>Simulation study for sensitivity analyses<a href="homework-5.html#simulation-study-for-sensitivity-analyses" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Conduct a simulation where the true average causal effect is zero but where there is an unmeasured confounder with <code>U-&gt;A</code> and <code>U-&gt;Y</code> effect magnitudes that you set. Use the <code>tipr</code> package to investigate if sensitivity analysis results align with your simulation setup. (You’ll have to look through the package <a href="https://lucymcgowan.github.io/tipr/reference/index.html">documentation</a> to find the right sensitivity analysis function.)</p>
+<p><br><br></p>
+</div>
+<div id="learning-about-mediation-analysis" class="section level3 unnumbered hasAnchor">
+<h3>Learning about mediation analysis<a href="homework-5.html#learning-about-mediation-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Mediation analysis was a topic that we were going to talk about on Monday, March 20. We may come back to it after we finish the other topics on our schedule, but if you’d like to learn a little more about this topic, check out the following resources:</p>
+<ul>
+<li><a href="https://youtu.be/wTZ-5zBmwRo">YouTube video</a> (with <a href="https://drive.google.com/file/d/1xp5usL2pDE8q649z3MoRj1qMh4s5fb8i/view?usp=sharing">slides</a>)</li>
+<li>Overview paper: Nguyen, T. Q., Schmid, I., &amp; Stuart, E. A. (2020). Clarifying causal mediation analysis for the applied researcher: Defining effects based on what we want to learn. Psychological Methods. <a href="https://doi.org/10.1037/met0000299" class="uri">https://doi.org/10.1037/met0000299</a></li>
+</ul>
+<p><br><br></p>
+</div>
+<div id="randomized-experiments" class="section level3 unnumbered hasAnchor">
+<h3>Randomized experiments<a href="homework-5.html#randomized-experiments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This exercise can help work through the idea that randomized experiments are the “gold standard” for causal inference.</p>
+<ul>
+<li>Simulate data from a fork structure where <code>U</code> is a common cause of <code>A</code> and <code>Y</code>.</li>
+<li>In the part of your code when you simulate <code>Y</code>, also simulate the potential outcomes under treatment and control (<code>Ya1</code> and <code>Ya0</code>) by setting the <code>A</code> part equal to 1 for <code>Ya1</code> and 0 for <code>Ya0</code>.</li>
+<li>Create a new version of treatment called <code>A_rand</code> which is a randomly assigned treatment (in contrast to naturally-occurring treatment <code>A</code> which is affected by <code>Z</code>) using the <code>sample()</code> function:</li>
+</ul>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="homework-5.html#cb27-1" aria-hidden="true"></a><span class="co"># This randomly assigns half of the units to treatment and half to control</span></span>
+<span id="cb27-2"><a href="homework-5.html#cb27-2" aria-hidden="true"></a>A_rand &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="dt">each =</span> n<span class="op">/</span><span class="dv">2</span>)) <span class="co"># n is the simulation sample size</span></span></code></pre></div>
+<ul>
+<li>Check whether marginal exchangeability holds for the natural version of treatment <code>A</code>. Repeat for the randomized version of treatment <code>A_rand</code>.</li>
+</ul>
+<p>Summarize what you learn from these investigations.</p>
+<!-- Future: Provide code for marginally randomized and conditionally randomized. Compare balance on Z between treatment groups in the marginally randomized and conditionally randomized settings. -->
+<!-- ### Reflection on article and tweet {-}
+
+How racial discrimination in law enforcement actually works
+Miguel's tweet: It ain't race but racism
+
+ -->
 
 </div>
 </div>
 </div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="causal-graphs-as-statistical-models.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="graphical-structure-of-confounding.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="homework-4.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="final-project.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

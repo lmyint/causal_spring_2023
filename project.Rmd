@@ -100,30 +100,29 @@ Work with the instructor to determine the most suitable deliverable for your pro
 
 ## Timeline {-}
 
-- **Deadline 1: Project Proposal** Choose your final project option, topic, and group by Friday, March 10 at midnight CST.
+- **Milestone 1: Project Proposal** Choose your final project option, topic, and group by Friday, March 10 at midnight CST.
     - Data analysis option: Find a dataset and formulate causal question(s) that you want to answer.
     - Blog post option: Outline ideas for one post
     - Advanced topic option: Settle on an advanced topic, and do some preliminary research to identify key ideas within this topic.
 
-- More timeline information to be added soon
+<br>
+
+- **Milestone 2:** Friday, March 31
+    - Data analysis option: Understand your data context well and construct an initial causal graph.
+    - Blog post option: Brainstorm ideas or create an outline for one post.
+    - Advanced topic option: Make progress in learning about one sub-area for your topic.
+    - Other: Make progress appropriate to the scope of the project.
 
 <!-- <br>
 
-- **Deadline 2:** Monday, October 12 or Tuesday, October 13. Schedule a discussion time with me on [Google Calendar](https://calendar.google.com/calendar/selfsched?sstoken=UUFBWjVpaTNFb2JUfGRlZmF1bHR8ODFhZGU4ZWQ5MjJkOWY2M2Q4YjZhNTgwN2IyMmFlM2Y).
-    - Data analysis option: Come prepared to talk about your causal graph, your analysis plan, and exploratory visualizations that you have made.
-    - Blog post option: Write 500 words for each post and share with me 24 hours before our meeting so that I can give feedback and discuss with you.
-    - Advanced topic option: Come prepared to tell me a bit about what you've learned on your topic. If you were giving a 15 minute presentation on the topic, this should be about the amount of content you would cover in the first 5 minutes.
-
-<br>
-
-- **Deadline 3:** Thursday, October 15 or Friday, October 16. Schedule a discussion time with me on [Google Calendar](https://calendar.google.com/calendar/selfsched?sstoken=UUFBWjVpaTNFb2JUfGRlZmF1bHR8ODFhZGU4ZWQ5MjJkOWY2M2Q4YjZhNTgwN2IyMmFlM2Y).
+- **Milestone 3:** Thursday, October 15 or Friday, October 16. Schedule a discussion time with me on [Google Calendar](https://calendar.google.com/calendar/selfsched?sstoken=UUFBWjVpaTNFb2JUfGRlZmF1bHR8ODFhZGU4ZWQ5MjJkOWY2M2Q4YjZhNTgwN2IyMmFlM2Y).
     - Data analysis option: Come prepared to tell me about the models you've fit and your interpretations. Share a draft of your artifact so far with me 24 hours in advance.
     - Blog post option: Complete full drafts of both posts and share with me 24 hours before our meeting so that I can give feedback and discuss with you.
     - Advanced topic option: Come prepared to tell me more about new material that is the equivalent of the second 5 minutes of a 15 minute presentation. Share a draft of your artifact so far with me 24 hours in advance.
 
 <br>
 
-- **Deadline 4:** Monday, October 19 or Tuesday, October 20. Schedule a discussion time with me on [Google Calendar](https://calendar.google.com/calendar/selfsched?sstoken=UUFBWjVpaTNFb2JUfGRlZmF1bHR8ODFhZGU4ZWQ5MjJkOWY2M2Q4YjZhNTgwN2IyMmFlM2Y).
+- **Milestone 4:** Monday, October 19 or Tuesday, October 20. Schedule a discussion time with me on [Google Calendar](https://calendar.google.com/calendar/selfsched?sstoken=UUFBWjVpaTNFb2JUfGRlZmF1bHR8ODFhZGU4ZWQ5MjJkOWY2M2Q4YjZhNTgwN2IyMmFlM2Y).
     - Data analysis option: Come prepared to discuss final points of feedback from the previous meeting (deadline 3). Finalize your artifact draft, and share with me 24 hours in advance.
     - Blog post option: Act on feedback from the previous meeting (deadline 3), and share with me 24 hours before our meeting.
     - Advanced topic option: Come prepared to tell me more about new material that is the equivalent of the last 5 minutes of a 15 minute presentation. Finalize your artifact draft, and share with me 24 hours in advance.
