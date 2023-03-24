@@ -1,0 +1,58 @@
+```{r 16_setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, eval=FALSE, fig.align="center")
+```
+
+# Causal Discovery
+
+## Learning Goals {-}
+
+- Demonstrate conceptual understanding of causal discovery by reasoning about outputs of the process and by manually conducting it using regression models.
+- Use output from causal discovery to enhance a causal analysis as part of a sensitivity analysis.
+
+<br>
+
+Slides from today are available [here](https://docs.google.com/presentation/d/15qXKB95Y4zLVPxUPv18UEyy7N4XPui9Ndf19KCs74GY/edit?usp=sharing).
+
+<br><br><br>
+
+
+## Exercises {-}
+
+### Exercise 1 {-}
+
+Explain how causal discovery fits into the overall workflow for a causal data analysis.
+
+
+<br><br>
+
+
+### Exercise 2 {-}
+
+There are two genes (Gene A and Gene B) that produce Protein X. Gene A is the primary producer. Whenever Gene A is functional, Gene B is inactive and produces nothing. However, if Gene A loses function, Gene B becomes active and produces Protein X in Gene A's place in exactly the same amounts.
+
+a. Draw the DAG implied by this expert knowledge.
+
+b. We can view Gene A as a binary variable with values "functional" and "non-functional". Will Gene A and Protein X be marginally independent or marginally dependent in the data? Explain.
+
+c. Discuss your answers to (a) and (b) in the context of a relevant concept.
+
+
+<br><br>
+
+
+### Exercise 3 {-}
+
+In this exercise, we'll think about the conditional independence test and the role of the hypothesis testing significance level as a tuning parameter.
+
+As the significance level is lowered to 0, what would you expect to happen to the graph skeleton learned by causal discovery algorithms? As the significance level is increased to 1? Explain.
+
+
+<br><br>
+
+
+### Exercise 4 {-}
+
+Consider data that truly come from a chain `X -> Y -> Z`. What pattern would a causal discovery algorithm report?
+
+It is possible to supply causal discovery algorithms with prior knowledge - for example, specific edges that are required to be present. If you could supply prior knowledge to the algorithm on only one edge that is required to be present, what edge (if any) would allow the entire structure to be learned? Explain briefly.
+

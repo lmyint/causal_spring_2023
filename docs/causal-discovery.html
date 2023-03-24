@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Guiding Questions | STAT 451: Causal Inference</title>
+  <title>Topic 16 Causal Discovery | STAT 451: Causal Inference</title>
   <meta name="description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Guiding Questions | STAT 451: Causal Inference" />
+  <meta property="og:title" content="Topic 16 Causal Discovery | STAT 451: Causal Inference" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   <meta name="github-repo" content="lmyint/causal_spring_2023" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Guiding Questions | STAT 451: Causal Inference" />
+  <meta name="twitter:title" content="Topic 16 Causal Discovery | STAT 451: Causal Inference" />
   
   <meta name="twitter:description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="schedule.html"/>
-<link rel="next" href="motivation-and-review.html"/>
+<link rel="prev" href="sensitivity-analyses-for-unmeasured-variables.html"/>
+<link rel="next" href="homework-1.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -413,77 +413,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="guiding-questions" class="section level1 unnumbered hasAnchor">
-<h1>Guiding Questions<a href="guiding-questions.html#guiding-questions" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><strong>Motivation and Review</strong> <a id="gq-motivation-review"></a></p>
+<div id="causal-discovery" class="section level1 hasAnchor" number="16">
+<h1><span class="header-section-number">Topic 16</span> Causal Discovery<a href="causal-discovery.html#causal-discovery" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="learning-goals-13" class="section level2 unnumbered hasAnchor">
+<h2>Learning Goals<a href="causal-discovery.html#learning-goals-13" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>Let’s think about the word “cause” (and related phrases like “results in” and “leads to.”) What do you think “cause” means? How do you/people you know use it in day-to-day conversation and thinking?</li>
-<li>Why do we want to learn about causes? What should our goals be in learning about causes?</li>
-<li>“Correlation does not imply causation.” Has this saying come up in conversations occasionally? If so, how? How do you feel about the value of this saying?</li>
+<li>Demonstrate conceptual understanding of causal discovery by reasoning about outputs of the process and by manually conducting it using regression models.</li>
+<li>Use output from causal discovery to enhance a causal analysis as part of a sensitivity analysis.</li>
 </ul>
-<p><br><br><br><br><br></p>
-<p><strong>Exchangeability</strong> <a id="gq-exchangeability"></a></p>
-<ul>
-<li>Is the definition of a potential outcome and a causal effect satisfying to you? How do these notions relate to what you had thought about causes and causation previously? (Reflect on and connect to our Day 1 activity.)</li>
-<li>Let’s think about exchangeability in big picture terms. Setting aside the technical definitions in terms of (conditional) independence, what is exchangeability trying to describe? Try to find a good word/phrase (not “independent”) to complete the following sentence: “If the treated and untreated groups are exchangeable, we could also describe them as being …”</li>
-<li>How can we use the concepts of marginal and conditional exchangeability to make statements about potential outcome distributions in the treated and in the untreated?</li>
-<li>Marginal and conditional exchangeability are <strong>assumptions</strong>–do you think these assumptions are testable using data? Why or why not?</li>
-</ul>
-<p>Extra self-check resource: Moodle checkpoint on <a href="https://moodle.macalester.edu/mod/quiz/view.php?id=17844">Causal Effects and Exchangeability</a></p>
-<p><br><br><br><br><br></p>
-<p><strong>Study Designs</strong> <a id="gq-study-designs"></a></p>
-<ul>
-<li>Why are randomized experiments often called the “gold standard” for causal inference? What is the relationship between randomized experiments and exchangeability?</li>
-<li>Consider the quasi-experimental designs discussed in the video. How do these designs try to mimic randomization? What assumptions do they make to allow making statements about missing potential outcomes?</li>
-</ul>
-<p>Extra self-check resource: Moodle checkpoint on <a href="https://moodle.macalester.edu/mod/quiz/view.php?id=17845">Study Designs for Causal Inference</a></p>
-<p><br><br><br><br><br></p>
-<p><strong>Causal Graphs as Statistical Models</strong> <a id="gq-causal-graphs-models"></a></p>
-<ul>
-<li>Why is it sensible for causal graphs to be directed and acyclic?</li>
-<li>How can “feedback loops” be represented in causal graphs?</li>
-<li>What extra information does a structural equation model encode that a causal graph alone does not?</li>
-</ul>
-<p>Extra self-check resource: Moodle checkpoint on <a href="https://moodle.macalester.edu/mod/quiz/view.php?id=17846">Causal Graphs as Statistical Models</a></p>
-<p><br><br><br><br><br></p>
-<p><strong>Key Structures in Causal Graphs</strong> <a id="gq-key-structures"></a></p>
-<ul>
-<li>What marginal and conditional (in)dependence relations pertain to chains, forks, and colliders? Do these relations make sense? What examples (in the video or your own) help rationalize these relations?</li>
-</ul>
-<p>Extra self-check resource: Moodle checkpoint on <a href="https://moodle.macalester.edu/mod/quiz/view.php?id=17847">Key Structures in Causal Graphs</a></p>
-<p><br><br><br><br><br></p>
-<p><strong>Graphical Structure of Confounding</strong> <a id="gq-struct-confounding"></a></p>
-<ul>
-<li>What is the relationship between d-separation, causal/noncausal paths, conditional exchangeability, and estimating causal effects?</li>
-</ul>
-<p>Extra self-check resource: Moodle checkpoint on <a href="https://moodle.macalester.edu/mod/quiz/view.php?id=17848">(Non)causal Paths and D-Separation</a></p>
-<p><br><br><br><br><br></p>
-<p><strong>Graphical Structure of Selection Bias</strong> <a id="gq-struct-selection-bias"></a></p>
-<ul>
-<li>How is selection bias different from confounding bias?</li>
-</ul>
-<p><br><br><br><br><br></p>
-<p><strong>The Smoking-Birthweight Paradox</strong> <a id="gq-sbw-paradox"></a></p>
-<ul>
-<li>What is the paradox/surprising finding at the center of this paper? What data are presented that illustrate this surprising finding?</li>
-<li>How do the authors use causal graphs to explain the paradox? Do you find the discussion of causal graphs helpful? Why or why not?</li>
-</ul>
-<p><br><br><br><br><br></p>
-<p><strong>Building Causal Graphs for Applied Analyses</strong> <a id="gq-building-graphs"></a></p>
-<ul>
-<li>The video describes a way to think through building a causal graph for an applied analysis. Do you agree with the rationale for the thought process? Are there any other aspects of the graph-building process that you have questions about? (e.g., How would a given step work out in practice?)</li>
-</ul>
-<p><br><br><br><br><br></p>
-<p><strong>Regression for Estimating Causal Effects</strong> <a id="gq-regression"></a></p>
-<ul>
-<li>What is the connection between conditional exchangeability and the variables needed to include in a regression model for estimating causal effects?</li>
-<li>What steps can we take to ensure that the <em>form</em> of our regression model is as accurate as possible?</li>
-<li>What concerns arise when trying to interpret all coefficients (not just the treatment coefficient) from regression output?</li>
-</ul>
-<div style="height: 800px;">
+<p><br></p>
+<p>Slides from today are available <a href="https://docs.google.com/presentation/d/15qXKB95Y4zLVPxUPv18UEyy7N4XPui9Ndf19KCs74GY/edit?usp=sharing">here</a>.</p>
+<p><br><br><br></p>
+</div>
+<div id="exercises-10" class="section level2 unnumbered hasAnchor">
+<h2>Exercises<a href="causal-discovery.html#exercises-10" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="exercise-1-8" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 1<a href="causal-discovery.html#exercise-1-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Explain how causal discovery fits into the overall workflow for a causal data analysis.</p>
+<p><br><br></p>
+</div>
+<div id="exercise-2-7" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 2<a href="causal-discovery.html#exercise-2-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>There are two genes (Gene A and Gene B) that produce Protein X. Gene A is the primary producer. Whenever Gene A is functional, Gene B is inactive and produces nothing. However, if Gene A loses function, Gene B becomes active and produces Protein X in Gene A’s place in exactly the same amounts.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Draw the DAG implied by this expert knowledge.</p></li>
+<li><p>We can view Gene A as a binary variable with values “functional” and “non-functional”. Will Gene A and Protein X be marginally independent or marginally dependent in the data? Explain.</p></li>
+<li><p>Discuss your answers to (a) and (b) in the context of a relevant concept.</p></li>
+</ol>
+<p><br><br></p>
+</div>
+<div id="exercise-3-7" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 3<a href="causal-discovery.html#exercise-3-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In this exercise, we’ll think about the conditional independence test and the role of the hypothesis testing significance level as a tuning parameter.</p>
+<p>As the significance level is lowered to 0, what would you expect to happen to the graph skeleton learned by causal discovery algorithms? As the significance level is increased to 1? Explain.</p>
+<p><br><br></p>
+</div>
+<div id="exercise-4-3" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 4<a href="causal-discovery.html#exercise-4-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Consider data that truly come from a chain <code>X -&gt; Y -&gt; Z</code>. What pattern would a causal discovery algorithm report?</p>
+<p>It is possible to supply causal discovery algorithms with prior knowledge - for example, specific edges that are required to be present. If you could supply prior knowledge to the algorithm on only one edge that is required to be present, what edge (if any) would allow the entire structure to be learned? Explain briefly.</p>
 
 </div>
-
+</div>
 </div>
 
 
@@ -493,8 +464,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="schedule.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="motivation-and-review.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="sensitivity-analyses-for-unmeasured-variables.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="homework-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
