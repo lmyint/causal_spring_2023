@@ -1,0 +1,122 @@
+```{r 17_setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, eval=FALSE, fig.align="center")
+```
+
+# (PART) Quasi-Experimental Designs {-}
+
+# Regression Discontinuity
+
+## Learning Goals {-}
+
+- Implement and interpret the results of a regression discontinuity study
+
+<br>
+
+Slides from today are available [here](https://docs.google.com/presentation/d/1FMxqK7NdqGn8RKGYem-D60FAhzUE5FL3doc8a3qjfzw/edit?usp=sharing).
+
+
+
+<br><br><br>
+
+
+
+## Exercises {-}
+
+**You can download a template RMarkdown file to start from [here](template_rmds/17-regression-discontinuity.Rmd).**
+
+### Context and setup {-}
+
+We'll look at data from a study by [Carpenter and Dobkin (2009)](http://masteringmetrics.com/wp-content/uploads/2015/01/Carpenter-and-Dobkin-2009.pdf) on the effect of alcohol consumption on mortality rates. 
+
+The variables are as follows:
+
+- `agecell`: Age of individual (the study focuses on adults between the ages of 19-22). This is the assignment (forcing, running) variable.
+- `all`: Overall mortality rate
+- `alcohol`: Mortality rate for alcohol-related causes
+- `homicide`:Mortality rate for homicides
+- `suicide`: Mortality rate for suicide
+- `mva`: Mortality rate for car accidents
+- `drugs`: Mortality rate for drug-related causes (alcohol excluded)
+- `externalother`: Mortality rate for other external causes
+
+```{r}
+library(tidyverse)
+
+alco <- read_csv("https://raw.githubusercontent.com/DS4PS/pe4ps-textbook/master/data/RegDisc2.csv")
+
+# We create the treatment variable and a centered version of the assignment variable
+alco <- alco %>%
+    mutate(
+        treatment = agecell > 21,
+        age_centered = agecell - 21
+    )
+```
+
+### Main analysis {-}
+
+**Step 1:** Clarifying sharp vs. fuzzy regression discontinuity design
+
+- Is this a sharp or a fuzzy RD design? Explain.
+
+
+
+
+
+**Step 2:** Checking the assignment variable
+
+Check the distribution of the assignment (forcing, running) variable (`agecell`). Are there any apparent bumps in the distribution? What would bumps in the distribution suggest?
+
+```{r}
+# Distribution of the assignment / forcing / running variable (age)
+```
+
+
+
+
+
+**Step 3:** Covariate balance
+
+While we don't have any covariates available in this dataset, what do you think would be important confounders to include?
+
+
+
+
+
+**Step 4:** Visually check for a treatment effect
+
+Make plots of the assignment variable and the `mva`, `alcohol`, and `drugs` outcomes.
+
+- Either the original or centered version is fine for these plots, but it's probably more useful to look at the original version.
+- Include smoothing trend lines.
+- Roughly eyeball the treatment effect.
+
+```{r}
+# Visually check for a treatment effect
+
+```
+
+
+
+
+
+**Step 5:** Build models to estimate the treatment effects
+
+Based on your visualizations, determine whether a model with or without interaction between treatment and the assignment variable would be appropriate. Fit these models to estimate the treatment effects, and interpret the appropriate coefficients.
+
+```{r}
+# Modeling to estimate treatment effects
+
+```
+
+
+
+
+
+**Step 6:** Sensitivity analyses
+
+What aspects of regression discontinuity analyses are uncertain (lend themselves to many analysis choices)? What sensitivity analyses might be useful to run?
+
+
+
+
+

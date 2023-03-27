@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | STAT 451: Causal Inference</title>
+  <title>Topic 17 Regression Discontinuity | STAT 451: Causal Inference</title>
   <meta name="description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | STAT 451: Causal Inference" />
+  <meta property="og:title" content="Topic 17 Regression Discontinuity | STAT 451: Causal Inference" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   <meta name="github-repo" content="lmyint/causal_spring_2023" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | STAT 451: Causal Inference" />
+  <meta name="twitter:title" content="Topic 17 Regression Discontinuity | STAT 451: Causal Inference" />
   
   <meta name="twitter:description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-
+<link rel="prev" href="causal-discovery.html"/>
+<link rel="next" href="homework-1.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -423,19 +423,83 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="regression-discontinuity" class="section level1 hasAnchor" number="17">
+<h1><span class="header-section-number">Topic 17</span> Regression Discontinuity<a href="regression-discontinuity.html#regression-discontinuity" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="learning-goals-14" class="section level2 unnumbered hasAnchor">
+<h2>Learning Goals<a href="regression-discontinuity.html#learning-goals-14" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Implement and interpret the results of a regression discontinuity study</li>
+</ul>
+<p><br></p>
+<p>Slides from today are available <a href="https://docs.google.com/presentation/d/1FMxqK7NdqGn8RKGYem-D60FAhzUE5FL3doc8a3qjfzw/edit?usp=sharing">here</a>.</p>
+<p><br><br><br></p>
 </div>
+<div id="exercises-11" class="section level2 unnumbered hasAnchor">
+<h2>Exercises<a href="regression-discontinuity.html#exercises-11" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>You can download a template RMarkdown file to start from <a href="template_rmds/17-regression-discontinuity.Rmd">here</a>.</strong></p>
+<div id="context-and-setup" class="section level3 unnumbered hasAnchor">
+<h3>Context and setup<a href="regression-discontinuity.html#context-and-setup" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We’ll look at data from a study by <a href="http://masteringmetrics.com/wp-content/uploads/2015/01/Carpenter-and-Dobkin-2009.pdf">Carpenter and Dobkin (2009)</a> on the effect of alcohol consumption on mortality rates.</p>
+<p>The variables are as follows:</p>
+<ul>
+<li><code>agecell</code>: Age of individual (the study focuses on adults between the ages of 19-22). This is the assignment (forcing, running) variable.</li>
+<li><code>all</code>: Overall mortality rate</li>
+<li><code>alcohol</code>: Mortality rate for alcohol-related causes</li>
+<li><code>homicide</code>:Mortality rate for homicides</li>
+<li><code>suicide</code>: Mortality rate for suicide</li>
+<li><code>mva</code>: Mortality rate for car accidents</li>
+<li><code>drugs</code>: Mortality rate for drug-related causes (alcohol excluded)</li>
+<li><code>externalother</code>: Mortality rate for other external causes</li>
+</ul>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="regression-discontinuity.html#cb25-1" aria-hidden="true"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb25-2"><a href="regression-discontinuity.html#cb25-2" aria-hidden="true"></a></span>
+<span id="cb25-3"><a href="regression-discontinuity.html#cb25-3" aria-hidden="true"></a>alco &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/DS4PS/pe4ps-textbook/master/data/RegDisc2.csv&quot;</span>)</span>
+<span id="cb25-4"><a href="regression-discontinuity.html#cb25-4" aria-hidden="true"></a></span>
+<span id="cb25-5"><a href="regression-discontinuity.html#cb25-5" aria-hidden="true"></a><span class="co"># We create the treatment variable and a centered version of the assignment variable</span></span>
+<span id="cb25-6"><a href="regression-discontinuity.html#cb25-6" aria-hidden="true"></a>alco &lt;-<span class="st"> </span>alco <span class="op">%&gt;%</span></span>
+<span id="cb25-7"><a href="regression-discontinuity.html#cb25-7" aria-hidden="true"></a><span class="st">    </span><span class="kw">mutate</span>(</span>
+<span id="cb25-8"><a href="regression-discontinuity.html#cb25-8" aria-hidden="true"></a>        <span class="dt">treatment =</span> agecell <span class="op">&gt;</span><span class="st"> </span><span class="dv">21</span>,</span>
+<span id="cb25-9"><a href="regression-discontinuity.html#cb25-9" aria-hidden="true"></a>        <span class="dt">age_centered =</span> agecell <span class="op">-</span><span class="st"> </span><span class="dv">21</span></span>
+<span id="cb25-10"><a href="regression-discontinuity.html#cb25-10" aria-hidden="true"></a>    )</span></code></pre></div>
+</div>
+<div id="main-analysis" class="section level3 unnumbered hasAnchor">
+<h3>Main analysis<a href="regression-discontinuity.html#main-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Step 1:</strong> Clarifying sharp vs. fuzzy regression discontinuity design</p>
+<ul>
+<li>Is this a sharp or a fuzzy RD design? Explain.</li>
+</ul>
+<p><strong>Step 2:</strong> Checking the assignment variable</p>
+<p>Check the distribution of the assignment (forcing, running) variable (<code>agecell</code>). Are there any apparent bumps in the distribution? What would bumps in the distribution suggest?</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="regression-discontinuity.html#cb26-1" aria-hidden="true"></a><span class="co"># Distribution of the assignment / forcing / running variable (age)</span></span></code></pre></div>
+<p><strong>Step 3:</strong> Covariate balance</p>
+<p>While we don’t have any covariates available in this dataset, what do you think would be important confounders to include?</p>
+<p><strong>Step 4:</strong> Visually check for a treatment effect</p>
+<p>Make plots of the assignment variable and the <code>mva</code>, <code>alcohol</code>, and <code>drugs</code> outcomes.</p>
+<ul>
+<li>Either the original or centered version is fine for these plots, but it’s probably more useful to look at the original version.</li>
+<li>Include smoothing trend lines.</li>
+<li>Roughly eyeball the treatment effect.</li>
+</ul>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="regression-discontinuity.html#cb27-1" aria-hidden="true"></a><span class="co"># Visually check for a treatment effect</span></span></code></pre></div>
+<p><strong>Step 5:</strong> Build models to estimate the treatment effects</p>
+<p>Based on your visualizations, determine whether a model with or without interaction between treatment and the assignment variable would be appropriate. Fit these models to estimate the treatment effects, and interpret the appropriate coefficients.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="regression-discontinuity.html#cb28-1" aria-hidden="true"></a><span class="co"># Modeling to estimate treatment effects</span></span></code></pre></div>
+<p><strong>Step 6:</strong> Sensitivity analyses</p>
+<p>What aspects of regression discontinuity analyses are uncertain (lend themselves to many analysis choices)? What sensitivity analyses might be useful to run?</p>
+
+</div>
+</div>
+</div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-
-
+<a href="causal-discovery.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="homework-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
