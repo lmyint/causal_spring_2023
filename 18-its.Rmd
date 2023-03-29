@@ -1,0 +1,23 @@
+```{r 18_setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, eval=FALSE, fig.align="center")
+```
+
+# Interrupted Time Series
+
+## Learning Goals {-}
+
+- Think through design choices for comparative (controlled) interrupted time series in an applied context
+
+<br>
+
+Slides from today are available [here](https://docs.google.com/presentation/d/1avwYhfK7rsPIhVTFce2VIZREgkYjNvf0WCHh9dekd-U/edit?usp=sharing).
+
+
+
+<br><br><br>
+
+
+
+## Discussion {-}
+
+We'll talk through the reading [The use of controls in interrupted time series studies of public health interventions](https://academic.oup.com/ije/article/47/6/2082/5049576).

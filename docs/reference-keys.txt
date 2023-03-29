@@ -15,3 +15,4 @@ time-varying-treatments-and-mediation-analysis
 sensitivity-analyses-for-unmeasured-variables
 causal-discovery
 regression-discontinuity
+interrupted-time-series
