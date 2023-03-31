@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Homework 3 | STAT 451: Causal Inference</title>
+  <title>Topic 19 Instrumental Variables Analysis | STAT 451: Causal Inference</title>
   <meta name="description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Homework 3 | STAT 451: Causal Inference" />
+  <meta property="og:title" content="Topic 19 Instrumental Variables Analysis | STAT 451: Causal Inference" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   <meta name="github-repo" content="lmyint/causal_spring_2023" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Homework 3 | STAT 451: Causal Inference" />
+  <meta name="twitter:title" content="Topic 19 Instrumental Variables Analysis | STAT 451: Causal Inference" />
   
   <meta name="twitter:description" content="This is the class website for Causal Inference (STAT 451) at Macalester College." />
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="homework-2.html"/>
-<link rel="next" href="homework-4.html"/>
+<link rel="prev" href="interrupted-time-series.html"/>
+<link rel="next" href="homework-1.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -440,136 +440,139 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="homework-3" class="section level1 unnumbered hasAnchor">
-<h1>Homework 3<a href="homework-3.html#homework-3" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="general-instructions-2" class="section level2 unnumbered hasAnchor">
-<h2>General instructions<a href="homework-3.html#general-instructions-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Due: Friday, February 17 at midnight CST. (Note that we’re skipping a week in our prior weekly HW cadence.)</p>
+<div id="instrumental-variables-analysis" class="section level1 hasAnchor" number="19">
+<h1><span class="header-section-number">Topic 19</span> Instrumental Variables Analysis<a href="instrumental-variables-analysis.html#instrumental-variables-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="learning-goals-16" class="section level2 unnumbered hasAnchor">
+<h2>Learning Goals<a href="instrumental-variables-analysis.html#learning-goals-16" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>Continue using the same Google Doc from HW1.</li>
+<li>Explain the big picture ideas behind how IV studies work in terms of mimicking a randomized experiment</li>
+<li>Evaluate the plausibility of IV assumptions within a data context</li>
 </ul>
 <p><br></p>
-<p><strong>You do not need to complete all parts (except the Metacognitive Reflection).</strong> Just complete the parts that align with your learning goals and would be most helpful in developing strong understanding.</p>
-<p><strong>If you’re interested in working on something not listed here, I’m very open to that too.</strong> Talk with me about what you’re thinking, and we’ll come up with a good collection of work to further your goals.</p>
-<p><br><br></p>
+<p>Slides from today are available <a href="https://docs.google.com/presentation/d/1Y75rZZE0eYwwiuSUYn5mGZtDvIxilWEhBzeZhemS22g/edit?usp=sharing">here</a>.</p>
+<p><br><br><br></p>
 </div>
-<div id="revisions-1" class="section level2 unnumbered hasAnchor">
-<h2>Revisions<a href="homework-3.html#revisions-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>If you would like to make revisions to any parts of prior assignments, please do the following:</p>
+<div id="exercises-12" class="section level2 unnumbered hasAnchor">
+<h2>Exercises<a href="instrumental-variables-analysis.html#exercises-12" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="exercise-1-9" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 1<a href="instrumental-variables-analysis.html#exercise-1-9" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In health services research, the distance that one lives from a specialty care provider is often considered as an instrument. In particular, studies have looked at the causal effect of high-level vs low-level neonatal intensive care units (high vs. low level NICUs) on birth outcomes. (High vs. low is differentiated by the amount of technology available and number of babies delivered per year.)</p>
+<p>The instrument used in this setting was a <em>differential distance (excess travel time)</em>: travel time to the nearest high-level NICU <em>minus</em> travel time to the nearest low-level NICU. This instrument was binarized to be <span class="math inline">\(IV = 1\)</span> if this excess travel time was no more than 10 minutes, and <span class="math inline">\(IV = 0\)</span> otherwise. Distance to these health services is known to be a reflection of where mothers live which, in turn, is often a reflection of socioeconomic status indicators.</p>
+<div id="part-a" class="section level4 unnumbered hasAnchor">
+<h4>Part a<a href="instrumental-variables-analysis.html#part-a" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Evaluate the validity of differential distance as a (conditional) instrument by constructing a causal graph.</p>
 <ul>
-<li>Keep all old writing and feedback intact</li>
-<li>Un-highlight yellow text that has already been addressed with feedback and revisions</li>
-<li>Write an updated response just below your previous response and highlight the new writing in yellow</li>
+<li><p>Draw the causal graph.</p></li>
+<li><p>Identify a conditioning set such that the instrument would be (conditionally) valid. It’s fine if this validity is only an approximate validity.</p></li>
+<li><p>Evaluate the degree to which each of the 3 core instrumental assumptions (not the homogeneity or monotonicity assumptions) is satisfied. Make connections between d-separation and the graphical versions of these assumptions.</p></li>
 </ul>
+<p><br></p>
+</div>
+<div id="part-b" class="section level4 unnumbered hasAnchor">
+<h4>Part b<a href="instrumental-variables-analysis.html#part-b" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Under the monotonicity assumption, to whom does the causal effect estimated by IV generalize? Do you think this effect is of genuine interest in this setting?</p>
 <p><br><br></p>
 </div>
-<div id="clarifying-the-big-picture" class="section level2 unnumbered hasAnchor">
-<h2>Clarifying the big picture<a href="homework-3.html#clarifying-the-big-picture" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Tell a story/give a summary of our course up to this point by writing a piece that connects the following ideas:</p>
+</div>
+<div id="exercise-2-8" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 2<a href="instrumental-variables-analysis.html#exercise-2-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Some analysts have believed that it is possible to perform a hypothesis test to test the exclusion restriction assumption by regressing <code>Y ~ A + IV</code>. If they obtain a high p-value for the IV coefficient, that must mean that the exclusion restriction is met. However, even if the exclusion restriction is met, this test will likely not turn result in the correct conclusion.</p>
+<p>Explain two things: (1) the intuition behind the <code>Y ~ A + IV</code> test and (2) why this test will not give the right result (using graph concepts).</p>
+<p><br><br></p>
+</div>
+<div id="exercise-3-8" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 3<a href="instrumental-variables-analysis.html#exercise-3-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>While randomized experiments are the gold standard for causal inference when everything runs perfectly, <strong>noncompliance</strong> can be an issue. Noncompliance occurs when an individual does not comply with the treatment that was randomly assigned.</p>
+<p>Explain how instrumental variables estimation could be useful in a setting with noncompliance, and state clearly what causal effect is being estimated with the IV approach.</p>
+<p><br><br></p>
+</div>
+<div id="exercise-4-4" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 4<a href="instrumental-variables-analysis.html#exercise-4-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <strong>strength</strong> of an instrument refers to its degree of association with the treatment of interest. Strong instruments are highly associated with the treatment, and weak instruments have small associations with the treatment.</p>
+<p>A characteristic of instrumental variables estimation is that the causal effect estimate has much higher variance for weak instruments than for strong instruments. By looking at the ratio form of the IV estimator, argue why this would be the case. (This can also be argued via thinking about the two-stage least squares approach if you wish.)</p>
+<p><br><br></p>
+</div>
+<div id="extra-3" class="section level3 unnumbered hasAnchor">
+<h3>Extra!<a href="instrumental-variables-analysis.html#extra-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If you have time, work on this exercise.</p>
+<p><strong>Before looking at the code below,</strong> plan an answer to the following research question with high-level pseudocode (a high-level description of code that you would write).</p>
+<blockquote>
+<p><strong>Research question:</strong> How could we write a simulation study to understand the impact of modeling choices on estimated results in IV settings where there are nonlinear relationships between variables in our causal system?</p>
+</blockquote>
+<p><br><br><br><br></p>
+<p>Now examine the code below which implements an analysis to investigate the above question. Write a paragraph describing what this simulation study is doing and (preliminary) results from the study.</p>
+<p>Code notes:</p>
 <ul>
-<li>Potential outcomes and causal effects</li>
-<li>Exchangeability</li>
-<li>Causal graphs</li>
-<li>Causal and noncausal paths</li>
-<li>D-separation</li>
-<li>Building causal graphs in practice for applied analyses</li>
+<li><p>The <code>ivpack</code> package is used to fit the two-stage least squares model. Specifically, you’ll want to look up the documentation for the <code>ivreg()</code> function.</p></li>
+<li><p><code>replicate(n, {code})</code> repeats <code>{code}</code> <code>n</code> times.</p></li>
+<li><p><code>I(x^2)</code> in a model formula instructs R to add a squared version of <code>x</code> to the dataset as another predictor.</p></li>
 </ul>
-<p><strong>Audience:</strong> If you have a personal website or would like to create one, what you write here has the potential to make for a great blog post. If this appeals to you, think of who you would want to read such a piece (e.g., a potential employer, a friend, a family member), and write for them.</p>
-<p><strong>Note:</strong> As we continue to move forward with new ideas in the course, you may find it helpful to continue incorporating the new ideas into what you write here.</p>
-<p><br><br></p>
-</div>
-<div id="the-smoking-birthweight-paradox" class="section level2 unnumbered hasAnchor">
-<h2>The smoking-birthweight paradox<a href="homework-3.html#the-smoking-birthweight-paradox" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Write a piece summarizing the arguments and key takeaway messages from our discussion of the <a href="https://doi.org/10.1093/aje/kwj275">The Birth Weight “Paradox” Uncovered?</a>.</p>
-<p>If you’re curious about even further commentary on that article, read <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4190521/">Commentary: Resolutions of the birthweight paradox: competing explanations and analytical insights</a>, and incorporate your synthesis of the arguments in this paper.</p>
-<p><strong>Audience:</strong> If you have a personal website or would like to create one, what you write here has the potential to make for a great blog post. If this appeals to you, think of who you would want to read such a piece (e.g., a potential employer, a friend, a family member), and write for them.</p>
-<p><br><br></p>
-</div>
-<div id="exchangeability-computation" class="section level2 unnumbered hasAnchor">
-<h2>Exchangeability: Computation<a href="homework-3.html#exchangeability-computation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Suppose that the treatment (<span class="math inline">\(A\)</span>) groups are exchangeable conditional on <span class="math inline">\(Z\)</span>. Given the table of information below, compute the following average causal effects (showing your work):</p>
-<ul>
-<li>Overall ACE: <span class="math inline">\(E[Y^{a=1} - Y^{a=0}]\)</span></li>
-<li>ACE within <span class="math inline">\(Z = A\)</span>: <span class="math inline">\(E[Y^{a=1} - Y^{a=0} \mid Z = A]\)</span></li>
-<li>ACE within <span class="math inline">\(Z = B\)</span>: <span class="math inline">\(E[Y^{a=1} - Y^{a=0} \mid Z = B]\)</span></li>
-</ul>
-<p>(<span class="math inline">\(Z\)</span> and <span class="math inline">\(A\)</span> are binary, and <span class="math inline">\(Y\)</span> is quantitative. <span class="math inline">\(n\)</span> indicates the sample size for the 4 groups.)</p>
-<table>
-<thead>
-<tr class="header">
-<th align="center"><span class="math inline">\(n\)</span></th>
-<th align="center"><span class="math inline">\(Z\)</span></th>
-<th align="center"><span class="math inline">\(A\)</span></th>
-<th align="center"><span class="math inline">\(E[Y\mid A, Z]\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">80</td>
-<td align="center">A</td>
-<td align="center">1</td>
-<td align="center">40</td>
-</tr>
-<tr class="even">
-<td align="center">20</td>
-<td align="center">A</td>
-<td align="center">0</td>
-<td align="center">20</td>
-</tr>
-<tr class="odd">
-<td align="center">20</td>
-<td align="center">B</td>
-<td align="center">1</td>
-<td align="center">30</td>
-</tr>
-<tr class="even">
-<td align="center">80</td>
-<td align="center">B</td>
-<td align="center">0</td>
-<td align="center">20</td>
-</tr>
-</tbody>
-</table>
-<p><br><br></p>
-</div>
-<div id="exchangeability-explaining-via-causal-graphs" class="section level2 unnumbered hasAnchor">
-<h2>Exchangeability: explaining via causal graphs<a href="homework-3.html#exchangeability-explaining-via-causal-graphs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Causal graphs and the ideas of causal/noncausal paths can help clarify the concept of exchangeability. Use a causal graph to generate a numeric example of a potential outcomes table (containing information on covariate(s), treatment, and both potential outcomes) in which marginal exchangeability does not hold but conditional exchangeability does.</p>
-<p>If you would like to keep going, also use a causal graph to create a numeric example where marginal exchangeability does hold but conditional exchangeability does not.</p>
-<p><br><br></p>
-</div>
-<div id="simulation-d-separation-and-exchangeability" class="section level2 unnumbered hasAnchor">
-<h2>Simulation, d-separation, and exchangeability<a href="homework-3.html#simulation-d-separation-and-exchangeability" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Pick any causal graphs from our in-class exercises or textbooks (WHATIF and/or PRIMER) that surprised or perplexed you.</p>
-<p>For a given graph:</p>
-<ul>
-<li>Use d-separation to identify appropriate conditioning set(s) of variables that would allow for valid estimation of the average causal effect.</li>
-<li>Check that those conditioning set(s) actually result in conditional exchangeability by performing a simulation study. (It is important to perform many runs of the simulation. Check the Topic 5 Solutions on Moodle for guidance.)</li>
-</ul>
-<p><br><br></p>
-</div>
-<div id="study-designs-examples-of-applied-studies" class="section level2 unnumbered hasAnchor">
-<h2>Study designs: examples of applied studies<a href="homework-3.html#study-designs-examples-of-applied-studies" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>If you would like to see more examples of how study designs are used in applied research, find some applied papers and read enough of each to get a sense for how the study was conducted. Summarize your findings here.</p>
-<p><br><br></p>
-</div>
-<div id="metacognitive-reflection" class="section level2 unnumbered hasAnchor">
-<h2>Metacognitive Reflection<a href="homework-3.html#metacognitive-reflection" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li><p>How do you feel about your level of understanding of prior topics and new topics (causal/noncausal paths, d-separation, building causal graphs in practice)?</p></li>
-<li><p>What were some notable themes in self- and peer-noticings?</p></li>
-<li><p>How do these reflections inform your next steps for developing stronger understanding? What support and resources would best help you?</p></li>
-</ul>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="instrumental-variables-analysis.html#cb29-1" aria-hidden="true"></a><span class="kw">library</span>(ivpack)</span>
+<span id="cb29-2"><a href="instrumental-variables-analysis.html#cb29-2" aria-hidden="true"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb29-3"><a href="instrumental-variables-analysis.html#cb29-3" aria-hidden="true"></a><span class="kw">library</span>(tidyr)</span>
+<span id="cb29-4"><a href="instrumental-variables-analysis.html#cb29-4" aria-hidden="true"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb29-5"><a href="instrumental-variables-analysis.html#cb29-5" aria-hidden="true"></a></span>
+<span id="cb29-6"><a href="instrumental-variables-analysis.html#cb29-6" aria-hidden="true"></a>sim_binary &lt;-<span class="st"> </span><span class="cf">function</span>(n, log_odds) {</span>
+<span id="cb29-7"><a href="instrumental-variables-analysis.html#cb29-7" aria-hidden="true"></a>    odds &lt;-<span class="st"> </span><span class="kw">exp</span>(log_odds)</span>
+<span id="cb29-8"><a href="instrumental-variables-analysis.html#cb29-8" aria-hidden="true"></a>    p &lt;-<span class="st"> </span>odds<span class="op">/</span>(<span class="dv">1</span><span class="op">+</span>odds)</span>
+<span id="cb29-9"><a href="instrumental-variables-analysis.html#cb29-9" aria-hidden="true"></a>    <span class="kw">rbinom</span>(n, <span class="dt">size =</span> <span class="dv">1</span>, <span class="dt">prob =</span> p)</span>
+<span id="cb29-10"><a href="instrumental-variables-analysis.html#cb29-10" aria-hidden="true"></a>}</span>
+<span id="cb29-11"><a href="instrumental-variables-analysis.html#cb29-11" aria-hidden="true"></a></span>
+<span id="cb29-12"><a href="instrumental-variables-analysis.html#cb29-12" aria-hidden="true"></a>simulate_and_estimate &lt;-<span class="st"> </span><span class="cf">function</span>(n, iv_strength) {</span>
+<span id="cb29-13"><a href="instrumental-variables-analysis.html#cb29-13" aria-hidden="true"></a>    results &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">100</span>, {</span>
+<span id="cb29-14"><a href="instrumental-variables-analysis.html#cb29-14" aria-hidden="true"></a>        Z &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n, <span class="dv">10</span>, <span class="dv">2</span>)</span>
+<span id="cb29-15"><a href="instrumental-variables-analysis.html#cb29-15" aria-hidden="true"></a></span>
+<span id="cb29-16"><a href="instrumental-variables-analysis.html#cb29-16" aria-hidden="true"></a>        log_odds_IV &lt;-<span class="st"> </span><span class="dv">-3</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.05</span><span class="op">*</span>Z <span class="op">+</span><span class="st"> </span><span class="fl">0.005</span><span class="op">*</span>(Z<span class="op">^</span><span class="dv">2</span>)</span>
+<span id="cb29-17"><a href="instrumental-variables-analysis.html#cb29-17" aria-hidden="true"></a>        IV &lt;-<span class="st"> </span><span class="kw">sim_binary</span>(n, log_odds_IV)</span>
+<span id="cb29-18"><a href="instrumental-variables-analysis.html#cb29-18" aria-hidden="true"></a></span>
+<span id="cb29-19"><a href="instrumental-variables-analysis.html#cb29-19" aria-hidden="true"></a>        log_odds_A &lt;-<span class="st"> </span><span class="dv">-1</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.04</span><span class="op">*</span>Z <span class="op">+</span><span class="st"> </span><span class="fl">0.004</span><span class="op">*</span>(Z<span class="op">^</span><span class="dv">2</span>) <span class="op">+</span><span class="st"> </span>iv_strength<span class="op">*</span>IV</span>
+<span id="cb29-20"><a href="instrumental-variables-analysis.html#cb29-20" aria-hidden="true"></a>        A &lt;-<span class="st"> </span><span class="kw">sim_binary</span>(n, log_odds_A)</span>
+<span id="cb29-21"><a href="instrumental-variables-analysis.html#cb29-21" aria-hidden="true"></a></span>
+<span id="cb29-22"><a href="instrumental-variables-analysis.html#cb29-22" aria-hidden="true"></a>        M &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n, <span class="dv">4</span> <span class="op">+</span><span class="st"> </span><span class="dv">3</span><span class="op">*</span>IV, <span class="dv">2</span>)</span>
+<span id="cb29-23"><a href="instrumental-variables-analysis.html#cb29-23" aria-hidden="true"></a>        Y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n, <span class="dv">4</span> <span class="op">+</span><span class="st"> </span>Z <span class="op">+</span><span class="st"> </span><span class="dv">5</span><span class="op">*</span>A <span class="op">+</span><span class="st"> </span><span class="dv">2</span><span class="op">*</span>(M<span class="op">^</span><span class="dv">2</span>), <span class="dv">2</span>)</span>
+<span id="cb29-24"><a href="instrumental-variables-analysis.html#cb29-24" aria-hidden="true"></a></span>
+<span id="cb29-25"><a href="instrumental-variables-analysis.html#cb29-25" aria-hidden="true"></a>        sim_data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(Z, IV, A, M, Y)</span>
+<span id="cb29-26"><a href="instrumental-variables-analysis.html#cb29-26" aria-hidden="true"></a></span>
+<span id="cb29-27"><a href="instrumental-variables-analysis.html#cb29-27" aria-hidden="true"></a>        iv_mod &lt;-<span class="st"> </span><span class="kw">ivreg</span>(Y <span class="op">~</span><span class="st"> </span>A <span class="op">+</span><span class="st"> </span>Z <span class="op">+</span><span class="st"> </span>M<span class="op">|</span>IV <span class="op">+</span><span class="st"> </span>Z <span class="op">+</span><span class="st"> </span>M, <span class="dt">data =</span> sim_data)</span>
+<span id="cb29-28"><a href="instrumental-variables-analysis.html#cb29-28" aria-hidden="true"></a>        iv_mod2 &lt;-<span class="st"> </span><span class="kw">ivreg</span>(Y <span class="op">~</span><span class="st"> </span>A <span class="op">+</span><span class="st"> </span>Z <span class="op">+</span><span class="st"> </span><span class="kw">I</span>(Z<span class="op">^</span><span class="dv">2</span>) <span class="op">+</span><span class="st"> </span>M <span class="op">+</span><span class="st"> </span><span class="kw">I</span>(M<span class="op">^</span><span class="dv">2</span>)<span class="op">|</span>IV <span class="op">+</span><span class="st"> </span>Z <span class="op">+</span><span class="st"> </span><span class="kw">I</span>(Z<span class="op">^</span><span class="dv">2</span>) <span class="op">+</span><span class="st"> </span>M <span class="op">+</span><span class="st"> </span><span class="kw">I</span>(M<span class="op">^</span><span class="dv">2</span>), <span class="dt">data =</span> sim_data)</span>
+<span id="cb29-29"><a href="instrumental-variables-analysis.html#cb29-29" aria-hidden="true"></a>        <span class="kw">c</span>(<span class="dt">iv_strength =</span> iv_strength, <span class="dt">estim1 =</span> <span class="kw">unname</span>(<span class="kw">coefficients</span>(iv_mod)[<span class="st">&quot;A&quot;</span>]), <span class="dt">estim2 =</span> <span class="kw">unname</span>(<span class="kw">coefficients</span>(iv_mod2)[<span class="st">&quot;A&quot;</span>]))</span>
+<span id="cb29-30"><a href="instrumental-variables-analysis.html#cb29-30" aria-hidden="true"></a>    })</span>
+<span id="cb29-31"><a href="instrumental-variables-analysis.html#cb29-31" aria-hidden="true"></a>    results <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">t</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>()</span>
+<span id="cb29-32"><a href="instrumental-variables-analysis.html#cb29-32" aria-hidden="true"></a>}</span>
+<span id="cb29-33"><a href="instrumental-variables-analysis.html#cb29-33" aria-hidden="true"></a></span>
+<span id="cb29-34"><a href="instrumental-variables-analysis.html#cb29-34" aria-hidden="true"></a><span class="kw">set.seed</span>(<span class="dv">451</span>)</span>
+<span id="cb29-35"><a href="instrumental-variables-analysis.html#cb29-35" aria-hidden="true"></a>n &lt;-<span class="st"> </span><span class="dv">10000</span></span>
+<span id="cb29-36"><a href="instrumental-variables-analysis.html#cb29-36" aria-hidden="true"></a>result1 &lt;-<span class="st"> </span><span class="kw">simulate_and_estimate</span>(n, <span class="dt">iv_strength =</span> <span class="fl">0.1</span>)</span>
+<span id="cb29-37"><a href="instrumental-variables-analysis.html#cb29-37" aria-hidden="true"></a>result2 &lt;-<span class="st"> </span><span class="kw">simulate_and_estimate</span>(n, <span class="dt">iv_strength =</span> <span class="fl">0.4</span>)</span>
+<span id="cb29-38"><a href="instrumental-variables-analysis.html#cb29-38" aria-hidden="true"></a>result3 &lt;-<span class="st"> </span><span class="kw">simulate_and_estimate</span>(n, <span class="dt">iv_strength =</span> <span class="fl">0.8</span>)</span>
+<span id="cb29-39"><a href="instrumental-variables-analysis.html#cb29-39" aria-hidden="true"></a></span>
+<span id="cb29-40"><a href="instrumental-variables-analysis.html#cb29-40" aria-hidden="true"></a>all_results &lt;-<span class="st"> </span><span class="kw">bind_rows</span>(result1, result2, result3)</span>
+<span id="cb29-41"><a href="instrumental-variables-analysis.html#cb29-41" aria-hidden="true"></a>all_results &lt;-<span class="st"> </span>all_results <span class="op">%&gt;%</span></span>
+<span id="cb29-42"><a href="instrumental-variables-analysis.html#cb29-42" aria-hidden="true"></a><span class="st">    </span><span class="kw">pivot_longer</span>(<span class="op">-</span>iv_strength, <span class="dt">names_to =</span> <span class="st">&quot;model_type&quot;</span>, <span class="dt">values_to =</span> <span class="st">&quot;estimate&quot;</span>)</span>
+<span id="cb29-43"><a href="instrumental-variables-analysis.html#cb29-43" aria-hidden="true"></a></span>
+<span id="cb29-44"><a href="instrumental-variables-analysis.html#cb29-44" aria-hidden="true"></a><span class="kw">ggplot</span>(all_results, <span class="kw">aes</span>(<span class="dt">x =</span> model_type, <span class="dt">y =</span> estimate)) <span class="op">+</span></span>
+<span id="cb29-45"><a href="instrumental-variables-analysis.html#cb29-45" aria-hidden="true"></a><span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></span>
+<span id="cb29-46"><a href="instrumental-variables-analysis.html#cb29-46" aria-hidden="true"></a><span class="st">    </span><span class="kw">facet_grid</span>(<span class="op">~</span>iv_strength) <span class="op">+</span></span>
+<span id="cb29-47"><a href="instrumental-variables-analysis.html#cb29-47" aria-hidden="true"></a><span class="st">    </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">5</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb29-48"><a href="instrumental-variables-analysis.html#cb29-48" aria-hidden="true"></a><span class="kw">ggplot</span>(all_results, <span class="kw">aes</span>(<span class="dt">x =</span> model_type, <span class="dt">y =</span> estimate)) <span class="op">+</span></span>
+<span id="cb29-49"><a href="instrumental-variables-analysis.html#cb29-49" aria-hidden="true"></a><span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></span>
+<span id="cb29-50"><a href="instrumental-variables-analysis.html#cb29-50" aria-hidden="true"></a><span class="st">    </span><span class="kw">facet_grid</span>(<span class="op">~</span>iv_strength) <span class="op">+</span></span>
+<span id="cb29-51"><a href="instrumental-variables-analysis.html#cb29-51" aria-hidden="true"></a><span class="st">    </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">5</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></span>
+<span id="cb29-52"><a href="instrumental-variables-analysis.html#cb29-52" aria-hidden="true"></a><span class="st">    </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">200</span>,<span class="dv">200</span>))</span></code></pre></div>
 
 </div>
 </div>
+</div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="homework-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="homework-4.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="interrupted-time-series.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="homework-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

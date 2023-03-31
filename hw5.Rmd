@@ -69,7 +69,7 @@ Use the `adjust_rr_with_binary()` function in the `tipr` package to implement a 
     - Note that because our causal effect is a relative risk, the `confounder_outcome_effect` is also quantified with a relative risk.
 - Use the `seq()` function to generate a sequence of regularly spaced values for the `exposed_confounder_prev`, `unexposed_confounder_prev`, and `confounder_outcome_effect` arguments.
     - Look at the documentation for the `seq()` function to understand how the arguments work.
-    - The only background information that we're starting with is 
+    - Use the background information in the data context above to guide parameter choices and the `filter()` step below.
 - [A recent study](https://bmjopen.bmj.com/content/8/10/e021611) suggests that the causal effect (before considering any unmeasured confounders) is a relative risk of about 7.
 
 

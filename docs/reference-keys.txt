@@ -16,3 +16,4 @@ sensitivity-analyses-for-unmeasured-variables
 causal-discovery
 regression-discontinuity
 interrupted-time-series
+instrumental-variables-analysis
