@@ -113,6 +113,14 @@ Work with the instructor to determine the most suitable deliverable for your pro
     - Advanced topic option: Make progress in learning about one sub-area for your topic.
     - Other: Make progress appropriate to the scope of the project.
 
+<br>
+
+- **Milestone 3:** Sunday, April 9 (Check in in-person or via an email exchange)
+    - Data analysis option: Finalize your causal graph and construct visualizations to inform an appropriate outcome regression and IPW analysis.
+    - Blog post option: Draft Post 1 (A tour of causal inference)
+    - Advanced topic option: Make progress in learning about one sub-area for your topic.
+    - Other: Make progress appropriate to the scope of the project.
+
 <!-- <br>
 
 - **Milestone 3:** Thursday, October 15 or Friday, October 16. Schedule a discussion time with me on [Google Calendar](https://calendar.google.com/calendar/selfsched?sstoken=UUFBWjVpaTNFb2JUfGRlZmF1bHR8ODFhZGU4ZWQ5MjJkOWY2M2Q4YjZhNTgwN2IyMmFlM2Y).
