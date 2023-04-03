@@ -117,6 +117,7 @@ Work with the instructor to determine the most suitable deliverable for your pro
 
 - **Milestone 3:** Sunday, April 9 (Check in in-person or via an email exchange)
     - Data analysis option: Finalize your causal graph and construct visualizations to inform an appropriate outcome regression and IPW analysis.
+        - Finalizing your causal graph does not require, for example, doing causal discovery by hand. You should think through your graph holistically along the lines of the flow discussed in the [Drawing Causal Diagrams](https://theeffectbook.net/ch-DrawingCausalDiagrams.html) chapter of The Effect (the reading from HW4). You should feel satisfied that you have represented all relevant variables and the relationships between them.
     - Blog post option: Draft Post 1 (A tour of causal inference)
     - Advanced topic option: Make progress in learning about one sub-area for your topic.
     - Other: Make progress appropriate to the scope of the project.
