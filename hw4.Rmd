@@ -80,7 +80,6 @@ Please directly address all of the following prompts:
     - Concepts worth being familiar with:
         - Causal Markov assumption / product decomposition rule
         - Implementation of simulations to understand statistical ideas and study properties of statistical methods
-        - What new types of research questions can we pose with the time-varying treatments framework?
 
 - Based on your responses above, propose a midterm grade for yourself using the guidelines discussed on page 4 of our syllabus.
 

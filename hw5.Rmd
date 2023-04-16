@@ -45,7 +45,7 @@ For this reflection, check in on your understanding of our new topics in light o
     - What is the goal of causal discovery?
 - Important concepts:
     - Making connections between the probability underlying casual graphs and why we need to specify parameters in sensitivity analyses
-    - Details of how the causal discovery algorithm covered in the concept video
+    - Details of the causal discovery algorithm covered in the concept video
 - Concepts worth being familiar with:
     - What do you think should go under this category?
 

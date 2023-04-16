@@ -1,0 +1,65 @@
+```{r final_reflection_setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, eval=FALSE)
+```
+
+# Final Reflection {-}
+
+## General instructions {-}
+
+- Due **Thursday, April 27** at midnight CST.
+- Submission options
+    - You may write this reflection in the HW Google Doc that you have been using all semester. If so, create a new section on the first page titled "Final Reflection."
+    - If you prefer an alternate format, you may also record an audio or video file and submit on [Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=45349).
+
+
+<br><br>
+
+
+## Reflection {-}
+
+### Part 1: Looking back {-}
+
+Start your reflection by **looking back at all of your homework responses over this semester AND feedback from the instructional team** as you review our Enduring, Important, and Worth Being Familiar With concepts. (You may have disagreed with me about the placing of these concepts throughout the homework assignments, and that's fine.)
+
+- Enduring concepts:
+    - Potential outcomes and their role in defining causal effects
+    - The fundamental problem of causal inference (We can only ever observe a single potential outcome for any unit.)
+    - The big picture idea behind the assumption of exchangeability (not necessarily at the level of conditional independence)
+    - Why are randomized experiments the "gold standard" for causal inference?
+    - What role do causal graphs play in a causal analysis?
+    - Why do we do sensitivity analyses for unmeasured variables and how, in general, do we interpret results?
+    - What is the goal of causal discovery?
+- Important concepts:
+    - Applying the concept of exchangeability to estimate causal effects from small datasets by hand
+    - The rationale behind quasi-experimental designs
+    - Causal and noncausal paths, d-separation, exchangeability and the links between these ideas
+    - Workflow for conducting outcome regression and IPW analyses
+    - How are simulation studies useful for understanding statistical ideas and exploring properties of statistical methods?
+    - Making connections between the probability underlying casual graphs and why we need to specify parameters in sensitivity analyses
+    - Details of the causal discovery algorithm covered in the concept video
+- Concepts worth being familiar with:
+    - Intransitive cases in casual graphs (from Key Structures in Casual Graphs video)
+    - Causal Markov assumption / product decomposition rule (just the name of this assumption--the underlying ideas are embedded in understanding conditional (in)dependence relations in causal graphs)
+    - Implementation of simulations to understand statistical ideas and study properties of statistical methods
+    - Understanding of regression discontinuity analysis and instrumental variables analysis at the level of our class discussions for Topics 17 - 19
+    - The faithfulness assumption and the terminology of "equivalence classes" for causal discovery
+
+
+### Part 2: Now {-}
+
+Based on your review in Part 1, craft a reflection that tells a story about your learning journey in this course. (As per the General Instructions, this can be written or recorded.)
+
+- What ideas do you want to remember years from now, and why? (Do this without looking at the concept breakdown above. I want this to be as personal to you as possible.)
+- Where were you in your understanding of causal ideas before the semester started? How did your understanding evolve? What did you learn about your understanding upon reviewing feedback? Where are you in your understanding now?
+    - Please cite specific parts of your homework responses, metacognitive reflections, and/or feedback from the instructional team that were most influential in your reflection process.
+
+### Part 3: Final Grade {-}
+
+Propose a final grade for yourself by considering both your reflection and the grading rubric in our [Syllabus](https://docs.google.com/presentation/d/1bseSYNB1c1DxknqwaNUSyrvgGLumbE4sxb32Fs3rznc/edit?usp=sharing).
+
+- If we agree, this will be your final grade as long as feedback on the project is addressed.
+- If we disagree, I'll initiate a discussion with you to move us on the path to agreement.
+
+    
+
+

@@ -78,6 +78,10 @@ If none of these options piques your interest, I'm happy to discuss alternatives
 
 - Design a Shiny app to illustrate causal concepts to students
 - Write (part of) an R package for making it easier to work with causal graphs
+- Critique of applied research
+    - This is a good option for those who would like to do a data analysis but cannot find adequate data to pursue their question.
+    - Find and read papers that study a question of interest to you. Critique these papers from a causal inference lens. This will involve constructing your own causal graph to guide a critique of the authors' data collection and analysis methods.
+    - Discuss what remains uncertain in this line of research, and propose an analysis plan for a new causal study to rectify the limitations of prior research.
 
 
 <br><br><br><br>
@@ -129,6 +133,14 @@ Work with the instructor to determine the most suitable deliverable for your pro
     - Blog post option: Make substantial progress on Post 1 (A tour of causal inference)
     - Advanced topic option: Make progress in learning about one sub-area for your topic.
     - Other: Make progress appropriate to the scope of the project.
+
+<br>
+
+- **Milestone 5:** Schedule a time to meet with me this week via [Calendly](https://calendly.com/lmyint) to share updates on your progress. (You can choose an in-person or Zoom option on Calendly.)
+    - Data analysis option: Conduct a sensitivity analysis for unmeasured confounding for your project, and complete a draft of your deliverable.
+    - Blog post option: Finalize Post 1 (A tour of causal inference) and make substantial progress on Post 2.
+    - Advanced topic option: Make progress on the goals you set with the instructor in the previous week, and complete a draft of your deliverable.
+    - Other: Make progress appropriate to the scope of the project, and complete a draft of your deliverable.
 
 <!-- <br>
 
